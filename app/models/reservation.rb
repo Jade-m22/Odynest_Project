@@ -2,16 +2,18 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :experience
   
-  validates :selected_date, presence: true
-  validate :selected_date_must_be_valid
+  validates :reservation_date, presence: true
+  validate :reservation_date_must_be_valid
   
-  def selected_date_must_be_valid
-    return if experience.available_dates.include?(selected_date)
+  def reservation_date_must_be_valid
+    return unless experience # Ne fait rien si l'expérience est `nil`
   
-    errors.add(:selected_date, "n'est pas une date valide pour cette expérience")
+    valid_dates = [experience.start_date_1, experience.start_date_2, experience.start_date_3].compact
+    return if valid_dates.include?(reservation_date)
   
+    errors.add(:reservation_date, "n'est pas une date valide pour cette expérience")
   end
   
-  enum status: { pending: 0, confirmed: 1, canceled: 2 }
+  enum :status, { pending: 0, confirmed: 1, canceled: 2 }
 
 end
