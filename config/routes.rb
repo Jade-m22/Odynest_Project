@@ -1,22 +1,17 @@
 Rails.application.routes.draw do
-  # Routes pour les expériences (Expériences listées, création, édition, suppression, affichage)
-  resources :experiences
+  devise_for :users
 
-  # Routes pour les fournisseurs (Providers)
-  resources :providers, only: [:index, :show]
+  # Routes pour les utilisateurs
+  resources :users, only: %i[index show edit update destroy]
 
-  # Routes pour les réservations (Reservations)
+  # Routes pour les expériences (listées, création, édition, suppression, affichage)
   resources :experiences do
     resources :reservations, only: [:create, :destroy, :index]
-  end
-
-  # Routes pour les avis (Reviews)
-  resources :experiences do
     resources :reviews, only: [:create, :destroy, :index]
   end
 
-  # Routes pour les utilisateurs (Users)
-  resources :users, only: [:show, :edit, :update]
+  # Routes pour les fournisseurs (Providers)
+  resources :providers, only: [:index, :show]
 
   # Page d'accueil
   root "experiences#index"
