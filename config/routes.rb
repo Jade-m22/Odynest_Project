@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
-  devise_for :providers
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Routes pour les expériences (Expériences listées, création, édition, suppression, affichage)
+  resources :experiences
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # Routes pour les fournisseurs (Providers)
+  resources :providers, only: [:index, :show]
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  # Routes pour les réservations (Reservations)
+  resources :experiences do
+    resources :reservations, only: [:create, :destroy, :index]
+  end
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Routes pour les avis (Reviews)
+  resources :experiences do
+    resources :reviews, only: [:create, :destroy, :index]
+  end
+
+  # Routes pour les utilisateurs (Users)
+  resources :users, only: [:show, :edit, :update]
+
+  # Page d'accueil
+  root "experience#index"
 end
