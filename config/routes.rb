@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :providers, only: [:index, :show]
 
   # Page d'accueil
-  root "experiences#index"
+  root "pages#home"
 end

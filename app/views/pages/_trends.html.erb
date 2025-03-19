@@ -7,11 +7,11 @@
       <% @trends.each do |trend| %>
         <div class="col-md-4">
           <div class="trend-card">
-            <%= image_tag trend.image_url, class: "trend-image", alt: trend.title %>
+            <%#= image_tag trend.image_url, class: "trend-image", alt: trend.title %>
             <div class="trend-info">
               <h3 class="trend-title"><%= trend.title %></h3>
               <p class="trend-description"><%= trend.description.truncate(100) %></p>
-              <%= link_to "Voir plus", trend_path(trend), class: "btn btn-primary" %>
+              <%= link_to "Voir plus", root_path(trend), class: "btn btn-primary" %>
             </div>
           </div>
         </div>

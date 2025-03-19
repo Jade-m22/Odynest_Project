@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
   def home
     @experiences = Experience.all
-  en
+    @trends = Experience.all
+  end
 
 end
