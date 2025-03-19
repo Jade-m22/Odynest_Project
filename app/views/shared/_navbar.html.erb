@@ -12,10 +12,13 @@
           <%= link_to "Accueil", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Tendances", "#trend", class: "nav-link" %>
+          <%= link_to "Expériences", experiences_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "À propos", "#", class: "nav-link" %>
+          <%= link_to "Tendances", trends_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "À propos", presentation_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Panier", "#", class: "nav-link" %>
@@ -50,7 +53,7 @@
             <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Inscription Prestataire", "#", class: "nav-link" %> <!-- Lien pour inscription prestataire -->
+            <%= link_to "Inscription Prestataire", "#", class: "nav-link" %>
           </li>
         <% end %>
       </ul>
