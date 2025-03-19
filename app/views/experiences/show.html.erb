@@ -7,7 +7,6 @@
       <p><strong>Lieu :</strong> <%= @experience.location %></p>
       <p><strong>Prix :</strong> <%= number_to_currency(@experience.price, unit: "€") %></p>
       <p><strong>Durée :</strong> <%= @experience.duration %> jours</p>
-      <p><strong>Places disponibles :</strong> <%= @experience.available_slots %></p>
 
       <% if current_user && current_user != @experience.provider %>
         <%= link_to 'Réserver cette expérience', new_reservation_path(experience_id: @experience.id), class: 'btn btn-success' %>
@@ -21,7 +20,7 @@
 
   <div class="mt-4 text-center">
     <%= link_to 'Retour à la liste des expériences', experiences_path, class: 'btn btn-secondary' %>
-    <% if current_admin? || current_provider == @experience.provider %>
+    <% if current_user&.admin? || current_provider == @experience.provider %>
       <%= link_to 'Modifier', edit_experience_path(@experience), class: 'btn btn-primary' %>
       <%= link_to 'Supprimer', experience_path(@experience), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette expérience ?' }, class: 'btn btn-danger' %>
     <% end %>
