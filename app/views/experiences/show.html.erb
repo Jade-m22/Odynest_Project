@@ -9,7 +9,7 @@
       <p><strong>Durée :</strong> <%= @experience.duration %> jours</p>
 
       <% if current_user && current_user != @experience.provider %>
-        <%= link_to 'Réserver cette expérience', new_reservation_path(experience_id: @experience.id), class: 'btn btn-success' %>
+        <%= link_to 'Réserver cette expérience', experience_reservations_path(experience_id: @experience.id), class: 'btn btn-success' %>
       <% elsif current_user == @experience.provider %>
         <div class="alert alert-warning" role="alert">
           Vous êtes le fournisseur de cette expérience.
