@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <h1 class="text-center"><%= @experience.title %></h1>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <% if @experience.image.attached? %>
+        <%= image_tag @experience.image, class: "img-fluid", alt: @experience.title %>
+      <% else %>
+        <%= image_tag "default_experience.jpg", class: "img-fluid", alt: "Image par défaut" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <p><strong>Description :</strong> <%= @experience.description %></p>
+      <p><strong>Lieu :</strong> <%= @experience.location %></p>
+      <p><strong>Prix :</strong> <%= number_to_currency(@experience.price, unit: "€") %></p>
+      <p><strong>Durée :</strong> <%= @experience.duration %> jours</p>
+      <p><strong>Places disponibles :</strong> <%= @experience.available_slots %></p>
+
+      <% if current_user && current_user != @experience.provider %>
+        <%= link_to 'Réserver cette expérience', new_reservation_path(experience_id: @experience.id), class: 'btn btn-success' %>
+      <% elsif current_user == @experience.provider %>
+        <div class="alert alert-warning" role="alert">
+          Vous êtes le fournisseur de cette expérience.
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt-4 text-center">
+    <%= link_to 'Retour à la liste des expériences', experiences_path, class: 'btn btn-secondary' %>
+    <% if current_admin? || current_provider == @experience.provider %>
+      <%= link_to 'Modifier', edit_experience_path(@experience), class: 'btn btn-primary' %>
+      <%= link_to 'Supprimer', experience_path(@experience), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette expérience ?' }, class: 'btn btn-danger' %>
+    <% end %>
+  </div>
+</div>
