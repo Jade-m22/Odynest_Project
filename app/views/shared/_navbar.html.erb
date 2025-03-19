@@ -9,16 +9,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <%= link_to "Accueil", root_path, class: "nav-link" %>
+          <%= link_to "Accueil", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Tendances", trends_path, class: "nav-link" %>
+          <%= link_to "Tendances", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "À propos", about_path, class: "nav-link" %>
+          <%= link_to "À propos", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Panier", cart_path, class: "nav-link" %>
+          <%= link_to "Panier", "#", class: "nav-link" %>
         </li>
 
         <!-- Dropdown menu -->
@@ -27,9 +27,9 @@
             Explorer
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to "Destinations", destinations_path, class: "dropdown-item" %></li>
-            <li><%= link_to "Types d'événements", events_type_path, class: "dropdown-item" %></li>
-            <li><%= link_to "Offres spéciales", special_offers_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Destinations", "#", class: "dropdown-item" %></li>
+            <li><%= link_to "Types d'événements", "#", class: "dropdown-item" %></li>
+            <li><%= link_to "Offres spéciales", "#", class: "dropdown-item" %></li>
           </ul>
         </li>
 
@@ -50,7 +50,7 @@
             <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Inscription Prestataire", new_provider_registration_path, class: "nav-link" %> <!-- Lien pour inscription prestataire -->
+            <%= link_to "Inscription Prestataire", "#", class: "nav-link" %> <!-- Lien pour inscription prestataire -->
           </li>
         <% end %>
       </ul>
