@@ -12,8 +12,18 @@
 
 ActiveRecord::Schema[8.0].define(version: 2025_03_19_091709) do
   create_table "experiences", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.decimal "price"
+    t.string "location"
+    t.integer "duration"
+    t.datetime "start_date_1", precision: nil
+    t.datetime "start_date_2", precision: nil
+    t.datetime "start_date_3", precision: nil
+    t.integer "provider_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_experiences_on_provider_id"
   end
 
   create_table "providers", force: :cascade do |t|
@@ -63,6 +73,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_19_091709) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "experiences", "providers"
   add_foreign_key "reservations", "experiences"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "experiences"
