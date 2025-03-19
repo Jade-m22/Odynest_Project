@@ -3,14 +3,6 @@
 
   <div class="row mt-4">
     <div class="col-md-6">
-      <% if @experience.image.attached? %>
-        <%= image_tag @experience.image, class: "img-fluid", alt: @experience.title %>
-      <% else %>
-        <%= image_tag "default_experience.jpg", class: "img-fluid", alt: "Image par défaut" %>
-      <% end %>
-    </div>
-
-    <div class="col-md-6">
       <p><strong>Description :</strong> <%= @experience.description %></p>
       <p><strong>Lieu :</strong> <%= @experience.location %></p>
       <p><strong>Prix :</strong> <%= number_to_currency(@experience.price, unit: "€") %></p>

@@ -5,11 +5,6 @@
     <% @experiences.each do |experience| %>
       <div class="col-md-4 mb-4">
         <div class="card shadow-sm">
-          <% if experience.image.attached? %>
-            <%= image_tag experience.image, class: "card-img-top", alt: experience.title %>
-          <% else %>
-            <%= image_tag "default_experience.jpg", class: "card-img-top", alt: "Image par défaut" %>
-          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= experience.title %></h5>
             <p class="card-text"><%= truncate(experience.description, length: 100) %></p>
