@@ -1,4 +1,4 @@
-class ExperiencesController < ApplicationController
+class ExperienceController < ApplicationController
     before_action :set_experience, only: %i[show edit update destroy]
     before_action :authorize_provider_or_admin!, only: %i[new create edit update destroy]
   
