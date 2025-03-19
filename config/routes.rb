@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  devise_for :providers
 
   # Routes pour les utilisateurs
   resources :users, only: %i[index show edit update destroy]
