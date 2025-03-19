@@ -23,6 +23,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'shared/navbar' %>  <!-- Inclusion de la navbar -->
+    </header>
+      <%= yield %>
   </body>
 </html>
