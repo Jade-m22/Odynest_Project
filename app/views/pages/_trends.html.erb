@@ -1,0 +1,21 @@
+<div class="trends-section">
+  <div class="container">
+    <h2 class="text-center trends-title"> Tendances du moment</h2>
+    <p class="text-center trends-subtitle">Découvrez les destinations les plus prisées du moment.</p>
+
+    <div class="row">
+      <% @trends.each do |trend| %>
+        <div class="col-md-4">
+          <div class="trend-card">
+            <%= image_tag trend.image_url, class: "trend-image", alt: trend.title %>
+            <div class="trend-info">
+              <h3 class="trend-title"><%= trend.title %></h3>
+              <p class="trend-description"><%= trend.description.truncate(100) %></p>
+              <%= link_to "Voir plus", trend_path(trend), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
