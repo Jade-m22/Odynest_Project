@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   # Routes pour les fournisseurs (Providers)
   resources :providers, only: [:index, :show]
 
+  # Routes pour les static_pages
+  get "/about", to: "pages#about"
+  get "/contact", to: "pages#contact"
+  get "/legal_mentions", to: "pages#legal_mentions"
+  get "/terms", to: "pages#terms"
+
   # Page d'accueil
   root "pages#home"
 end
