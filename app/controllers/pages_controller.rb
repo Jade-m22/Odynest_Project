@@ -7,4 +7,10 @@ class PagesController < ApplicationController
     @trends = Experience.all
   end
 
+  def about
+  end
+
+  def contact
+  end
+
 end
