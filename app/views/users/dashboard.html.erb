@@ -1,1 +1,56 @@
 <h1>Tableau de bord</h1>
+
+<% if current_user.is_admin? %>
+  <h2>Liste des expériences en cours</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Expérience</th>
+        <th>Lieu</th>
+        <th>Participants</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @experiences.each do |experience| %>
+        <tr>
+          <td><%= link_to experience.title, experience_path(experience) %></td>
+          <td><%= experience.location %></td>
+          <td>
+            <% experience.users.each do |user| %>
+              <%= user.email %><br>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%# <h2>Gestion</h2> %>
+  <%#= link_to "Voir tous les utilisateurs", users_path, class: "btn btn-primary" %>
+  <%#= link_to "Voir tous les providers", providers_path, class: "btn btn-secondary" %>
+
+<% else %>
+  <h2>Mes Expériences Réservées</h2>
+  <% if @experiences.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Expérience</th>
+          <th>Lieu</th>
+          <th>Date Réservée</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reservations.each do |reservation| %>
+          <tr>
+            <td><%= link_to reservation.experience.title, experience_path(reservation.experience) %></td>
+            <td><%= reservation.experience.location %></td>
+            <td><%= reservation.reservation_date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>Vous n'avez réservé aucune expérience pour l'instant.</p>
+  <% end %>
+<% end %>
