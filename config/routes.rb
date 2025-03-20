@@ -4,7 +4,14 @@ Rails.application.routes.draw do
 
   # Routes pour les utilisateurs
   resources :users, only: %i[index show edit update destroy]
-  resources :providers, only: %i[index show edit update destroy]
+  resources :providers, only: %i[index show edit update destroy] do
+    member do
+      get 'dashboard'
+    end
+  end
+
+  # Route spécifique pour le dashboard global (sans ID)
+  get 'dashboard', to: 'providers#dashboard', as: 'dashboard'
 
   # Routes pour les expériences (listées, création, édition, suppression, affichage)
   resources :experiences do
