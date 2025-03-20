@@ -15,7 +15,7 @@
           <%= link_to "Nos expériences", experiences_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Tendances", "#trend", class: "nav-link" %>
+          <%= link_to "Tendances", root_path(anchor: "trend"), class: "nav-link" %>
         </li>
 
         <% if provider_signed_in? %>
