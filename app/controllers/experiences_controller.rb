@@ -15,10 +15,10 @@ class ExperiencesController < ApplicationController
       @experiences = @experiences.order(price: :asc)
     when "price_desc"
       @experiences = @experiences.order(price: :desc)
-    when "title_asc"
-      @experiences = @experiences.order(title: :asc)
-    when "title_desc"
-      @experiences = @experiences.order(title: :desc)
+    when "city_asc"
+      @experiences = @experiences.order(location: :asc)  
+    when "city_desc"
+      @experiences = @experiences.order(location: :desc) 
   end
 end
 
