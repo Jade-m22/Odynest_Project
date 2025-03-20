@@ -1,0 +1,58 @@
+<h1>Créer une nouvelle expérience</h1>
+
+<%= form_with(model: @experience, local: true) do |f| %>
+  <% if @experience.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(@experience.errors.count, "erreur") %> trouvée(s) :</h2>
+      <ul>
+        <% @experience.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, "Titre de l'expérience" %>
+    <%= f.text_field :title, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price, "Prix (€)" %>
+    <%= f.number_field :price, class: "form-control", step: "0.01", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location, "Lieu" %>
+    <%= f.text_field :location, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :duration, "Durée (minutes)" %>
+    <%= f.number_field :duration, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :start_date_1, "Première date de début" %>
+    <%= f.datetime_select :start_date_1, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :start_date_2, "Deuxième date de début" %>
+    <%= f.datetime_select :start_date_2, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :start_date_3, "Troisième date de début" %>
+    <%= f.datetime_select :start_date_3, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Créer l'expérience", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Retour", experiences_path, class: "btn btn-secondary" %>

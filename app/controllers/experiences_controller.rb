@@ -8,19 +8,19 @@ class ExperiencesController < ApplicationController
 
     case params[:sort]
     when "newest"
-      @experiences = @experiences.order(created_at: :desc)
+        @experiences = @experiences.order(created_at: :desc)
     when "oldest"
-      @experiences = @experiences.order(created_at: :asc)
+        @experiences = @experiences.order(created_at: :asc)
     when "price_asc"
-      @experiences = @experiences.order(price: :asc)
+        @experiences = @experiences.order(price: :asc)
     when "price_desc"
-      @experiences = @experiences.order(price: :desc)
+        @experiences = @experiences.order(price: :desc)
     when "city_asc"
-      @experiences = @experiences.order(location: :asc)  
+        @experiences = @experiences.order(location: :asc)
     when "city_desc"
-      @experiences = @experiences.order(location: :desc) 
+        @experiences = @experiences.order(location: :desc)
+    end
   end
-end
 
   # Affiche une seule expérience
   def show
@@ -29,14 +29,15 @@ end
 
   # Formulaire pour créer une nouvelle expérience
   def new
-    @experience = current_provider.experiences.build
+    @experience = Experience.new
   end
 
   # Crée une nouvelle expérience
   def create
-    @experience = current_provider.experiences.build(experience_params)
+    @experience = Experience.new(experience_params)
+    @experience.provider_id = current_provider.id
     if @experience.save
-      redirect_to @experience, notice: 'Expérience créée avec succès.'
+      redirect_to @experience, notice: "Expérience créée avec succès."
     else
       render :new
     end
@@ -49,7 +50,7 @@ end
   # Met à jour une expérience existante
   def update
     if @experience.update(experience_params)
-      redirect_to @experience, notice: 'Expérience mise à jour avec succès.'
+      redirect_to @experience, notice: "Expérience mise à jour avec succès."
     else
       render :edit
     end
@@ -59,9 +60,9 @@ end
   def destroy
     if @experience.reservations.empty?
       @experience.destroy
-      redirect_to experiences_path, notice: 'Expérience supprimée.'
+      redirect_to experiences_path, notice: "Expérience supprimée avec succès."
     else
-      redirect_to @experience, alert: 'Impossible de supprimer une expérience avec des réservations.'
+      redirect_to @experience, alert: "Impossible de supprimer une expérience avec des réservations."
     end
   end
 
@@ -74,11 +75,13 @@ end
 
   # Permet de sécuriser les paramètres de l'expérience
   def experience_params
-    params.require(:experience).permit(:title, :description, :price, :location, :duration, :provider_id)
+    params.require(:experience).permit(:title, :description, :price, :location, :duration, :start_date_1, :start_date_2, :start_date_3)
   end
 
   # Vérifie si l'utilisateur actuel est un admin ou un provider
   def authorize_provider_or_admin!
-    redirect_to root_path unless current_user&.admin? || current_user&.provider?
+    unless current_user&.admin? || current_provider.present?
+      redirect_to root_path, alert: "Accès non autorisé."
+    end
   end
 end
