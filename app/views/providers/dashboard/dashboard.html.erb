@@ -1,0 +1,41 @@
+<h1>Tableau de bord - Prestataire</h1>
+
+<% if current_user.provider? %>
+  <!-- Section pour les expériences du provider -->
+  <h2>Vos expériences</h2>
+  <% if @provider_experiences.any? %>
+    <ul>
+      <% @provider_experiences.each do |experience| %>
+        <li>
+          <strong><%= experience.title %></strong><br>
+          Description : <%= experience.description %><br>
+          Prix : <%= experience.price %>€<br>
+          <a href="<%= edit_experience_path(experience) %>">Modifier</a> | <a href="<%= experience_path(experience) %>">Voir</a>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Vous n'avez aucune expérience enregistrée.</p>
+  <% end %>
+
+  <!-- Section pour les réservations liées aux expériences du provider -->
+  <h2>Réservations pour vos expériences</h2>
+  <% if @provider_reservations.any? %>
+    <ul>
+      <% @provider_reservations.each do |reservation| %>
+        <li>
+          <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong> a réservé 
+          <%= reservation.experience.title %> pour le 
+          <%= reservation.reservation_date.strftime("%d/%m/%Y") %>.<br>
+          <%= link_to 'Détails de la réservation', reservation_path(reservation) %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Pas de réservations pour vos expériences.</p>
+  <% end %>
+
+<% else %>
+  <p>Vous n'avez pas les permissions nécessaires pour accéder à ce tableau de bord.</p>
+<% end %>
+

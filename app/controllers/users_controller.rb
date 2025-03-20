@@ -28,7 +28,10 @@ class UsersController < ApplicationController
     if current_user.admin?
       @experiences = Experience.all
       @reservations = Reservation.all
-      @customer_orders = Order.where.not(user: current_user) # Commandes des autres clients
+      @customer_orders = Order.where.not(user: current_user) 
+    elsif current_user.provider?
+      @provider_experiences = current_user.experiences 
+      @provider_reservations = Reservation.where(experience_id: @provider_experiences.ids) pour les expériences du provider
     else
       @reservations_current = current_user.reservations.where("reservation_date >= ?", Time.now)
       @reservations_past = current_user.reservations.where("reservation_date < ?", Time.now)
