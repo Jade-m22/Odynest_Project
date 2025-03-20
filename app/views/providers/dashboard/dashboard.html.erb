@@ -1,6 +1,11 @@
 <h1>Tableau de bord - Prestataire</h1>
 
 <% if current_user.provider? %>
+  <h2>Bienvenue sur votre tableau de bord !</h2>
+
+  <!-- Lien pour ajouter une expérience -->
+  <%= link_to 'Ajouter une expérience', new_experience_path, class: 'btn btn-primary' %>
+
   <!-- Section pour les expériences du provider -->
   <h2>Vos expériences</h2>
   <% if @provider_experiences.any? %>
@@ -10,7 +15,8 @@
           <strong><%= experience.title %></strong><br>
           Description : <%= experience.description %><br>
           Prix : <%= experience.price %>€<br>
-          <a href="<%= edit_experience_path(experience) %>">Modifier</a> | <a href="<%= experience_path(experience) %>">Voir</a>
+          <a href="<%= edit_experience_path(experience) %>">Modifier</a> | 
+          <a href="<%= experience_path(experience) %>">Voir</a>
         </li>
       <% end %>
     </ul>
@@ -24,8 +30,8 @@
     <ul>
       <% @provider_reservations.each do |reservation| %>
         <li>
-          <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong> a réservé 
-          <%= reservation.experience.title %> pour le 
+          <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong> a réservé
+          <%= reservation.experience.title %> pour le
           <%= reservation.reservation_date.strftime("%d/%m/%Y") %>.<br>
           <%= link_to 'Détails de la réservation', reservation_path(reservation) %>
         </li>
@@ -38,4 +44,3 @@
 <% else %>
   <p>Vous n'avez pas les permissions nécessaires pour accéder à ce tableau de bord.</p>
 <% end %>
-
