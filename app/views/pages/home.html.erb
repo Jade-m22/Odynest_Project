@@ -4,7 +4,11 @@
 <div class="container">
   <h2 class="text-center section-title">🔥 Expériences</h2>
   <p class="text-center section-subtitle">Vivez des aventures inoubliables sélectionnées pour vous.</p>
-  <%= render "experiences/cards" %>
+  <%= render "experiences/cards", experiences: @experiences.limit(9) %>
+  <div class="text-center mt-4">
+    <%= link_to "Voir plus d'expériences", experiences_path, class: "btn btn-secondary" %>
+  </div>
+
 </div>
 
 <div id="trend" class="container">
