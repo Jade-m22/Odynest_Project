@@ -24,9 +24,14 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    puts "🚀 Dashboard utilisateur appelé"
-    @reservations = current_user.reservations
-    @experiences = Experience.joins(:reservations).where(reservations: { user_id: current_user.id })
+    if current_user.is_admin?
+      @experiences = Experience.includes(:users)
+      @users = User.all
+      @providers = Provider.all
+    else
+      @reservations = current_user.reservations.includes(:experience)
+      @experiences = @reservations.map(&:experience)
+    end
   end
 
   def edit
