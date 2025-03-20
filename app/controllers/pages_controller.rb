@@ -16,4 +16,7 @@ class PagesController < ApplicationController
   def legal_mentions
   end
 
+  def terms
+  end
+
 end
