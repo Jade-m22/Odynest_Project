@@ -24,8 +24,26 @@
           <%= link_to "Panier", "#", class: "nav-link" %>
         </li>
 
+        <% if provider_signed_in? %>
+          <!-- Si l'utilisateur est un prestataire -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="providerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Mon profil pro
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="providerDropdown">
+              <li><%= link_to "Mes événements", "#", class: "dropdown-item" %></li>
+              <li><%= link_to "Ajouter un événement", new_experience_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Modifier mon profil pro", edit_provider_registration_path, class: "dropdown-item" %></li>
+              <li>
+                <%= form_with url: destroy_provider_session_path, method: :delete, class: "d-inline" do %>
+                  <%= submit_tag "Se déconnecter", class: "dropdown-item" %>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+
 <!-- Si l'utilisateur est connecté -->
-        <% if user_signed_in? %> 
+        <% elsif user_signed_in? %> 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Mon profil 
@@ -39,8 +57,9 @@
             </li>
           </ul>
         </li>
+
         <% else %> 
-          <!-- Si l'utilisateur n'est pas connecté -->
+<!-- Si l'utilisateur n'est pas connecté -->
           <li class="nav-item">
             <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
           </li>
