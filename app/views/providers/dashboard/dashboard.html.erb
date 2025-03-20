@@ -1,6 +1,6 @@
 <h1>Tableau de bord - Prestataire</h1>
 
-<% if current_user.provider? %>
+<% if current_provider %>
   <h2>Bienvenue sur votre tableau de bord !</h2>
 
   <!-- Lien pour ajouter une expérience -->
@@ -8,38 +8,28 @@
 
   <!-- Section pour les expériences du provider -->
   <h2>Vos expériences</h2>
-  <% if @provider_experiences.any? %>
+  <% if @provider_experiences.present? && @provider_experiences.any? %>
     <ul>
       <% @provider_experiences.each do |experience| %>
-        <li>
-          <strong><%= experience.title %></strong><br>
-          Description : <%= experience.description %><br>
-          Prix : <%= experience.price %>€<br>
-          <a href="<%= edit_experience_path(experience) %>">Modifier</a> | 
-          <a href="<%= experience_path(experience) %>">Voir</a>
-        </li>
+        <li><%= experience.name %></li>
       <% end %>
     </ul>
   <% else %>
-    <p>Vous n'avez aucune expérience enregistrée.</p>
+    <p>Aucune expérience trouvée.</p>
   <% end %>
 
   <!-- Section pour les réservations liées aux expériences du provider -->
-  <h2>Réservations pour vos expériences</h2>
-  <% if @provider_reservations.any? %>
+  <h2>Réservations des autres utilisateurs</h2>
+  <% if @customer_reservations.present? && @customer_reservations.any? %>
     <ul>
-      <% @provider_reservations.each do |reservation| %>
-        <li>
-          <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong> a réservé
-          <%= reservation.experience.title %> pour le
-          <%= reservation.reservation_date.strftime("%d/%m/%Y") %>.<br>
-          <%= link_to 'Détails de la réservation', reservation_path(reservation) %>
-        </li>
+      <% @customer_reservations.each do |reservation| %>
+        <li>Réservation pour l'expérience <%= reservation.experience.name %> - <%= reservation.user.email %></li>
       <% end %>
     </ul>
   <% else %>
-    <p>Pas de réservations pour vos expériences.</p>
+    <p>Aucune réservation trouvée.</p>
   <% end %>
+
 
 <% else %>
   <p>Vous n'avez pas les permissions nécessaires pour accéder à ce tableau de bord.</p>

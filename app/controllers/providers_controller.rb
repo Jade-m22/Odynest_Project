@@ -18,18 +18,18 @@ class ProvidersController < ApplicationController
   end
 
   def dashboard
-    if current_user.admin?
+    if current_provider
       @experiences = Experience.all
-      @reservations = Reservation.all
-      @customer_orders = Order.where.not(user: current_user) 
-    elsif current_user.provider?
-      @provider_experiences = current_user.experiences 
-      @provider_reservations = Reservation.where(experience_id: @provider_experiences.ids) pour les expériences du provider
+      @reservations = Reservation.all 
+      @customer_reservations = Reservation.where.not(user: current_provider)
+    elsif current_provider
+      @provider_experiences = current_provider.experiences 
+      @provider_reservations = Reservation.where(experience_id: @provider_experiences.ids)
     else
-      @reservations_current = current_user.reservations.where("reservation_date >= ?", Time.now)
-      @reservations_past = current_user.reservations.where("reservation_date < ?", Time.now)
-      @orders = current_user.orders
+      redirect_to root_path, alert: "Accès non autorisé."
     end
+
+    render 'providers/dashboard/dashboard'
   end
 
   def edit
