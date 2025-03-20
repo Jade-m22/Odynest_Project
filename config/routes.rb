@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   # Routes pour les utilisateurs
   resources :users, only: %i[index show edit update destroy]
 
+  namespace :provider do
+    resources :events, only: [:index, :new, :create, :edit, :update, :destroy]
+  end  
+
+
   # Routes pour les expériences (listées, création, édition, suppression, affichage)
   resources :experiences do
     resources :reservations, only: [:create, :destroy, :index]
