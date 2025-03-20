@@ -3,8 +3,16 @@
 
   <%= form_with url: experiences_path, method: :get, local: true do %>
     <label for="sort">Trier par :</label>
-    <%= select_tag :sort, options_for_select([["Récent d'abord", "newest"], ["Ancien d'abord", "oldest"], ["Nom A-Z", "name_asc"], ["Nom Z-A", "name_desc"]], params[:sort]), onchange: 'this.form.submit();' %>
-  <% end %>  
+    <%= select_tag :sort, options_for_select([
+      ["Récent d'abord", "newest"],
+      ["Ancien d'abord", "oldest"],
+      ["Prix croissant", "price_asc"],
+      ["Prix décroissant", "price_desc"],
+      ["Ville A-Z", "city_asc"],
+      ["Ville Z-A", "city_desc"]
+    ], params[:sort]), onchange: 'this.form.submit();' %>
+  <% end %>
+  
   
   <div class="row">
     <% @experiences.each do |experience| %>
