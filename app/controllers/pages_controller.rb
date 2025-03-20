@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def home
     @experiences = Experience.all
-    @trends = Experience.all
+    @trends = Experience.order("RANDOM()").limit(3)
   end
 
   def about
@@ -18,5 +18,4 @@ class PagesController < ApplicationController
 
   def terms
   end
-
 end
