@@ -13,4 +13,7 @@ class PagesController < ApplicationController
   def contact
   end
 
+  def legal_mentions
+  end
+
 end
