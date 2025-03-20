@@ -4,20 +4,13 @@ Rails.application.routes.draw do
 
   # Routes pour les utilisateurs
   resources :users, only: %i[index show edit update destroy]
-
-  namespace :provider do
-    resources :events, only: [:index, :new, :create, :edit, :update, :destroy]
-  end  
-
+  resources :providers, only: %i[index show edit update destroy]
 
   # Routes pour les expériences (listées, création, édition, suppression, affichage)
   resources :experiences do
     resources :reservations, only: [:create, :destroy, :index]
     resources :reviews, only: [:create, :destroy, :index]
   end
-
-  # Routes pour les fournisseurs (Providers)
-  resources :providers, only: [:index, :show]
 
   # Routes pour les static_pages
   get "/about", to: "pages#about"

@@ -31,8 +31,8 @@
               Mon profil pro
             </a>
             <ul class="dropdown-menu" aria-labelledby="providerDropdown">
-              <li><%= link_to "Mes événements", provider_events_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Ajouter un événement", new_provider_event_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Mes événements", "#", class: "dropdown-item" %></li>
+              <li><%= link_to "Ajouter un événement", new_experience_path, class: "dropdown-item" %></li>
               <li><%= link_to "Modifier mon profil pro", edit_provider_registration_path, class: "dropdown-item" %></li>
               <li>
                 <%= form_with url: destroy_provider_session_path, method: :delete, class: "d-inline" do %>
