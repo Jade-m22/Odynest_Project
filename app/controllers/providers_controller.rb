@@ -18,7 +18,18 @@ class ProvidersController < ApplicationController
   end
 
   def dashboard
-    @experiences = current_provider.experiences
+    if current_user.admin?
+      @experiences = Experience.all
+      @reservations = Reservation.all
+      @customer_orders = Order.where.not(user: current_user) 
+    elsif current_user.provider?
+      @provider_experiences = current_user.experiences 
+      @provider_reservations = Reservation.where(experience_id: @provider_experiences.ids) pour les expériences du provider
+    else
+      @reservations_current = current_user.reservations.where("reservation_date >= ?", Time.now)
+      @reservations_past = current_user.reservations.where("reservation_date < ?", Time.now)
+      @orders = current_user.orders
+    end
   end
 
   def edit
