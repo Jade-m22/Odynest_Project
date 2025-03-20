@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   devise_for :providers
 
   # Routes pour les utilisateurs
+  get "users/dashboard", to: "users#dashboard", as: "user_dashboard"
   resources :users, only: %i[index show edit update destroy]
   resources :providers, only: %i[index edit update destroy]
 
   # Routes dashboards
-  get "users/dashboard", to: "users#dashboard", as: "user_dashboard"
   get "providers/dashboard", to: "providers#dashboard", as: "provider_dashboard"
 
   # Routes pour les expériences (listées, création, édition, suppression, affichage)

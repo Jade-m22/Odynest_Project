@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    puts "🚀 Dashboard utilisateur appelé"
     @reservations = current_user.reservations
     @experiences = Experience.joins(:reservations).where(reservations: { user_id: current_user.id })
   end
