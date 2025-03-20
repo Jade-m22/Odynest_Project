@@ -9,7 +9,21 @@
       <p><strong>Durée :</strong> <%= @experience.duration %> jours</p>
 
       <% if current_user && current_user != @experience.provider %>
-        <%= link_to 'Réserver cette expérience', experience_reservations_path(experience_id: @experience.id), class: 'btn btn-success' %>
+      <div class="mt-4">
+      <h4>Choisissez une date :</h4>
+        <%= form_with model: Reservation.new, url: experience_reservations_path(@experience), method: :post do |f| %>
+      <div class="form-group">
+        <%= f.label :reservation_date, "Date de réservation" %>
+        <%= f.select :reservation_date, 
+            [[@experience.start_date_1.strftime("%d/%m/%Y"), @experience.start_date_1],
+             [@experience.start_date_2.strftime("%d/%m/%Y"), @experience.start_date_2],
+             [@experience.start_date_3.strftime("%d/%m/%Y"), @experience.start_date_3]],
+            {}, class: "form-control" %>
+      </div>
+      <%= f.submit "Réserver cette expérience", class: "btn btn-success mt-2" %>
+    <% end %>
+  </div>
+
       <% elsif current_user == @experience.provider %>
         <div class="alert alert-warning" role="alert">
           Vous êtes le fournisseur de cette expérience.
