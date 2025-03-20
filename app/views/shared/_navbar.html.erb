@@ -28,7 +28,7 @@
               Mon profil pro
             </a>
             <ul class="dropdown-menu" aria-labelledby="providerDropdown">
-              <li><%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Dashboard", provider_dashboard_path, class: "dropdown-item" %></li>
               <li><%= link_to "Ajouter un événement", new_experience_path, class: "dropdown-item" %></li>
               <li><%= link_to "Modifier mon profil pro", edit_provider_registration_path, class: "dropdown-item" %></li>
               <li>
@@ -46,7 +46,8 @@
             Mon profil 
           </a>
           <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-            <li><%= link_to "Voir mon Profil", user_path(current_user), class: "dropdown-item" %></li>
+            <li><%= link_to "Dashboard", user_dashboard_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Modifier mon profil", user_path(current_user), class: "dropdown-item" %></li>
             <li>
               <%= form_with url: destroy_user_session_path, method: :delete, class: "d-inline" do %>
                 <%= submit_tag "Se déconnecter", class: "dropdown-item" %>

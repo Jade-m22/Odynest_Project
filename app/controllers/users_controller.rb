@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: %i[edit update destroy show]
   before_action :authorize_user, only: %i[edit update destroy]
-  before_action :authorize_admin!, only: %i[index dashboard]
 
   def index
     @users = User.all
@@ -18,13 +17,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: 'Compte utilisateur créé avec succès.'
+      redirect_to root_path, notice: "Compte utilisateur cr\u00E9\u00E9 avec succ\u00E8s."
     else
       render :new
     end
   end
 
   def dashboard
+    @reservations = current_user.reservations
+    @experiences = Experience.joins(:reservations).where(reservations: { user_id: current_user.id })
   end
 
   def edit
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to dashboard_path, notice: 'Profil mis à jour.'
+      redirect_to user_dashboard_path, notice: "Profil mis \u00E0 jour."
     else
       render :edit
     end
@@ -40,13 +41,14 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to root_path, notice: 'Compte supprimé.'
+    redirect_to root_path, notice: "Compte supprim\u00E9."
   end
 
   private
 
   def set_user
-    @user = User.find(params[:id]) # Permet à l'admin de gérer d'autres comptes
+    @user = User.find_by(id: params[:id])
+    redirect_to root_path, alert: "Utilisateur introuvable." unless @user
   end
 
   def user_params

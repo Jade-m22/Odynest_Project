@@ -4,19 +4,16 @@ Rails.application.routes.draw do
 
   # Routes pour les utilisateurs
   resources :users, only: %i[index show edit update destroy]
-  resources :providers, only: %i[index show edit update destroy] do
-    member do
-      get 'dashboard'
-    end
-  end
+  resources :providers, only: %i[index edit update destroy]
 
-  # Route spécifique pour le dashboard global (sans ID)
-  get 'dashboard', to: 'providers#dashboard', as: 'dashboard'
+  # Routes dashboards
+  get "users/dashboard", to: "users#dashboard", as: "user_dashboard"
+  get "providers/dashboard", to: "providers#dashboard", as: "provider_dashboard"
 
   # Routes pour les expériences (listées, création, édition, suppression, affichage)
   resources :experiences do
-    resources :reservations, only: [:create, :destroy, :index]
-    resources :reviews, only: [:create, :destroy, :index]
+    resources :reservations, only: [ :create, :destroy, :index ]
+    resources :reviews, only: [ :create, :destroy, :index ]
   end
 
   # Routes pour les static_pages
