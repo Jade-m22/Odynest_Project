@@ -26,13 +26,13 @@ puts "✅ Création de #{providers.count} providers"
 
 # Création d'expériences
 experiences = []
-5.times do |i|
+15.times do |i|
   experiences << Experience.create!(
     title: "Expérience #{i + 1}",
     description: "Description de l'expérience #{i + 1}",
     price: rand(50..200),
     location: "Ville #{i + 1}",
-    duration: [60, 90, 120].sample,
+    duration: [ 60, 90, 120 ].sample,
     start_date_1: Time.now + rand(1..10).days,
     start_date_2: Time.now + rand(11..20).days,
     start_date_3: Time.now + rand(21..30).days,
@@ -50,7 +50,7 @@ users.each do |user|
       user: user,
       experience: exp,
       reservation_date: exp.start_date_1,
-      status: ["pending", "confirmed", "canceled"].sample
+      status: [ "pending", "confirmed", "canceled" ].sample
     )
   end
 end
