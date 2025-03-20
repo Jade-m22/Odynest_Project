@@ -5,7 +5,22 @@ class ExperiencesController < ApplicationController
   # Affiche toutes les expériences
   def index
     @experiences = Experience.all
+
+    case params[:sort]
+    when "newest"
+      @experiences = @experiences.order(created_at: :desc)
+    when "oldest"
+      @experiences = @experiences.order(created_at: :asc)
+    when "price_asc"
+      @experiences = @experiences.order(price: :asc)
+    when "price_desc"
+      @experiences = @experiences.order(price: :desc)
+    when "title_asc"
+      @experiences = @experiences.order(title: :asc)
+    when "title_desc"
+      @experiences = @experiences.order(title: :desc)
   end
+end
 
   # Affiche une seule expérience
   def show
