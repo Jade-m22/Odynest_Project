@@ -1,1 +1,36 @@
 <h1>Tableau de bord - Prestataire</h1>
+
+<h2>Vos Expériences</h2>
+
+<% if @experiences.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Expérience</th>
+        <th>Lieu</th>
+        <th>Participants</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @experiences.each do |experience| %>
+        <tr>
+          <td><%= link_to experience.title, experience_path(experience) %></td>
+          <td><%= experience.location %></td>
+          <td>
+            <% if experience.users.any? %>
+              <ul>
+                <% experience.users.each do |user| %>
+                  <li><%= user.email %></li>
+                <% end %>
+              </ul>
+            <% else %>
+              Aucun participant
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Vous n'avez créé aucune expérience pour l’instant.</p>
+<% end %>

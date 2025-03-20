@@ -18,14 +18,7 @@ class ProvidersController < ApplicationController
   end
 
   def dashboard
-    if current_provider
-      @provider_experiences = current_provider.experiences
-      @provider_reservations = Reservation.where(experience_id: @provider_experiences.ids)
-    else
-      redirect_to root_path, alert: "Accès non autorisé."
-    end
-
-    render "providers/dashboard"
+    @experiences = current_provider.experiences.includes(:users)
   end
 
   def edit
