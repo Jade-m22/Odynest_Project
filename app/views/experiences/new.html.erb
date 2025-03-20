@@ -33,9 +33,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :duration, "Durée (minutes)" %>
-    <%= f.number_field :duration, class: "form-control", required: true %>
+    <%= f.label :duration, "Durée" %>
+    <%= f.select :duration, 
+      [["30 minutes", 30], ["1 heure", 60], ["2 heures", 120], ["1 jour", 1440], ["2 jours", 2880]], 
+      {}, class: "form-control" %>
   </div>
+
 
   <div class="form-group">
     <%= f.label :start_date_1, "Première date de début" %>
