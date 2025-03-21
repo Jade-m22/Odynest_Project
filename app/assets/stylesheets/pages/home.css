@@ -1,0 +1,33 @@
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Ajuste la hauteur selon ton besoin */
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Pour adapter l’image sans la déformer */
+  filter: brightness(1); /* Assombrit légèrement l’image */
+}
+
+/* ----- Marge au-dessus et en-dessous du titre "Tendances du moment" ----- */
+.trends-title{
+  margin-top: 30px;  /* Marge en haut */
+  margin-bottom: 20px;  /* Marge en bas */
+  color: var(--secondary-color);
+}
+
+/* Appliquer la couleur secondaire au titre */
+.banner-title {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
