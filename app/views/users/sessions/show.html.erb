@@ -1,0 +1,11 @@
+<h1>Profil de <%= @user.email %></h1>
+
+<p>Email: <%= @user.email %></p>
+
+<% if @user.admin? %>
+  <p><strong>Rôle :</strong> Administrateur</p>
+<% else %>
+  <p><strong>Rôle :</strong> Utilisateur</p>
+<% end %>
+
+<%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn btn-primary" %>
