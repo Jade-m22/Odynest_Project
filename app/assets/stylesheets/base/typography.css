@@ -1,0 +1,27 @@
+/* Appliquer Montserrat par défaut */
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Variantes de Montserrat */
+.montserrat-light { font-weight: 300; }
+.montserrat-regular { font-weight: 400; }
+.montserrat-bold { font-weight: 700; }
+.montserrat-italic { font-style: italic; }
+
+/* Appliquer Playfair Display SC */
+.playfair {
+  font-family: "Playfair Display SC", serif;
+}
+
+/* Variantes de Playfair */
+.playfair-light { font-weight: 400; }
+.playfair-bold { font-weight: 700; }
+.playfair-black { font-weight: 900; }
+.playfair-italic { font-style: italic; }
+
+p {
+  font-family: "Montserrat", sans-serif;
+}

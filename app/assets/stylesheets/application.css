@@ -28,3 +28,9 @@
 @import url("pages/experiences.css");
 @import url("pages/profile.css");
 @import url("pages/dashboard.css");
+
+body {
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
