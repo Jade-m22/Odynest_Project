@@ -16,6 +16,7 @@
 .trends-title{
   margin-top: 30px;  /* Marge en haut */
   margin-bottom: 20px;  /* Marge en bas */
+  color: var(--secondary-color);
 }
 
 /* Appliquer la couleur secondaire au titre */
