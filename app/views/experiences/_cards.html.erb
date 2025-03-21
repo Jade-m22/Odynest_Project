@@ -13,7 +13,6 @@
     ], params[:sort]), onchange: 'this.form.submit();' %>
   <% end %>
   
-  
   <div class="row">
     <% experiences.each do |experience| %>
       <div class="col-md-4 mb-4">
@@ -23,7 +22,16 @@
             <p class="card-text"><%= truncate(experience.description, length: 100) %></p>
             <p><strong>Lieu :</strong> <%= experience.location %></p>
             <p><strong>Prix :</strong> <%= number_to_currency(experience.price, unit: "€") %></p>
-            <a href="<%= experience_path(experience) %>" class="btn btn-primary">Voir l'expérience</a>
+            
+            <%= link_to experience_path(experience), class: "cta" do %>
+              <span>Voir l'expérience</span>
+              <svg width="15px" height="10px" viewBox="0 0 13 10">
+                <path d="M1,5 L11,5"></path>
+                <polyline points="8 1 12 5 8 9"></polyline>
+              </svg>
+            <% end %>
+
+
           </div>
         </div>
       </div>

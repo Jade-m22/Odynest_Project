@@ -5,13 +5,19 @@
 
     <div class="row">
       <% @trends.each do |trend| %>
-        <div class="col-md-4">
-          <div class="trend-card">
-            <%#= image_tag trend.image_url, class: "trend-image", alt: trend.title %>
-            <div class="trend-info">
-              <h3 class="trend-title"><%= trend.title %></h3>
-              <p class="trend-description"><%= trend.description.truncate(100) %></p>
-              <%= link_to "Voir plus", experience_path(trend), class: "btn btn-primary" %>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm trend-card">
+            <div class="card-body">
+              <h5 class="card-title"><%= trend.title %></h5>
+              <p class="card-text"><%= truncate(trend.description, length: 100) %></p>
+
+              <%= link_to experience_path(trend), class: "cta" do %>
+                <span>Voir plus</span>
+                <svg width="15px" height="10px" viewBox="0 0 13 10">
+                  <path d="M1,5 L11,5"></path>
+                  <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+              <% end %>
             </div>
           </div>
         </div>
