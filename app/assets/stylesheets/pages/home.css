@@ -10,6 +10,7 @@
   height: 100%;
   object-fit: cover; /* Pour adapter l’image sans la déformer */
   filter: brightness(1); /* Assombrit légèrement l’image */
+  object-position: center 85%;
 }
 
 /* ----- Marge au-dessus et en-dessous du titre "Tendances du moment" ----- */
