@@ -1,73 +1,70 @@
-# Supprime toutes les données existantes pour éviter les doublons
+# db/seeds.rb
+
+require 'faker'
+
+# Reset des tables
 Review.destroy_all
 Reservation.destroy_all
 Experience.destroy_all
-Provider.destroy_all
 User.destroy_all
+Provider.destroy_all
 
-# Création d'utilisateurs
-users = []
-users << User.create!(email: "admin@example.com", password: "password", admin: true)
-users << User.create!(email: "user1@example.com", password: "password", admin: false)
-users << User.create!(email: "user2@example.com", password: "password", admin: false)
-
-puts "✅ Création de #{users.count} utilisateurs"
-
-# Création de providers
-providers = []
-3.times do |i|
-  providers << Provider.create!(
-    email: "provider#{i + 1}@example.com",
-    password: "password"
+# Création des providers
+providers = 3.times.map do
+  Provider.create!(
+    email: Faker::Internet.unique.email,
+    password: "password123"
   )
 end
 
-puts "✅ Création de #{providers.count} providers"
+# Création des utilisateurs
+users = 10.times.map do
+  User.create!(
+    email: Faker::Internet.unique.email,
+    password: "password123"
+  )
+end
 
-# Création d'expériences
-experiences = []
-15.times do |i|
-  experiences << Experience.create!(
-    title: "Expérience #{i + 1}",
-    description: "Description de l'expérience #{i + 1}",
-    price: rand(50..200),
-    location: "Ville #{i + 1}",
-    duration: [ 60, 90, 120 ].sample,
-    start_date_1: Time.now + rand(1..10).days,
-    start_date_2: Time.now + rand(11..20).days,
-    start_date_3: Time.now + rand(21..30).days,
+# Création des expériences avec toutes les validations requises
+experiences = 15.times.map do
+  Experience.create!(
+    title: Faker::Hobby.activity,
+    description: Faker::Lorem.paragraph(sentence_count: 5),
+    price: rand(20..200),
+    location: Faker::Address.city,
+    duration: "#{rand(1..5)} heures",
+    start_date_1: Faker::Date.forward(days: rand(1..30)),
+    start_date_2: Faker::Date.forward(days: rand(31..60)),
+    start_date_3: Faker::Date.forward(days: rand(61..90)),
     provider: providers.sample
   )
 end
 
-puts "✅ Création de #{experiences.count} expériences"
+# Création des réservations avec une date valide
+reservations = 20.times.map do
+  experience = experiences.sample
+  user = users.sample
+  valid_dates = [experience.start_date_1, experience.start_date_2, experience.start_date_3].compact
+  reservation_date = valid_dates.sample # On choisit une date valide
 
-# Création de réservations
-reservations = []
-users.each do |user|
-  experiences.sample(2).each do |exp|
-    reservations << Reservation.create!(
-      user: user,
-      experience: exp,
-      reservation_date: exp.start_date_1,
-      status: [ "pending", "confirmed", "canceled" ].sample
+  Reservation.create!(
+    user: user,
+    experience: experience,
+    reservation_date: reservation_date, # Correction ici
+    status: %w[pending confirmed canceled].sample
+  )
+end
+
+# Création des avis uniquement pour les réservations confirmées
+reservations.each do |reservation|
+  if reservation.status == "confirmed" && rand < 0.7 # 70% de chances d'avoir un avis
+    Review.create!(
+      user: reservation.user,
+      experience: reservation.experience,
+      rating: rand(3..5),
+      comment: Faker::Lorem.sentence
     )
   end
 end
 
-puts "✅ Création de #{reservations.count} réservations"
-
-# Création d'avis
-reviews = []
-users.each do |user|
-  experiences.sample(2).each do |exp|
-    reviews << Review.create!(
-      user: user,
-      experience: exp,
-      rating: rand(1..5),
-      comment: "Super expérience, je recommande !"
-    )
-  end
-end
-
-puts "✅ Création de #{reviews.count} avis"
+puts "Seed terminé : #{User.count} users, #{Provider.count} providers, #{Experience.count} expériences, #{Reservation.count} réservations, #{Review.count} avis."
