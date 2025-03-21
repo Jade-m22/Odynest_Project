@@ -11,3 +11,22 @@
   object-fit: cover; /* Pour adapter l’image sans la déformer */
   filter: brightness(1); /* Assombrit légèrement l’image */
 }
+
+/* ----- Marge au-dessus et en-dessous du titre "Tendances du moment" ----- */
+.trends-title{
+  margin-top: 30px;  /* Marge en haut */
+  margin-bottom: 20px;  /* Marge en bas */
+}
+
+/* Appliquer la couleur secondaire au titre */
+.banner-title {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}

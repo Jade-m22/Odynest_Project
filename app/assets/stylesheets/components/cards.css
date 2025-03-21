@@ -72,3 +72,15 @@
   align-items: center; /* Centre horizontalement */
   text-align: center;
 }
+
+/* ----- Description pour les cartes des tendances ----- */
+.trend-card .card-text {
+  font-size: 14px;
+  color: #666;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Limite à 2 lignes pour la description des tendances */
+}
