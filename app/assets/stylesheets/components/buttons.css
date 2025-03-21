@@ -10,6 +10,7 @@
   cursor: pointer;
   text-decoration: none;
   align-self: flex-start;
+  display: inline-flex;
 }
 
 .cta:before {
@@ -42,8 +43,8 @@
   stroke-linejoin: round;
   stroke: #000102;
   stroke-width: 2;
-  transform: translateX(-5px);
   transition: all 0.3s ease;
+  transform: translateY(5px) translateX(-5px);
 }
 
 .cta:hover:before {
@@ -52,7 +53,7 @@
 }
 
 .cta:hover svg {
-  transform: translateX(0);
+  transform: translateY(5px) translateX(0);
 }
 
 .cta:active {
