@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 300px;
+  height: 250px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -57,4 +57,18 @@
   font-size: 14px;
   color: #444;
   margin-bottom: 5px;
+}
+
+/* Styles spécifiques aux cartes des tendances */
+.trend-card {
+  height: 150px; /* Hauteur réduite */
+}
+
+.trend-card .card-body {
+  padding: 15px; /* Légèrement réduit pour s'adapter */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre le texte verticalement */
+  align-items: center; /* Centre horizontalement */
+  text-align: center;
 }

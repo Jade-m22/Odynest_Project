@@ -117,3 +117,15 @@
   transform: translateY(30px);
   transition-duration: .3s;
 }
+
+.trend-card .cta:before {
+  background-color: var(--primary-color); /* Seul le rond devient primary */
+}
+
+.trend-card .cta:hover span {
+  color: white;
+}
+
+.trend-card .cta:hover svg {
+  stroke: white;
+}
