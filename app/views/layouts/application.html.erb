@@ -9,11 +9,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
-    <link rel="icon" type="image/png" href="<%= asset_path('logo.png') %>">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+    <!-- Favicon -->
+    <link rel="icon" href="<%= asset_path('logo.png') %>" type="image/png">
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
