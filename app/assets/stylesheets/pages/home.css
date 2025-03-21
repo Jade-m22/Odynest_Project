@@ -9,26 +9,67 @@
   width: 100%;
   height: 100%;
   object-fit: cover; /* Pour adapter l’image sans la déformer */
-  filter: brightness(1); /* Assombrit légèrement l’image */
   object-position: center 85%;
-}
-
-/* ----- Marge au-dessus et en-dessous du titre "Tendances du moment" ----- */
-.trends-title{
-  margin-top: 30px;  /* Marge en haut */
-  margin-bottom: 20px;  /* Marge en bas */
-  color: var(--secondary-color);
-}
-
-/* Appliquer la couleur secondaire au titre */
-.banner-title {
-  color: var(--secondary-color);
-  margin-bottom: 20px;
-  z-index: 1;
-  position: relative;
+  filter: brightness(0.7);
 }
 
 .container {
   position: relative;
   z-index: 2;
+}
+
+/* Appliquer la couleur secondaire au titre */
+.banner-title {
+  color: var(--secondary-color);
+  margin-bottom: 25px;
+  z-index: 2 !important;
+  position: relative;
+  text-align: left;
+  margin-top: -100px;
+  width: fit-content;
+}
+
+.presentation-content {
+  display: flex;
+  align-items: center; /* Aligner les éléments verticalement */
+  justify-content: space-between; /* Séparer texte et images */
+  gap: 20px; /* Espacement entre le texte et les images */
+  flex-direction: row;
+}
+
+.presentation-texts {
+  width: 50%;
+  text-align: left;
+}
+
+.presentation-subtitle, 
+.presentation-text {
+  text-align: left; 
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-weight: 700;
+}
+
+.presentation-images {
+  width: 50%; /* Ajuste la largeur du bloc d'images */
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.presentation-images img {
+  width: 200px; /* Augmenter la taille des images */
+  height: 230px;
+  border: 4px solid white; /* Ajout d’un encadré blanc */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : ajoute une ombre légère */
+  margin-top: 15px;
+}
+
+/* Titre partie tendance homepage */
+.trends-title{
+  margin-top: 30px;  /* Marge en haut */
+  margin-bottom: 20px;  /* Marge en bas */
+  color: var(--secondary-color);
 }
