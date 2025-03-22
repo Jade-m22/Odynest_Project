@@ -4,7 +4,11 @@
 <div class="container">
   <%= render "experiences/cards", experiences: @experiences.limit(9) %>
   <div class="text-center mt-4">
-    <%= link_to "Voir plus d'expériences", experiences_path, class: "btn btn-secondary" %>
+    <button class="custom-btn btn-4">
+      <span>VOIR PLUS</span>
+    </button>
+  </div>
+
   </div>
 
 </div>

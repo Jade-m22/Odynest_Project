@@ -1,14 +1,14 @@
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 300px; /* Ajuste la hauteur selon ton besoin */
+  height: 300px;
   overflow: hidden;
 }
 
 .banner-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Pour adapter l’image sans la déformer */
+  object-fit: cover;
   object-position: center 85%;
   filter: brightness(0.7);
 }
@@ -18,33 +18,36 @@
   z-index: 2;
 }
 
-/* Appliquer la couleur secondaire au titre */
 .banner-title {
   color: var(--secondary-color);
   margin-bottom: 25px;
-  z-index: 2 !important;
   position: relative;
   text-align: left;
-  margin-top: -100px;
+  margin-top: -5px;
+  margin-bottom: 30px;
   width: fit-content;
 }
 
 .presentation-content {
   display: flex;
-  align-items: center; /* Aligner les éléments verticalement */
-  justify-content: space-between; /* Séparer texte et images */
-  gap: 20px; /* Espacement entre le texte et les images */
-  flex-direction: row;
+  justify-content: center;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
 }
 
 .presentation-texts {
   width: 50%;
-  text-align: left;
+  flex: 1;
 }
 
 .presentation-subtitle,
 .presentation-text {
-  text-align: left;
+  text-align: justify;
   margin-bottom: 15px;
 }
 
@@ -53,26 +56,51 @@
 }
 
 .presentation-images {
-  width: 50%; /* Ajuste la largeur du bloc d'images */
+  width: 50%;
   display: flex;
   gap: 10px;
   justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .presentation-images img {
-  width: 200px; /* Augmenter la taille des images */
+  width: 200px;
   height: 230px;
-  border: 4px solid white; /* Ajout d’un encadré blanc */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : ajoute une ombre légère */
+  border: 4px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 15px;
 }
 
 /* Titre partie tendance homepage */
-.trends-title {
-  margin-top: 30px; /* Marge en haut */
-  margin-bottom: 20px; /* Marge en bas */
-  color: var(--secondary-color);
+.trends-section {
+  position: relative;
 }
+
+.trends-title {
+  margin-bottom: 40px;
+  color: var(--primary-color);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.trend-banner {
+  width: 100vw; /* Prend toute la largeur de l'écran */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.trends-banner {
+  width: 100%;
+  height: 120px;
+  object-fit: cover; /* Garde une bonne proportion */
+  object-position: center 65%;
+}
+
 
 /* Style général du formulaire */
 .filter-form {

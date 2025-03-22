@@ -1,6 +1,10 @@
 <div class="trends-section">
   <div class="container">
-    <h2 class="text-center amsterdam trends-title"> Tendances du moment</h2>
+    <div class="trend-banner">
+      <%= image_tag "banner2.jpg", alt: "Bandeau partie tendance", class: "trends-banner" %>
+    </div>
+
+    <h2 class="amsterdam trends-title"> Tendances du moment</h2>
 
     <div class="row">
       <% @trends.each do |trend| %>
