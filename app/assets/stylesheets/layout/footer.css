@@ -1,7 +1,42 @@
+/* Style du footer */
 .footer {
-  height: 30px;
-  padding: 5px;
-  font-size: 2px;
+  margin-top: auto;
   background-color: #f8f9fa;
-  text-align: center;
+  padding: 20px 0;
+}
+
+.footer h5 {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.footer p {
+  color: #666;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #007bff;
+}
+
+.footer .fab {
+  margin-right: 8px;
+}
+
+/* Pour ajuster l'alignement des éléments */
+.footer .container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Ajustements responsives */
+@media (max-width: 767px) {
+  .footer .row {
+    text-align: center;
+  }
 }
