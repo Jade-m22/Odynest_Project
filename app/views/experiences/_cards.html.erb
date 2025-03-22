@@ -1,16 +1,18 @@
 <div class="container text-center mt-5">
   <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
 
-  <%= form_with url: experiences_path, method: :get, local: true do %>
-    <label for="sort">Trier par :</label>
-    <%= select_tag :sort, options_for_select([
-      ["Récent d'abord", "newest"],
-      ["Ancien d'abord", "oldest"],
-      ["Prix croissant", "price_asc"],
-      ["Prix décroissant", "price_desc"],
-      ["Ville A-Z", "city_asc"],
-      ["Ville Z-A", "city_desc"]
-    ], params[:sort]), onchange: 'this.form.submit();' %>
+  <%= form_with url: experiences_path, method: :get, local: true, class: "filter-form" do %>
+    <div class="filter-container">
+      <label for="sort" class="filter-label">Trier par :</label>
+      <%= select_tag :sort, options_for_select([
+        ["Récent d'abord", "newest"],
+        ["Ancien d'abord", "oldest"],
+        ["Prix croissant", "price_asc"],
+        ["Prix décroissant", "price_desc"],
+        ["Ville A-Z", "city_asc"],
+        ["Ville Z-A", "city_desc"]
+      ], params[:sort]), class: "filter-select", onchange: 'this.form.submit();' %>
+    </div>
   <% end %>
   
   <div class="row">
