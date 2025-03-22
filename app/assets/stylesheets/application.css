@@ -30,6 +30,7 @@
 @import url("pages/dashboard.css");
 @import url("pages/contact.css");
 @import url("pages/about.css");
+@import url("pages/legal_mentions.css");
 
 body {
   background-color: var(--bg-color);
