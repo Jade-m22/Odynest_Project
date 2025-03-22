@@ -71,3 +71,78 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 15px;
 }
+
+/* Titre partie tendance homepage */
+.trends-section {
+  position: relative;
+}
+
+.trends-title {
+  margin-bottom: 40px;
+  color: var(--primary-color);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.trend-banner {
+  width: 100vw; /* Prend toute la largeur de l'écran */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.trends-banner {
+  width: 100%;
+  height: 120px;
+  object-fit: cover; /* Garde une bonne proportion */
+  object-position: center 65%;
+}
+
+
+/* Style général du formulaire */
+.filter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* Conteneur du filtre */
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Style pour le label */
+.filter-label {
+  font-size: 16px;
+  color: #333;
+  margin-right: 10px;
+}
+
+/* Style pour le select */
+.filter-select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+/* Changement de couleur du bord au focus */
+.filter-select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Ajout d'un petit effet de survol sur le select */
+.filter-select:hover {
+  cursor: pointer;
+  background-color: #f1f1f1;
+}
