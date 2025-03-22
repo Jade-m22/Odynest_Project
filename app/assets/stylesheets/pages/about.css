@@ -1,0 +1,115 @@
+/* Styles généraux */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+}
+
+/* Conteneur principal de la page About */
+.about-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+.about-title {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-intro {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Sections "Notre histoire", "Notre mission", "Pourquoi choisir OdyNest" */
+.about-section {
+  margin-bottom: 30px;
+}
+
+.about-section h2 {
+  font-size: 24px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.about-section p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.about-benefits {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-benefits li {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  padding-left: 25px;
+  position: relative;
+}
+
+.about-benefits li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Style pour les liens internes et interactions */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Réactivité - Media Query */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 20px;
+  }
+
+  .about-container {
+    padding: 20px;
+  }
+
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-intro {
+    font-size: 16px;
+  }
+
+  .about-section h2 {
+    font-size: 22px;
+  }
+
+  .about-section p {
+    font-size: 14px;
+  }
+}
