@@ -1,0 +1,78 @@
+/* Styles généraux pour la page Mentions Légales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.legal-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.legal-title {
+  font-size: 32px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.legal-section {
+  margin-bottom: 30px;
+}
+
+.legal-heading {
+  font-size: 24px;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.legal-text {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.legal-contact {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.legal-contact:hover {
+  text-decoration: underline;
+}
+
+/* Style pour les informations dans les sections */
+.legal-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.legal-text a:hover {
+  text-decoration: underline;
+}
+
+/* Réactivité - Adaptation aux écrans plus petits */
+@media (max-width: 768px) {
+  .legal-container {
+    padding: 20px;
+  }
+
+  .legal-title {
+    font-size: 28px;
+  }
+
+  .legal-heading {
+    font-size: 22px;
+  }
+
+  .legal-text {
+    font-size: 14px;
+  }
+}
