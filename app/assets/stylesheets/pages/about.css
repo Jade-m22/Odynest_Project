@@ -45,7 +45,7 @@ body {
 
 .about-section h2 {
   font-size: 24px;
-  color: #007bff;
+  color: #046d70;
   margin-bottom: 10px;
 }
 
@@ -73,7 +73,7 @@ body {
   content: "✔";
   position: absolute;
   left: 0;
-  color: #007bff;
+  color: #d98c50;
   font-weight: bold;
 }
 
