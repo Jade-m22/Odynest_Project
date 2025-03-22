@@ -1,0 +1,85 @@
+/* Styles généraux pour la page Conditions d'utilisation */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.terms-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.terms-title {
+  font-size: 32px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.terms-date {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.terms-container h2 {
+  font-size: 24px;
+  color: #007bff;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.terms-container p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.terms-container strong {
+  font-weight: bold;
+}
+
+.terms-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.terms-container a:hover {
+  text-decoration: underline;
+}
+
+/* Section de séparation des paragraphes */
+.terms-container p + h2 {
+  margin-top: 40px;
+}
+
+/* Réactivité - Adaptation aux écrans plus petits */
+@media (max-width: 768px) {
+  .terms-container {
+    padding: 20px;
+  }
+
+  .terms-title {
+    font-size: 28px;
+  }
+
+  .terms-date {
+    font-size: 14px;
+  }
+
+  .terms-container h2 {
+    font-size: 22px;
+  }
+
+  .terms-container p {
+    font-size: 14px;
+  }
+}
