@@ -29,6 +29,7 @@
 @import url("pages/profile.css");
 @import url("pages/dashboard.css");
 @import url("pages/contact.css");
+@import url("pages/about.css");
 
 body {
   background-color: var(--bg-color);
