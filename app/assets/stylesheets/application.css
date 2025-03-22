@@ -9,7 +9,7 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
- /* Import des styles de base */
+/* Import des styles de base */
 @import url("base/variables.css");
 @import url("base/typography.css");
 @import url("base/helpers.css");
@@ -28,6 +28,7 @@
 @import url("pages/experiences.css");
 @import url("pages/profile.css");
 @import url("pages/dashboard.css");
+@import url("pages/contact.css");
 
 body {
   background-color: var(--bg-color);
