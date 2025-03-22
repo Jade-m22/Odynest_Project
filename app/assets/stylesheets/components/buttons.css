@@ -1,5 +1,5 @@
 /* From Uiverse.io by alexmaracinaru */ 
-/* Bouton avec petit rond */
+/* Bouton avec petit rond pour rediriger vers pages show*/
 .cta {
   position: relative;
   margin: 0;
@@ -131,6 +131,7 @@
 }
 
 /* From Uiverse.io by AqFox */ 
+/* Pour boutons voir plus/valider etc. */
 .custom-btn {
   min-width: 180px;
   height: 50px;
