@@ -8,10 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    def show
       render "users/sessions/show"
-    end
-    
   end
 
   def new
