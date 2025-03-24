@@ -1,7 +1,10 @@
+/* Bannière principale (hero) */
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 40vh;
+  min-height: 200px;
+  max-height: 400px;
   overflow: hidden;
 }
 
@@ -13,6 +16,7 @@
   filter: brightness(0.7);
 }
 
+/* Conteneur de texte sur la bannière */
 .container {
   position: relative;
   z-index: 2;
@@ -20,14 +24,14 @@
 
 .banner-title {
   color: var(--secondary-color);
-  margin-bottom: 25px;
-  position: relative;
-  text-align: left;
   margin-top: -5px;
   margin-bottom: 30px;
+  position: relative;
+  text-align: left;
   width: fit-content;
 }
 
+/* Présentation de contenu */
 .presentation-content {
   display: flex;
   justify-content: center;
@@ -72,7 +76,7 @@
   margin-top: 15px;
 }
 
-/* Titre partie tendance homepage */
+/* Tendance section */
 .trends-section {
   position: relative;
 }
@@ -86,7 +90,8 @@
 }
 
 .trend-banner {
-  width: 100vw; /* Prend toute la largeur de l'écran */
+  width: 100vw;
+  max-width: 100%;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -97,12 +102,11 @@
 .trends-banner {
   width: 100%;
   height: 120px;
-  object-fit: cover; /* Garde une bonne proportion */
+  object-fit: cover;
   object-position: center 65%;
 }
 
-
-/* Style général du formulaire */
+/* Formulaire de filtre */
 .filter-form {
   display: flex;
   justify-content: center;
@@ -110,21 +114,18 @@
   margin: 20px 0;
 }
 
-/* Conteneur du filtre */
 .filter-container {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* Style pour le label */
 .filter-label {
   font-size: 16px;
   color: #333;
   margin-right: 10px;
 }
 
-/* Style pour le select */
 .filter-select {
   padding: 8px 12px;
   font-size: 14px;
@@ -135,14 +136,44 @@
   transition: border-color 0.3s ease;
 }
 
-/* Changement de couleur du bord au focus */
 .filter-select:focus {
   border-color: #007bff;
   outline: none;
 }
 
-/* Ajout d'un petit effet de survol sur le select */
 .filter-select:hover {
   cursor: pointer;
   background-color: #f1f1f1;
+}
+
+/* Responsive mobile/tablette */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .presentation-texts,
+  .presentation-images {
+    width: 100%;
+  }
+
+  .presentation-images {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .presentation-images img {
+    width: 45%;
+    height: auto;
+    max-width: 150px;
+  }
+
+  .hero-banner {
+    height: 30vh;
+  }
+
+  .trends-banner {
+    height: 100px;
+  }
 }
