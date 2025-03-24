@@ -1,23 +1,37 @@
 /* Style du footer */
 .footer {
-  margin-top: auto;
   background-color: #f8f9fa;
-  padding: 20px 0;
+  padding: 10px 0;
+  margin-top: auto;
+  font-size: 14px;
 }
 
 .footer h5 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #333;
+  margin-bottom: 8px;
 }
 
-.footer p {
+.footer p,
+.footer ul {
+  margin: 0;
+  padding: 0;
   color: #666;
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer li {
+  margin-bottom: 6px;
 }
 
 .footer a {
   text-decoration: none;
   color: #333;
   transition: color 0.3s;
+  font-size: 14px;
 }
 
 .footer a:hover {
@@ -25,18 +39,30 @@
 }
 
 .footer .fab {
-  margin-right: 8px;
+  margin-right: 6px;
 }
 
-/* Pour ajuster l'alignement des éléments */
 .footer .container {
   max-width: 1140px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
-/* Ajustements responsives */
+.footer .text-center {
+  font-size: 13px;
+  padding: 6px 0;
+  color: #555;
+  border-top: 1px solid #eaeaea;
+  margin-top: 10px;
+}
+
+/* Responsive */
 @media (max-width: 767px) {
   .footer .row {
     text-align: center;
+  }
+
+  .footer li {
+    margin-bottom: 10px;
   }
 }
