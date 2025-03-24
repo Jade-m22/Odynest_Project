@@ -1,5 +1,7 @@
-<div class="container text-center mt-5">
-  <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
+<section class="container text-center mt-5">
+  <header>
+    <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
+  </header>
 
   <% if controller_name == "experiences" && action_name == "index" %>
     <%= form_with url: experiences_path, method: :get, local: true, class: "filter-form" do %>
@@ -19,10 +21,10 @@
 
   <div class="row">
     <% experiences.each do |experience| %>
-      <div class="col-md-4 mb-4">
+      <article class="col-md-4 mb-4">
         <div class="card shadow-sm">
           <div class="card-body">
-            <h5 class="card-title"><%= experience.title %></h5>
+            <h2 class="card-title"><%= experience.title %></h2>
             <p class="card-text"><%= truncate(experience.description, length: 100) %></p>
             <p><strong>Lieu :</strong> <%= experience.location %></p>
             <p><strong>Prix :</strong> <%= number_to_currency(experience.price, unit: "€") %></p>
@@ -36,8 +38,9 @@
             <% end %>
           </div>
         </div>
-      </div>
+      </article>
     <% end %>
   </div>
-</div> 
+</section>
+
 <a href="#" class="back-to-top-fixed" title="Retour en haut">↑</a>
