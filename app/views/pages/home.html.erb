@@ -4,10 +4,11 @@
 <div class="container">
   <%= render "experiences/cards", experiences: @experiences.limit(9) %>
   <div class="text-center mt-4">
-    <button class="custom-btn btn-4">
-      <span>VOIR PLUS</span>
-    </button>
+    <%= link_to experiences_path, class: "custom-btn btn-4" do %>
+    <span>VOIR PLUS</span>
+      <% end %>
   </div>
+
 
   </div>
 
