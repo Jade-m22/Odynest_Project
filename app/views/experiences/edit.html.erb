@@ -1,55 +1,64 @@
-<div class="container mt-5">
-  <h1 class="text-center">Modifier l'expérience</h1>
+<section class="container mt-5">
+  <header>
+    <h1 class="text-center">Modifier l'expérience</h1>
+  </header>
 
   <div class="row mt-4">
     <div class="col-md-8 offset-md-2">
       <%= form_with model: @experience, local: true do |f| %>
-        <div class="form-group">
-          <%= f.label :title, "Titre" %>
-          <%= f.text_field :title, class: "form-control" %>
-        </div>
+        <fieldset>
+          <legend>Détails de l'expérience</legend>
 
-        <div class="form-group">
-          <%= f.label :description, "Description" %>
-          <%= f.text_area :description, class: "form-control" %>
-        </div>
+          <div class="form-group">
+            <%= f.label :title, "Titre" %>
+            <%= f.text_field :title, class: "form-control", required: true %>
+          </div>
 
-        <div class="form-group">
-          <%= f.label :location, "Lieu" %>
-          <%= f.text_field :location, class: "form-control" %>
-        </div>
+          <div class="form-group">
+            <%= f.label :description, "Description" %>
+            <%= f.text_area :description, class: "form-control", required: true %>
+          </div>
 
-        <div class="form-group">
-          <%= f.label :price, "Prix (€)" %>
-          <%= f.number_field :price, step: 0.01, class: "form-control" %>
-        </div>
+          <div class="form-group">
+            <%= f.label :location, "Lieu" %>
+            <%= f.text_field :location, class: "form-control", required: true %>
+          </div>
 
-        <div class="form-group">
-          <%= f.label :duration, "Durée (jours)" %>
-          <%= f.number_field :duration, class: "form-control" %>
-        </div>
+          <div class="form-group">
+            <%= f.label :price, "Prix (€)" %>
+            <%= f.number_field :price, step: 0.01, class: "form-control", required: true %>
+          </div>
 
-        <div class="form-group">
-          <%= f.label :start_date_1, "Date de début 1" %>
-          <%= f.date_select :start_date_1, class: "form-control" %>
-        </div>
+          <div class="form-group">
+            <%= f.label :duration, "Durée (jours)" %>
+            <%= f.number_field :duration, class: "form-control", required: true %>
+          </div>
+        </fieldset>
 
-        <div class="form-group">
-          <%= f.label :start_date_2, "Date de début 2" %>
-          <%= f.date_select :start_date_2, class: "form-control" %>
-        </div>
+        <fieldset>
+          <legend>Dates de début</legend>
 
-        <div class="form-group">
-          <%= f.label :start_date_3, "Date de début 3" %>
-          <%= f.date_select :start_date_3, class: "form-control" %>
-        </div>
+          <div class="form-group">
+            <%= f.label :start_date_1, "Date de début 1" %>
+            <%= f.date_select :start_date_1, class: "form-control" %>
+          </div>
 
-        <%= f.submit "Mettre à jour", class: "btn btn-primary mt-3" %>
+          <div class="form-group">
+            <%= f.label :start_date_2, "Date de début 2" %>
+            <%= f.date_select :start_date_2, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :start_date_3, "Date de début 3" %>
+            <%= f.date_select :start_date_3, class: "form-control" %>
+          </div>
+        </fieldset>
+
+        <div class="text-center">
+          <%= f.submit "Mettre à jour", class: "btn btn-primary mt-3" %>
+          <%= link_to 'Annuler', experiences_path, class: "btn btn-secondary mt-3" %>
+        </div>
       <% end %>
     </div>
   </div>
-
-  <div class="mt-4 text-center">
-    <%= link_to 'Annuler', experiences_path, class: "btn btn-secondary" %>
-  </div>
-</div>
+</section>
