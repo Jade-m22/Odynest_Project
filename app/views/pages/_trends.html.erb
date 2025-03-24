@@ -1,17 +1,17 @@
-<div class="trends-section">
+<section class="trends-section">
   <div class="container">
-    <div class="trend-banner">
-      <%= image_tag "banner2.jpg", alt: "Bandeau partie tendance", class: "trends-banner" %>
-    </div>
+    <figure class="trend-banner">
+      <%= image_tag "banner2.jpg", alt: "Champ de lavande à perte de vue, une expérience immersive au cœur de la nature et des senteurs provençales", class: "trends-banner" %>
+    </figure>
 
-    <h2 class="amsterdam trends-title"> Tendances du moment</h2>
+    <h2 class="amsterdam trends-title">Tendances du moment</h2>
 
     <div class="row">
       <% @trends.each do |trend| %>
-        <div class="col-md-4 mb-4">
+        <article class="col-md-4 mb-4">
           <div class="card shadow-sm trend-card">
             <div class="card-body">
-              <h5 class="card-title"><%= trend.title %></h5>
+              <h3 class="card-title"><%= trend.title %></h3>
               <p class="card-text"><%= truncate(trend.description, length: 100) %></p>
 
               <%= link_to experience_path(trend), class: "cta" do %>
@@ -23,8 +23,8 @@
               <% end %>
             </div>
           </div>
-        </div>
+        </article>
       <% end %>
     </div>
   </div>
-</div>
+</section>

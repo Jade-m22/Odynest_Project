@@ -1,64 +1,69 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <%= link_to "Odynest", root_path, class: "navbar-brand playfair" %>
+<header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <%= link_to "Odynest", root_path, class: "navbar-brand playfair" %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item <%= 'active' if current_page?(root_path) %>">
-          <%= link_to "Accueil", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item <%= 'active' if current_page?(experiences_path) %>">
-          <%= link_to "Nos expériences", experiences_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Tendances", root_path(anchor: "trend"), class: "nav-link" %>
-        </li>
-
-        <% if provider_signed_in? %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="providerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Mon profil pro
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="providerDropdown">
-              <li><%= link_to "Dashboard", provider_dashboard_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Ajouter un événement", new_experience_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Modifier mon profil pro", edit_provider_registration_path, class: "dropdown-item" %></li>
-              <li>
-                <%= button_to "Se déconnecter", destroy_provider_session_path, method: :delete, class: "dropdown-item" %>
-              </li>
-            </ul>
-          </li>
-
-        <% elsif user_signed_in? %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= current_user.admin? ? "Mon profil Admin" : "Mon profil" %>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-              <li><%= link_to "Dashboard", user_dashboard_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Modifier mon profil", user_path(current_user), class: "dropdown-item" %></li>
-              <li>
-                <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              </li>
-            </ul>
-          </li>
-
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Se connecter", new_user_session_path, class: "btn btn-outline-primary mx-2" %>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+            <%= link_to "Accueil", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary text-white" %>
+            <%= link_to "Tendances", root_path(anchor: "trend"), class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Espace pro", new_provider_registration_path, class: "btn btn-warning text-dark mx-2" %>
+          <li class="nav-item <%= 'active' if current_page?(experiences_path) %>">
+            <%= link_to "Nos expériences", experiences_path, class: "nav-link" %>
           </li>
-        <% end %>
-      </ul>
+          <li class="nav-item <%= 'active' if current_page?(about_path) %>">
+            <%= link_to "À propos", about_path, class: "nav-link" %>
+          </li>
+
+          <% if provider_signed_in? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="providerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Mon profil pro
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="providerDropdown">
+                <li><%= link_to "Dashboard", provider_dashboard_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Ajouter un événement", new_experience_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Modifier mon profil pro", edit_provider_registration_path, class: "dropdown-item" %></li>
+                <li>
+                  <%= button_to "Se déconnecter", destroy_provider_session_path, method: :delete, class: "dropdown-item" %>
+                </li>
+              </ul>
+            </li>
+
+          <% elsif user_signed_in? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= current_user.admin? ? "Mon profil Admin" : "Mon profil" %>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                <li><%= link_to "Dashboard", user_dashboard_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Modifier mon profil", user_path(current_user), class: "dropdown-item" %></li>
+                <li>
+                  <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                </li>
+              </ul>
+            </li>
+
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-outline-primary mx-2" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary text-white" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Espace pro", new_provider_registration_path, class: "btn btn-warning text-dark mx-2" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>

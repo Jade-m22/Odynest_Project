@@ -1,23 +1,28 @@
-<div class="wrapper">
-  <div class="contact-container">
-    <h1 class="contact-title">Nous contacter</h1>
-    
-    <p class="contact-intro">
-      Une question ou une demande particulière ? N'hésitez pas à nous écrire !
-    </p>
-    
-    <p class="contact-email">
+<section class="wrapper">
+  <article class="contact-container">
+    <header>
+      <h1 class="contact-title">Nous contacter</h1>
+      <p class="contact-intro">
+        Une question ou une demande particulière ? N'hésitez pas à nous écrire !
+      </p>
+    </header>
+
+    <address class="contact-email">
       📧 <strong>Email :</strong> <a href="mailto:OdyNest@email.com">OdyNest@email.com</a>
-    </p>
+    </address>
 
     <form class="contact-form">
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" placeholder="Votre email" required>
+      <fieldset>
+        <legend>Formulaire de contact</legend>
 
-      <label for="message">Message :</label>
-      <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" placeholder="Votre email" required>
 
-      <button type="submit" class="btn btn-primary">Envoyer</button>
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </fieldset>
     </form>
-  </div>
-</div>
+  </article>
+</section>
