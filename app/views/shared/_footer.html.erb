@@ -14,7 +14,6 @@
         <ul class="list-unstyled">
           <li><%= link_to "À propos", about_path, class: "text-dark" %></li>
           <li><%= link_to "Contact", contact_path, class: "text-dark" %></li>
-          <li><%= link_to "Mentions légales", legal_mentions_path, class: "text-dark" %></li>
           <li><%= link_to "Politique de confidentialité", terms_path, class: "text-dark" %></li>
         </ul>
       </div>
@@ -33,7 +32,10 @@
   </div>
 
   <!-- Section Copyright -->
-  <div class="text-center py-3">
-    <p>&copy; <%= Time.now.year %> OdyNest. Tous droits réservés.</p>
-  </div>
+<div class="text-center py-3">
+  <p>
+    &copy; <%= Time.now.year %> OdyNest.
+    <%= link_to "Tous droits réservés.", legal_mentions_path, class: "text-dark text-decoration-none" %>
+  </p>
+</div>
 </footer>
