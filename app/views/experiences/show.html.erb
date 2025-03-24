@@ -5,7 +5,10 @@
     <div class="col-md-6">
       <p><strong>Description :</strong> <%= @experience.description %></p>
       <p><strong>Lieu :</strong> <%= @experience.location %></p>
-      <p><strong>Prix :</strong> <%= number_to_currency(@experience.price, unit: "€") %></p>
+
+      <!-- Affichage du prix psychologique sur la page de détail -->
+      <p><strong>Prix :</strong> <%= number_to_currency(@experience.price - 0.01, unit: "", separator: ",", delimiter: ".", format: "%n€") %></p>
+
       <p><strong>Durée :</strong> <%= @experience.duration %> jours</p>
 
       <% if current_user && current_user != @experience.provider && !current_user.admin? %> <!-- Condition pour exclure les admins -->
