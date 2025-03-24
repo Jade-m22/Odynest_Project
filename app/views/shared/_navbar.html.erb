@@ -18,6 +18,10 @@
           <%= link_to "Nos expériences", experiences_path, class: "nav-link" %>
         </li>
 
+        <li class="nav-item <%= 'active' if current_page?(about_path) %>">
+          <%= link_to "À propos", about_path, class: "nav-link" %>
+        </li>
+
         <% if provider_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="providerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
