@@ -2,7 +2,7 @@
 <%= render "pages/presentation" %>
 
 <div class="container">
-  <%= render "experiences/cards", experiences: @experiences.limit(9) %>
+  <%= render "experiences/cards", experiences: @experiences.limit(6) %>
   <div class="text-center mt-4">
     <%= link_to experiences_path, class: "custom-btn btn-4" do %>
     <span>VOIR PLUS</span>
