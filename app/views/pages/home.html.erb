@@ -1,18 +1,19 @@
 <%= render "pages/banner" %>
 <%= render "pages/presentation" %>
 
-<div class="container">
-  <%= render "experiences/cards", experiences: @experiences.limit(6) %>
-  <div class="text-center mt-4">
-    <%= link_to experiences_path, class: "custom-btn btn-4" do %>
-    <span>VOIR PLUS</span>
+<section class="experiences">
+  <div class="container">
+    <%= render "experiences/cards", experiences: @experiences.limit(6) %>
+    <div class="text-center mt-4">
+      <%= link_to experiences_path, class: "custom-btn btn-4" do %>
+        <span>VOIR PLUS</span>
       <% end %>
+    </div>
   </div>
+</section>
 
-
+<section id="trend" class="trends">
+  <div class="container">
+    <%= render "pages/trends" %>
   </div>
-
-</div>
-
-<div id="trend" class="container">
-  <%= render "pages/trends" %>
+</section>
