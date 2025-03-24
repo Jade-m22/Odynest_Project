@@ -1,20 +1,22 @@
 <div class="container text-center mt-5">
   <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
 
-  <%= form_with url: experiences_path, method: :get, local: true, class: "filter-form" do %>
-    <div class="filter-container">
-      <label for="sort" class="filter-label">Trier par :</label>
-      <%= select_tag :sort, options_for_select([
-        ["Récent d'abord", "newest"],
-        ["Ancien d'abord", "oldest"],
-        ["Prix croissant", "price_asc"],
-        ["Prix décroissant", "price_desc"],
-        ["Ville A-Z", "city_asc"],
-        ["Ville Z-A", "city_desc"]
-      ], params[:sort]), class: "filter-select", onchange: 'this.form.submit();' %>
-    </div>
+  <% if controller_name == "experiences" && action_name == "index" %>
+    <%= form_with url: experiences_path, method: :get, local: true, class: "filter-form" do %>
+      <div class="filter-container">
+        <label for="sort" class="filter-label">Trier par :</label>
+        <%= select_tag :sort, options_for_select([
+          ["Récent d'abord", "newest"],
+          ["Ancien d'abord", "oldest"],
+          ["Prix croissant", "price_asc"],
+          ["Prix décroissant", "price_desc"],
+          ["Ville A-Z", "city_asc"],
+          ["Ville Z-A", "city_desc"]
+        ], params[:sort]), class: "filter-select", onchange: 'this.form.submit();' %>
+      </div>
+    <% end %>
   <% end %>
-  
+
   <div class="row">
     <% experiences.each do |experience| %>
       <div class="col-md-4 mb-4">
@@ -32,11 +34,9 @@
                 <polyline points="8 1 12 5 8 9"></polyline>
               </svg>
             <% end %>
-
-
           </div>
         </div>
       </div>
     <% end %>
   </div>
-</div>
+</div> 
