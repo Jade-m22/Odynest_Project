@@ -25,7 +25,9 @@
             <h5 class="card-title"><%= experience.title %></h5>
             <p class="card-text"><%= truncate(experience.description, length: 100) %></p>
             <p><strong>Lieu :</strong> <%= experience.location %></p>
-            <p><strong>Prix :</strong> <%= number_to_currency(experience.price, unit: "€") %></p>
+            
+            <!-- Affichage du prix psychologique avec l'euro à la fin -->
+            <p><strong>Prix :</strong> <%= number_to_currency(experience.price - 0.01, unit: "", separator: ",", delimiter: ".", format: "%n€") %></p>
             
             <%= link_to experience_path(experience), class: "cta" do %>
               <span>Voir l'expérience</span>
@@ -39,4 +41,4 @@
       </div>
     <% end %>
   </div>
-</div> 
+</div>   
