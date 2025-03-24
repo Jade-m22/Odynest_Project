@@ -1,41 +1,24 @@
-<!-- app/views/layouts/_footer.html.erb -->
-<footer class="footer bg-light text-center text-lg-start py-4 mt-5">
-  <div class="container">
-    <div class="row">
-      <!-- Section OdyNest -->
-      <div class="col-lg-4 col-md-6 mb-3">
-        <h5 class="text-uppercase font-weight-bold">OdyNest</h5>
-        <p>Votre partenaire pour des expériences inoubliables.</p>
-      </div>
-
-      <!-- Section Pages -->
-      <div class="col-lg-4 col-md-6 mb-3">
-        <h5 class="text-uppercase font-weight-bold">Pages</h5>
-        <ul class="list-unstyled">
-          <li><%= link_to "À propos", about_path, class: "text-dark" %></li>
-          <li><%= link_to "Contact", contact_path, class: "text-dark" %></li>
-          <li><%= link_to "Politique de confidentialité", terms_path, class: "text-dark" %></li>
-        </ul>
-      </div>
-
-      <!-- Section Réseaux sociaux (vide pour l'instant) -->
-      <div class="col-lg-4 col-md-6 mb-3">
-        <h5 class="text-uppercase font-weight-bold">Suivez-nous</h5>
-        <ul class="list-unstyled">
-          <!-- Ajouter des icônes de réseaux sociaux ici -->
-          <li><a href="#" class="text-dark"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-          <li><a href="#" class="text-dark"><i class="fab fa-twitter"></i> Twitter</a></li>
-          <li><a href="#" class="text-dark"><i class="fab fa-instagram"></i> Instagram</a></li>
-        </ul>
-      </div>
-    </div>
+<footer class="footer d-flex align-items-center justify-content-between px-3">
+  <div class="footer-left d-flex flex-column flex-md-row align-items-center gap-2">
+    <strong>OdyNest</strong>
+    <span class="text-muted small">| Votre partenaire pour des expériences inoubliables</span>
   </div>
 
-  <!-- Section Copyright -->
-  <div class="text-center py-3">
-    <p>
-      &copy; <%= Time.now.year %> OdyNest.
-      <%= link_to "Tous droits réservés.", legal_mentions_path, class: "text-dark text-decoration-none" %>
-    </p>
+  <div class="footer-links d-flex flex-wrap gap-3 justify-content-center">
+    <%= link_to "Contact", contact_path, class: "text-dark small" %>
+    <%= link_to "Politique de confidentialité", terms_path, class: "text-dark small" %>
+    <%= link_to "Mentions légales", legal_mentions_path, class: "text-dark small" %>
+  </div>
+
+  <div class="social-icons d-flex gap-3">
+    <%= link_to "#", class: "text-dark", target: "_blank" do %>
+      <i class="fa-brands fa-facebook-f"></i>
+    <% end %>
+    <%= link_to "#", class: "text-dark", target: "_blank" do %>
+      <i class="fa-brands fa-twitter"></i>
+    <% end %>
+    <%= link_to "#", class: "text-dark", target: "_blank" do %>
+      <i class="fa-brands fa-instagram"></i>
+    <% end %>
   </div>
 </footer>
