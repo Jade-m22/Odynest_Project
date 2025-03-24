@@ -18,20 +18,23 @@
           <li class="nav-item <%= 'active' if current_page?(experiences_path) %>">
             <%= link_to "Nos expériences", experiences_path, class: "nav-link" %>
           </li>
+          <li class="nav-item <%= 'active' if current_page?(about_path) %>">
+            <%= link_to "À propos", about_path, class: "nav-link" %>
+          </li>
 
           <% if provider_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="providerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Mon profil pro
               </a>
-              <section class="dropdown-menu dropdown-menu-end" aria-labelledby="providerDropdown">
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="providerDropdown">
                 <li><%= link_to "Dashboard", provider_dashboard_path, class: "dropdown-item" %></li>
                 <li><%= link_to "Ajouter un événement", new_experience_path, class: "dropdown-item" %></li>
                 <li><%= link_to "Modifier mon profil pro", edit_provider_registration_path, class: "dropdown-item" %></li>
                 <li>
                   <%= button_to "Se déconnecter", destroy_provider_session_path, method: :delete, class: "dropdown-item" %>
                 </li>
-              </section>
+              </ul>
             </li>
 
           <% elsif user_signed_in? %>
@@ -39,13 +42,13 @@
               <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <%= current_user.admin? ? "Mon profil Admin" : "Mon profil" %>
               </a>
-              <section class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                 <li><%= link_to "Dashboard", user_dashboard_path, class: "dropdown-item" %></li>
                 <li><%= link_to "Modifier mon profil", user_path(current_user), class: "dropdown-item" %></li>
                 <li>
                   <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                 </li>
-              </section>
+              </ul>
             </li>
 
           <% else %>
