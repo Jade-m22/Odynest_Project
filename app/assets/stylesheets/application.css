@@ -33,6 +33,7 @@
 @import url("pages/legal_mentions.css");
 @import url("pages/terms.css");
 @import url("pages/registration.css");
+@import url("pages/login.css");
 
 body {
   background-color: var(--bg-color);
