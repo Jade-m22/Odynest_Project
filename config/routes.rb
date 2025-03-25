@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   # Routes pour les utilisateurs
   get "users/dashboard", to: "users#dashboard", as: "user_dashboard"
+  get "user/settings", to: "users#settings", as: :user_settings
+  get "provider/settings", to: "providers#settings", as: :provider_settings
+
   resources :users, only: %i[index show edit update destroy]
   resources :providers, only: %i[index edit update destroy]
 
