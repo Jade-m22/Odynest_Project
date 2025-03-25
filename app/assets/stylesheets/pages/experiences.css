@@ -20,12 +20,7 @@
 }
 
 /* SHOW EXPÉRIENCES */
-section.container {
-  padding: 40px 20px;
-  background-color: var(--bg-color);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+
 
 /* Mise en page à deux colonnes */
 .experience-content {
