@@ -1,8 +1,7 @@
-/* From Uiverse.io by alexmaracinaru */ 
-/* Bouton avec petit rond pour rediriger vers pages show*/
+/* ----- Bouton avec petit rond pour rediriger vers pages show ----- */
 .cta {
   position: relative;
-  margin: 0;
+  margin-bottom: 15px;
   padding: 8px 14px;
   transition: all 0.2s ease;
   border: none;
@@ -11,8 +10,10 @@
   text-decoration: none !important;
   align-self: flex-start;
   display: inline-flex;
+  color: #000000; /* Texte en noir */
 }
 
+/* Rond au début du bouton */
 .cta:before {
   content: "";
   position: absolute;
@@ -26,6 +27,7 @@
   transition: all 0.3s ease;
 }
 
+/* Texte du bouton */
 .cta span {
   position: relative;
   font-family: "montserrat-regular" sans-serif;
@@ -34,6 +36,7 @@
   color: #000000;
 }
 
+/* Icône du bouton */
 .cta svg {
   position: relative;
   top: 0;
@@ -47,6 +50,7 @@
   transform: translateY(5px) translateX(-5px);
 }
 
+/* Survol du bouton - transition du rond et du texte */
 .cta:hover:before {
   width: 100%;
   background: var(--secondary-color);
@@ -60,8 +64,12 @@
   transform: scale(0.95);
 }
 
-/* Bouton pour supprimer */
-/* From Uiverse.io by vinodjangid07 */ 
+/* Garder le fond blanc au survol du bouton */
+.cta:hover {
+  color: #000000;
+}
+
+/* ----- Bouton de suppression ----- */
 .deletebutton {
   width: 50px;
   height: 50px;
@@ -118,6 +126,7 @@
   transition-duration: .3s;
 }
 
+/* ----- Bouton de tendance ----- */
 .trend-card .cta:before {
   background-color: var(--primary-color); /* Seul le rond devient primary */
 }
@@ -130,8 +139,7 @@
   stroke: white;
 }
 
-/* From Uiverse.io by AqFox */ 
-/* Pour boutons voir plus/valider etc. */
+/* ----- Bouton personnalisé (voir plus, valider, etc.) ----- */
 .custom-btn {
   min-width: 180px;
   height: 50px;

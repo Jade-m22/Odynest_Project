@@ -22,15 +22,20 @@
   <div class="row">
     <% experiences.each do |experience| %>
       <article class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <div class="card-body">
+        <figure class="card-experience">
+          <!-- Conteneur de l'image -->
+          <div class="card-image-container">
+            <img src="<%= experience.photo.attached? ? url_for(experience.photo) : image_path('default-image.jpg') %>" alt="Image de <%= experience.title %>" class="card-image">
+          </div>
+
+          <figcaption class="card-content">
             <h2 class="card-title"><%= experience.title %></h2>
             <p class="card-text"><%= truncate(experience.description, length: 100) %></p>
             <p><strong>Lieu :</strong> <%= experience.location %></p>
-            
-            <!-- Affichage du prix psychologique avec l'euro à la fin -->
-            <p><strong>Prix :</strong> <%= number_to_currency(experience.price - 0.01, unit: "", separator: ",", delimiter: ".", format: "%n€") %></p>
-            
+            <p><strong><%= number_to_currency(experience.price - 0.01, unit: "", separator: ",", delimiter: ".", format: "%n€") %></strong></p>
+          </figcaption>
+
+          <div class="card-footer">
             <%= link_to experience_path(experience), class: "cta" do %>
               <span>Voir l'expérience</span>
               <svg width="15px" height="10px" viewBox="0 0 13 10">
@@ -39,9 +44,11 @@
               </svg>
             <% end %>
           </div>
-        </div>
+        </figure>
       </article>
     <% end %>
-  </div> 
+  </div>
 </section>
+
+<!-- Bouton retour en haut -->
 <a href="#" class="back-to-top-fixed" title="Retour en haut">↑</a>
