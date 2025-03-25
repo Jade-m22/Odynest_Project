@@ -66,6 +66,45 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def create_stripe_checkout_session
+    @experience = Experience.find(params[:id])
+    # Configure la clé secrète Stripe
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    # Crée une session Stripe Checkout
+    session = Stripe::Checkout::Session.create({
+      payment_method_types: [ "card" ],
+      line_items: [ {
+        price_data: {
+          currency: "eur",
+          product_data: {
+            name: @experience.title
+          },
+          unit_amount: (@experience.price * 100).to_i # Montant en centimes
+        },
+        quantity: 1
+      } ],
+      mode: "payment",
+      success_url: payment_success_experience_url(@experience),
+      cancel_url: payment_cancel_experience_url(@experience)
+    })
+
+    Rails.logger.debug("Stripe session URL: #{session.url}")
+
+    # Redirige l'utilisateur vers la page de paiement Stripe
+    redirect_to session.url, allow_other_host: true
+  end
+
+  def payment_success
+    @experience = Experience.find(params[:id])
+    flash[:notice] = "Le paiement a été effectué avec succès !"
+    redirect_to user_dashboard_path
+  end
+
+  def payment_cancel
+    @experience = Experience.find(params[:id])
+    flash[:alert] = "Le paiement a été annulé."
+    redirect_to @experience
+  end
 
   private
 

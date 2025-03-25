@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :experiences do
     resources :reservations, only: [ :create, :destroy, :index ]
     resources :reviews, only: [ :create, :destroy, :index ]
+    post "create_stripe_checkout_session", on: :member
+    get "payment_success", on: :member
+    get "payment_cancel", on: :member
   end
 
   # Routes pour les static_pages
