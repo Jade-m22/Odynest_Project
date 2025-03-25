@@ -57,6 +57,7 @@ body {
   line-height: 1.6;
 }
 
+/* Liste des avantages */
 .about-benefits {
   list-style-type: none;
   padding: 0;
@@ -89,7 +90,9 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Réactivité - Media Query */
+/* 🌍 Media Queries pour une meilleure réactivité */
+
+/* 📱 Tablettes (768px et moins) */
 @media (max-width: 768px) {
   .wrapper {
     padding: 20px;
@@ -113,5 +116,71 @@ a:hover {
 
   .about-section p {
     font-size: 14px;
+  }
+}
+
+/* 📱 Mobiles moyens (576px et moins) */
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 15px;
+  }
+
+  .about-container {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .about-title {
+    font-size: 26px;
+  }
+
+  .about-intro {
+    font-size: 15px;
+  }
+
+  .about-section h2 {
+    font-size: 20px;
+  }
+
+  .about-section p {
+    font-size: 14px;
+  }
+
+  .about-benefits li {
+    font-size: 14px;
+    padding-left: 20px;
+  }
+}
+
+/* 📱 Petits mobiles (400px et moins) */
+@media (max-width: 400px) {
+  .wrapper {
+    padding: 10px;
+  }
+
+  .about-container {
+    padding: 10px;
+    margin: 10px auto;
+  }
+
+  .about-title {
+    font-size: 24px;
+  }
+
+  .about-intro {
+    font-size: 14px;
+  }
+
+  .about-section h2 {
+    font-size: 18px;
+  }
+
+  .about-section p {
+    font-size: 13px;
+  }
+
+  .about-benefits li {
+    font-size: 13px;
+    padding-left: 15px;
   }
 }

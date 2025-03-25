@@ -35,3 +35,42 @@
     flex-wrap: wrap;
   }
 }
+
+/* Pour les écrans de tablettes (768px à 1024px) */
+@media (max-width: 1024px) {
+  .footer {
+    font-size: 14px; /* Augmenter la taille du texte pour une meilleure lisibilité */
+  }
+
+  .footer .social-icons i {
+    font-size: 18px; /* Augmenter la taille des icônes sociales pour un affichage plus visible */
+  }
+
+  .footer-left,
+  .footer-links,
+  .social-icons {
+    flex-direction: row; /* Garder une disposition en ligne pour plus d'espace */
+    justify-content: center;
+    gap: 20px; /* Espacement entre les éléments */
+  }
+}
+
+/* Pour les écrans de grande taille (au-dessus de 1024px) */
+@media (min-width: 1025px) {
+  .footer {
+    padding: 15px 0; /* Plus de padding pour un look plus aéré sur des écrans plus larges */
+    font-size: 16px; /* Taille du texte améliorée pour les grands écrans */
+  }
+
+  .footer .social-icons i {
+    font-size: 20px; /* Icônes sociales plus grandes sur les écrans larges */
+  }
+
+  .footer-left,
+  .footer-links,
+  .social-icons {
+    flex-direction: row; /* Conserver une disposition horizontale */
+    justify-content: space-between;
+    gap: 30px; /* Espacement accru entre les éléments */
+  }
+}

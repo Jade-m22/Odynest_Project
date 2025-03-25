@@ -63,3 +63,61 @@
   border-radius: 5px;
   padding: 5px 10px;
 }
+
+/* Réactivité - Adaptation aux écrans plus petits */
+@media (max-width: 1024px) {
+  .navbar-brand {
+    font-size: 1.25rem; /* Réduit la taille du logo sur les écrans plus petits */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.9rem; /* Réduit la taille du texte des liens de navigation */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem; /* Réduction de la taille du logo */
+  }
+
+  .navbar-nav {
+    flex-direction: column; /* Empile les liens de navigation verticalement */
+    align-items: center; /* Centre les éléments */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 5px 0; /* Espacement plus petit entre les items */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem; /* Taille de texte standard pour la navigation */
+  }
+
+  .btn-primary, .btn-warning {
+    font-size: 0.875rem; /* Réduit la taille des boutons */
+    padding: 8px 15px; /* Ajuste les dimensions des boutons */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 10px;
+  }
+
+  .navbar-brand {
+    font-size: 1rem; /* Taille du logo plus petite sur les petits écrans */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.875rem; /* Réduit la taille du texte des liens */
+  }
+
+  .btn-primary, .btn-warning {
+    font-size: 0.75rem; /* Taille réduite des boutons */
+    padding: 6px 12px; /* Plus petit padding pour les petits écrans */
+  }
+}

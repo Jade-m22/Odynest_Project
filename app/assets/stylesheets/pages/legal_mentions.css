@@ -75,3 +75,51 @@ body {
     font-size: 14px;
   }
 }
+
+/* Pour les très petits écrans (max-width: 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .legal-container {
+    padding: 15px;
+    margin: 20px;
+  }
+
+  .legal-title {
+    font-size: 24px;
+  }
+
+  .legal-heading {
+    font-size: 20px;
+  }
+
+  .legal-text {
+    font-size: 12px;
+  }
+
+  .legal-contact {
+    font-size: 14px;
+  }
+}
+
+/* Pour les écrans très larges (min-width: 1200px) */
+@media (min-width: 1200px) {
+  .legal-container {
+    max-width: 1100px;
+    padding: 60px;
+  }
+
+  .legal-title {
+    font-size: 36px;
+  }
+
+  .legal-heading {
+    font-size: 26px;
+  }
+
+  .legal-text {
+    font-size: 18px;
+  }
+}

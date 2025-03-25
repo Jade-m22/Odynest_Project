@@ -105,4 +105,107 @@ body {
 
 .btn-primary:hover {
   background-color: #d98c50;
+} 
+
+/* 🌍 Media Queries */
+
+/* 📱 Tablettes (768px et moins) */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 25px;
+  }
+
+  .contact-title {
+    font-size: 26px;
+  }
+
+  .contact-intro {
+    font-size: 14px;
+  }
+
+  .contact-email {
+    font-size: 14px;
+  }
+
+  .contact-form label {
+    font-size: 13px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 13px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+}
+
+/* 📱 Mobiles moyens (576px et moins) */
+@media (max-width: 576px) {
+  .contact-container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .contact-intro {
+    font-size: 13px;
+  }
+
+  .contact-email {
+    font-size: 13px;
+  }
+
+  .contact-form label {
+    font-size: 12px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 12px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+/* 📱 Petits mobiles (400px et moins) */
+@media (max-width: 400px) {
+  .contact-container {
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .contact-title {
+    font-size: 22px;
+  }
+
+  .contact-intro {
+    font-size: 12px;
+  }
+
+  .contact-email {
+    font-size: 12px;
+  }
+
+  .contact-form label {
+    font-size: 11px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 11px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
 }
