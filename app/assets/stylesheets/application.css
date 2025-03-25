@@ -53,3 +53,7 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+.opendys-font {
+  font-family: "OpenDyslexic", "Montserrat", "Playfair Display SC", sans-serif !important;
+}
