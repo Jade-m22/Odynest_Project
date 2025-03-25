@@ -4,11 +4,11 @@
 }
 
 .trend-card .card-body {
-  padding: 15px; /* Légèrement réduit pour s'adapter */
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centre le texte verticalement */
-  align-items: center; /* Centre horizontalement */
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -20,7 +20,7 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* Limite à 2 lignes pour la description des tendances */
+  -webkit-line-clamp: 1;
 }
 
 /* Cards expériences */
@@ -45,7 +45,6 @@
   transition: opacity 0.3s ease;
 }
 
-/* Contenu de la carte (titre, description, lieu, prix) */
 .card-content {
   position: absolute;
   top: 0;
@@ -62,6 +61,15 @@
   transition: opacity 0.3s ease;
 }
 
+.card-content .card-title {
+  margin-top: -40px;
+  margin-bottom: 15px;
+}
+
+.card-content .card-text {
+  margin: 0 15px 15px; /* Ajoute des marges à droite et à gauche de la description */
+}
+
 .card-experience:hover .card-image {
   opacity: 0.3;
 }
@@ -71,11 +79,10 @@
   opacity: 1;
 }
 
-/* Footer : il reste inchangé */
 .card-footer {
   margin-top: 20px;
   position: relative;
-  z-index: 1; /* Assure que le footer est au-dessus des autres éléments */
+  z-index: 1;
   text-align: center;
   background: none !important; /* Aucune couleur de fond appliquée ici */
 }
