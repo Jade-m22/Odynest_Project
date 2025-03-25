@@ -1,17 +1,17 @@
-<div class="registration-container">
+<main class="registration-container">
   <h2>Créer un compte</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { id: "registration-form" }) do |f| %>
     <%= render "providers/shared/error_messages", resource: resource %>
 
     <!-- Email -->
-    <div class="form-group">
+    <section class="form-group">
       <%= f.label :email %><br>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-field" %>
-    </div>
+    </section>
 
     <!-- Mot de passe avec œil -->
-    <div class="form-group">
+    <section class="form-group">
       <%= f.label :password %><br>
       <div class="password-wrapper">
         <%= f.password_field :password, class: "input-field", id: "user_password", autocomplete: "new-password" %>
@@ -19,35 +19,35 @@
           👁️
         </button>
       </div>
-    </div>
+    </section>
 
     <!-- Suggestion mot de passe -->
-    <div class="form-group">
+    <section class="form-group">
       <button type="button" class="suggestion-btn" onclick="generatePassword()">🔒 Suggérer un mot de passe sécurisé</button>
       <p id="suggested-password" class="hint"></p>
-    </div>
+    </section>
 
     <!-- Confirmation -->
-    <div class="form-group">
+    <section class="form-group">
       <%= f.label :password_confirmation %><br>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-field" %>
-    </div>
+    </section>
 
     <!-- ✅ Case à cocher pour accepter les CGU -->
-    <div class="form-group">
+    <section class="form-group">
       <label class="checkbox-label">
-      <%= check_box_tag :accept_terms, "1", false, id: "accept_terms" %>
+        <%= check_box_tag :accept_terms, "1", false, id: "accept_terms" %>
         J'accepte les <%= link_to "conditions générales d'utilisation", terms_path, target: "_blank", rel: "noopener", class: "terms-link" %>
       </label>
-    </div>
+    </section>
 
     <!-- Submit -->
-    <div class="form-actions">
+    <footer class="form-actions">
       <%= f.submit "Créer mon compte", class: "submit-btn" %>
-    </div>
+    </footer>
   <% end %>
 
-  <div class="form-links">
+  <nav class="form-links">
     <%= render "providers/shared/links" %>
-  </div>
-</div>
+  </nav>
+</main>

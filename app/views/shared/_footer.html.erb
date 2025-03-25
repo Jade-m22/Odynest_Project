@@ -1,16 +1,16 @@
 <footer class="footer d-flex align-items-center justify-content-between px-3">
-  <div class="footer-left d-flex flex-column flex-md-row align-items-center gap-2">
+  <section class="footer-left d-flex flex-column flex-md-row align-items-center gap-2">
     <strong>OdyNest</strong>
     <span class="text-muted small">| Votre partenaire pour des expériences inoubliables</span>
-  </div>
+  </section>
 
-  <div class="footer-links d-flex flex-wrap gap-3 justify-content-center">
+  <nav class="footer-links d-flex flex-wrap gap-3 justify-content-center">
     <%= link_to "Contact", contact_path, class: "text-dark small" %>
     <%= link_to "Politique de confidentialité", terms_path, class: "text-dark small" %>
     <%= link_to "Mentions légales", legal_mentions_path, class: "text-dark small" %>
-  </div>
+  </nav>
 
-  <div class="social-icons d-flex gap-3">
+  <section class="social-icons d-flex gap-3">
     <%= link_to "#", class: "text-dark", target: "_blank" do %>
       <i class="fa-brands fa-facebook-f"></i>
     <% end %>
@@ -20,5 +20,5 @@
     <%= link_to "#", class: "text-dark", target: "_blank" do %>
       <i class="fa-brands fa-instagram"></i>
     <% end %>
-  </div>
+  </section>
 </footer>
