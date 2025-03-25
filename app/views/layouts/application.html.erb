@@ -29,7 +29,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+    </head>
+
+  <body class="<%= 'opendys-font' if session[:dyslexic_font] %>">
     <header>
       <%= render 'shared/navbar' %>  <!-- Inclusion de la navbar -->
     </header>
@@ -43,3 +45,4 @@
     </footer>
   </body>
 </html>
+
