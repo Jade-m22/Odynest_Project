@@ -1,3 +1,4 @@
+/* Flèche pour remonter en haut de page */
 .back-to-top-fixed {
   position: fixed;
   bottom: 30px;
@@ -16,4 +17,100 @@
 
 .back-to-top-fixed:hover {
   background-color: #024b4d;
+}
+
+/* SHOW EXPÉRIENCES */
+section.container {
+  padding: 40px 20px;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mise en page à deux colonnes */
+.experience-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* Espacement entre l'image et le texte */
+}
+
+/* Image */
+.image-container {
+  flex: 1;
+  max-width: 500px; /* Limite la largeur de l'image */
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Texte */
+.text-content {
+  flex: 2;
+  max-width: 650px;
+}
+
+/* Titre */
+h1 {
+  font-family: var(--primary-font), sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+/* Section Détails */
+.details p {
+  font-family: var(--montserrat-regular);
+  font-size: 16px;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.details strong {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* FORMULAIRE */
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.form-container h4 {
+  font-family: var(--montserrat-regular);
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+/* MOBILE STYLES */
+@media (max-width: 767px) {
+  section.container {
+    padding: 20px;
+  }
+
+  /* Mise en page mobile : Image en haut et texte en dessous */
+  .experience-content {
+    flex-direction: column;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 200px;
+  }
+
+  .text-content {
+    width: 100%;
+  }
 }
