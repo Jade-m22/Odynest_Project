@@ -1,34 +1,38 @@
-<div class="container mt-5">
-  <h1 class="text-center">Réservations pour <%= @experience.title %></h1>
+<main class="mt-5">
+  <header class="text-center">
+    <h1>Réservations pour <%= @experience.title %></h1>
+  </header>
 
   <% if @reservations.any? %>
-    <table class="table table-striped mt-4">
-      <thead>
-        <tr>
-          <th>Créateur de l'événement</th>
-          <th>Date de réservation</th>
-          <th>Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @reservations.each do |reservation| %>
+    <section class="mt-4">
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <td><%= reservation.user.email %></td>
-            <td><%= reservation.reservation_date.strftime("%d/%m/%Y") if reservation.reservation_date %></td>
-            <td><%= reservation.status || "En attente" %></td>
-            <td>
-              <%= link_to "Annuler", experience_reservation_path(@experience, reservation), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir annuler cette réservation ?" }, class: "btn btn-danger btn-sm" %>
-            </td>
+            <th>Créateur de l'événement</th>
+            <th>Date de réservation</th>
+            <th>Status</th>
+            <th>Actions</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @reservations.each do |reservation| %>
+            <tr>
+              <td><%= reservation.user.email %></td>
+              <td><%= reservation.reservation_date.strftime("%d/%m/%Y") if reservation.reservation_date %></td>
+              <td><%= reservation.status || "En attente" %></td>
+              <td>
+                <%= link_to "Annuler", experience_reservation_path(@experience, reservation), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir annuler cette réservation ?" }, class: "btn btn-danger btn-sm" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
   <% else %>
     <p class="text-center mt-4">Aucune réservation pour cette expérience.</p>
   <% end %>
 
-  <div class="text-center mt-4">
+  <footer class="text-center mt-4">
     <%= link_to "Retour à l'expérience", experience_path(@experience), class: "btn btn-secondary" %>
-  </div>
-</div>
+  </footer>
+</main>

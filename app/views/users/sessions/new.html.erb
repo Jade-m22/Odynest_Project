@@ -1,39 +1,39 @@
-<div class="login-container">
+<section class="login-container">
   <h2>Connexion</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
 
     <!-- Email -->
-    <div class="form-group">
+    <fieldset class="form-group">
       <%= f.label :email %><br>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-field" %>
-    </div>
+    </fieldset>
 
     <!-- Mot de passe avec œil -->
-    <div class="form-group">
+    <fieldset class="form-group">
       <%= f.label :password %><br>
       <div class="password-wrapper">
         <%= f.password_field :password, autocomplete: "current-password", class: "input-field", id: "login_password" %>
         <button type="button" class="toggle-password" data-target="login_password">👁️</button>
       </div>
-    </div>
+    </fieldset>
 
     <!-- Se souvenir de moi -->
     <% if devise_mapping.rememberable? %>
-      <div class="form-group">
+      <fieldset class="form-group">
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
-      </div>
+      </fieldset>
     <% end %>
 
     <!-- Bouton -->
-    <div class="form-actions">
+    <footer class="form-actions">
       <%= f.submit "Se connecter", class: "submit-btn" %>
-    </div>
+    </footer>
   <% end %>
 
-  <div class="form-links">
+  <nav class="form-links">
     <%= render "users/shared/links" %>
-  </div>
-</div>
+  </nav>
+</section>
