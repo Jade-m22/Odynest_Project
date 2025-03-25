@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "users/dashboard", to: "users#dashboard", as: "user_dashboard"
   get "user/settings", to: "users#settings", as: :user_settings
   get "provider/settings", to: "providers#settings", as: :provider_settings
+  get "/toggle_font", to: "fonts#toggle", as: :toggle_font
 
   resources :users, only: %i[index show edit update destroy]
   resources :providers, only: %i[index edit update destroy]

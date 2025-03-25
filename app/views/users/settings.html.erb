@@ -1,1 +1,5 @@
-reglages du site
+<%= link_to(
+      session[:dyslexic_font] ? "Désactiver la police OpenDyslexic" : "Activer la police OpenDyslexic",
+      toggle_font_path,
+      class: "btn btn-secondary"
+    ) %>
