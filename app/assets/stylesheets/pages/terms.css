@@ -92,3 +92,57 @@ body {
     font-size: 14px;
   }
 }
+
+/* Pour les petits écrans (max-width: 480px) */
+@media (max-width: 480px) {
+  .terms-container {
+    padding: 15px;
+  }
+
+  .terms-title {
+    font-size: 24px;
+  }
+
+  .terms-date {
+    font-size: 12px;
+  }
+
+  .terms-container h2 {
+    font-size: 20px;
+  }
+
+  .terms-container p {
+    font-size: 12px;
+  }
+
+  .terms-container a {
+    font-size: 14px;
+  }
+}
+
+/* Pour les très petits écrans ou très hautes résolutions */
+@media (max-width: 320px) {
+  .terms-container {
+    padding: 10px;
+  }
+
+  .terms-title {
+    font-size: 20px;
+  }
+
+  .terms-date {
+    font-size: 12px;
+  }
+
+  .terms-container h2 {
+    font-size: 18px;
+  }
+
+  .terms-container p {
+    font-size: 11px;
+  }
+
+  .terms-container a {
+    font-size: 12px;
+  }
+}

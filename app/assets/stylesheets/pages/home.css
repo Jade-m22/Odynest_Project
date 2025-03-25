@@ -176,4 +176,81 @@
   .trends-banner {
     height: 100px;
   }
+} 
+
+/* Tablettes (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-banner {
+    height: 35vh;
+  }
+
+  .presentation-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .presentation-texts {
+    width: 80%;
+  }
+
+  .presentation-images {
+    width: 80%;
+    justify-content: center;
+  }
+
+  .presentation-images img {
+    width: 45%;
+    height: auto;
+    max-width: 200px;
+  }
+
+  .trends-title {
+    font-size: 22px;
+  }
+}
+
+/* Petits écrans (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-banner {
+    height: 40vh;
+  }
+
+  .banner-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .presentation-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .presentation-texts {
+    width: 90%;
+  }
+
+  .presentation-images {
+    width: 90%;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .presentation-images img {
+    width: 80%;
+    height: auto;
+    max-width: 120px;
+  }
+
+  .filter-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .trends-banner {
+    height: 80px;
+  }
 }
