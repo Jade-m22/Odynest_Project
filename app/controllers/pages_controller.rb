@@ -18,4 +18,9 @@ class PagesController < ApplicationController
 
   def terms
   end
+
+  def toggle_font
+    session[:dyslexic_font] = !session[:dyslexic_font]
+    redirect_back fallback_location: root_path, notice: "Préférence de police mise à jour"
+  end  
 end
