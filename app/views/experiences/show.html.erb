@@ -46,13 +46,38 @@
           </div>
         <% end %>
       </section>
+
+      <!-- Section Avis -->
+      <section class="reviews-section mt-4">
+        <h3>Avis des participants</h3>
+
+        <!-- Affichage des avis existants -->
+        <% if @experience.reviews.any? %>
+          <% @experience.reviews.each do |review| %>
+            <div class="review-card">
+              <p><strong><%= review.user.email %></strong> - Note : <%= review.rating %>/5</p>
+              <p><%= review.comment %></p>
+            </div>
+          <% end %>
+        <% else %>
+          <p>Aucun avis pour le moment.</p>
+        <% end %>
+
+        <!-- Formulaire d'avis visible uniquement si l'utilisateur a réservé ET n'est pas un administrateur -->
+        <% if current_user && current_user.reservations.exists?(experience: @experience) && !current_user.admin? %>
+          <h3>Laisser un avis</h3>
+          <%= render 'reviews/form', experience: @experience, review: Review.new %>
+        <% else %>
+          <p class="text-muted">Vous devez avoir participé à cette expérience pour laisser un avis.</p>
+        <% end %>
+      </section>
     </div>
   </div>
 
   <!-- Section Actions -->
   <footer class="mt-4 text-center">
     <%= link_to 'Retour à la liste des expériences', experiences_path, class: 'btn btn-secondary' %>
-    <% if current_user&.admin? || current_provider == @experience.provider %>
+    <% if current_user&.admin? || current_user == @experience.provider %>
       <%= link_to 'Modifier', edit_experience_path(@experience), class: 'btn btn-primary' %>
       <%= form_with url: experience_path(@experience), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette expérience ?' } do %>
         <button type="submit" class="btn-delete">
