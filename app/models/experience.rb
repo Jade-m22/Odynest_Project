@@ -4,6 +4,8 @@ class Experience < ApplicationRecord
     has_many :users, through: :reservations
     has_many :reviews, dependent: :destroy
 
+    has_one_attached :photo
+
     validates :title, :description, :price, :location, :duration, :start_date_1, :start_date_2, :start_date_3, presence: true
 
     def available_dates

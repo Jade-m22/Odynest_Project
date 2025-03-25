@@ -55,6 +55,11 @@
     <%= f.datetime_select :start_date_3, class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :photo, "Photo de l'expérience" %>
+    <%= f.file_field :photo, class: "form-control" %>
+  </div>
+
   <%= f.submit "Créer l'expérience", class: "btn btn-primary" %>
 <% end %>
 
