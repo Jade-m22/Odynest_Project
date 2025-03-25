@@ -7,8 +7,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
           <li class="nav-item <%= 'active' if current_page?(root_path) %>">
             <%= link_to "Accueil", root_path, class: "nav-link" %>
           </li>
@@ -52,14 +52,14 @@
             </li>
 
           <% else %>
-            <li class="nav-item">
-              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-outline-primary mx-2" %>
+            <li class="nav-item ms-2">
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-outline-primary" %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ms-2">
               <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary text-white" %>
             </li>
-            <li class="nav-item">
-              <%= link_to "Espace pro", new_provider_registration_path, class: "btn btn-warning text-dark mx-2" %>
+            <li class="nav-item ms-2">
+              <%= link_to "Espace pro", new_provider_registration_path, class: "btn btn-warning text-dark" %>
             </li>
           <% end %>
         </ul>
