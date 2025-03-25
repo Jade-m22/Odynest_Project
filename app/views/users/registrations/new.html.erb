@@ -1,40 +1,45 @@
-<h2>Sign up</h2>
+<div class="registration-container">
+  <h2>Créer un compte</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <!-- Email -->
+    <div class="form-group">
+      <%= f.label :email %><br>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-field" %>
+    </div>
 
-  <!-- Champ Mot de passe avec affichage et suggestion -->
-  <div class="mb-3">
-    <%= f.label :password, "Mot de passe" %><br />
-    <div class="input-group">
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "password" %>
-      <div class="input-group-append">
-        <button type="button" class="btn btn-outline-secondary" onclick="togglePassword()">
-          <i class="fa fa-eye" id="togglePasswordIcon"></i>
+    <!-- Mot de passe avec œil -->
+    <div class="form-group">
+      <%= f.label :password %><br>
+      <div class="password-wrapper">
+        <%= f.password_field :password, class: "input-field", id: "user_password", autocomplete: "new-password" %>
+        <button type="button" class="toggle-password" data-target="user_password">
+          👁️
         </button>
       </div>
     </div>
 
-    <!-- Bouton pour suggérer un mot de passe -->
-    <div class="mt-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="generatePassword()">🔒 Suggérer un mot de passe sécurisé</button>
-      <p id="suggested-password" class="text-muted mt-1" style="font-size: 13px;"></p>
+    <!-- Suggestion mot de passe -->
+    <div class="form-group">
+      <button type="button" class="suggestion-btn" onclick="generatePassword()">🔒 Suggérer un mot de passe sécurisé</button>
+      <p id="suggested-password" class="hint"></p>
     </div>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "password_confirmation" %>
-  </div>
+    <!-- Confirmation -->
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-field" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <!-- Submit -->
+    <div class="form-actions">
+      <%= f.submit "Créer mon compte", class: "submit-btn" %>
+    </div>
+  <% end %>
 
-<%= render "users/shared/links" %> 
+  <div class="form-links">
+    <%= render "users/shared/links" %>
+  </div>
+</div>
