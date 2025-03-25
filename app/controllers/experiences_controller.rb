@@ -58,13 +58,14 @@ class ExperiencesController < ApplicationController
 
   # Supprime une expérience
   def destroy
-    if @experience.reservations.empty?
+    if @experience.reservations.exists?
+      redirect_to @experience, alert: "Impossible de supprimer une expérience avec des réservations en cours."
+    else
       @experience.destroy
       redirect_to experiences_path, notice: "Expérience supprimée avec succès."
-    else
-      redirect_to @experience, alert: "Impossible de supprimer une expérience avec des réservations."
     end
   end
+
 
   private
 
@@ -75,7 +76,7 @@ class ExperiencesController < ApplicationController
 
   # Permet de sécuriser les paramètres de l'expérience
   def experience_params
-    params.require(:experience).permit(:title, :description, :price, :location, :duration, :start_date_1, :start_date_2, :start_date_3)
+    params.require(:experience).permit(:title, :description, :price, :location, :duration, :start_date_1, :start_date_2, :start_date_3, :photo)
   end
 
   # Vérifie si l'utilisateur actuel est un admin ou un provider
