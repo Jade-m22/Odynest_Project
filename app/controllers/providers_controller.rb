@@ -1,6 +1,10 @@
 class ProvidersController < ApplicationController
   before_action :set_provider, only: %i[show edit update destroy dashboard]
 
+  def index
+    @providers = Provider.all
+  end
+
   def new
     @provider = Provider.new
   end
