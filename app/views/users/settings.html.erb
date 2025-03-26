@@ -3,3 +3,21 @@
       toggle_font_path,
       class: "btn btn-secondary"
     ) %>
+    
+    <h3>Accessibilité visuelle</h3>
+
+<%= form_with url: set_daltonism_path, method: :get, local: true do %>
+  <div class="form-group">
+    <label for="daltonism_mode">Mode de vision des couleurs :</label>
+    <%= select_tag :mode,
+        options_for_select([
+          ['Aucun filtre', 'normal'],
+          ['Protanopie (rouge)', 'protanopia'],
+          ['Deutéranopie (vert)', 'deuteranopia'],
+          ['Tritanopie (bleu)', 'tritanopia'],
+          ['Achromatopsie (aucune couleur)', 'achromatopsia']
+        ], session[:daltonism_mode] || 'normal'),
+        class: "form-control" %>
+    <%= submit_tag "Appliquer", class: "btn btn-secondary mt-2" %>
+  </div>
+<% end %>
