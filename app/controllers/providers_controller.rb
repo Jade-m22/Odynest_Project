@@ -44,6 +44,6 @@ class ProvidersController < ApplicationController
   end
 
   def provider_params
-    params.require(:provider).permit(:email, :password, :password_confirmation)
+    params.require(:provider).permit(:email, :password, :password_confirmation, :profile_picture, :first_name)
   end
 end

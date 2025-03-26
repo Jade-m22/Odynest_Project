@@ -1,0 +1,11 @@
+/* Photo de profil */
+.profile-picture-container {
+  position: fixed;
+  top: 80px;  /* Placez la photo juste sous la navbar */
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ddd;
+}
