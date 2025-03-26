@@ -1,4 +1,4 @@
-/* Photo de profil */
+/* Photo de profil provider */
 .profile-picture-container {
   position: fixed;
   top: 80px;  /* Placez la photo juste sous la navbar */
@@ -8,4 +8,75 @@
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid #ddd;
+}
+
+/* Global styles */
+.dashboard-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.experiences-table-container {
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.experiences-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.experiences-table th, .experiences-table td {
+  padding: 15px;
+  text-align: left;
+}
+
+.experiences-table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.1rem;
+}
+
+.experiences-table td {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.experiences-table tr:hover {
+  background-color: #f1f1f1; /* Fond clair au survol */
+}
+
+.experience-title-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.experience-title-link:hover {
+  text-decoration: underline;
+}
+
+.participants-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.participants-list li {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.dashboard-exp-title {
+  color: black;
+  font-weight: 700;
 }

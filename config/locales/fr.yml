@@ -1,0 +1,9 @@
+# config/locales/fr.yml
+fr:
+  number:
+    currency:
+      format:
+        unit: "€"
+        separator: ","
+        delimiter: " "
+        format: "%n %u"
