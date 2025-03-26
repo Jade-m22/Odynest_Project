@@ -89,6 +89,15 @@
   .btn-cancel:hover {
     background: #ddd;
   }
+
+  /* Photo de profil formulaire d'édition providers */
+  .profile-picture {
+    border-radius: 50%; /* Rend l'image ronde */
+    width: 150px; /* Largeur souhaitée pour l'image */
+    height: 150px; /* Hauteur souhaitée pour l'image */
+    object-fit: cover; /* Assure que l'image remplit bien le cercle */
+  }
+  
   
   /* Réactivité - Adaptation aux écrans plus petits */
   @media (max-width: 768px) {
