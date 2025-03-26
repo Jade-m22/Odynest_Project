@@ -1,7 +1,7 @@
 /* Flèche pour remonter en haut de page */
 .back-to-top-fixed {
   position: fixed;
-  bottom: 30px;
+  bottom: 55px;
   right: 30px;
   background-color: #046d70;
   color: #fff;
@@ -20,7 +20,6 @@
 }
 
 /* SHOW EXPÉRIENCES */
-
 
 /* Mise en page à deux colonnes */
 .experience-content {

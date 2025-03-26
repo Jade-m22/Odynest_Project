@@ -1,0 +1,86 @@
+/* Bouton d’ouverture */
+#faq-toggle-btn {
+  position: fixed;
+  bottom: 120px;
+  right: 27px;
+  width: 45px;
+  height: 45px;
+  font-size: 22px;
+  border-radius: 50%;
+  background-color: #046d70;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease;
+}
+
+#faq-toggle-btn:hover {
+  background-color: #035759;
+}
+
+/* Boîte du chatbot */
+#faq-bot {
+  position: fixed;
+  bottom: 166px;
+  right: 20px;
+  width: 280px;
+  font-size: 14px;
+  z-index: 1000;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e0e0e0;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Contenu */
+.faq-chat {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-header {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #046d70;
+  display: flex;
+  align-items: center;
+}
+
+.faq-body {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.faq-body p {
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+/* Menu déroulant */
+#faq-select {
+  margin-top: 5px;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-family: inherit;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+#faq-select:focus {
+  border-color: #046d70;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(4, 109, 112, 0.2);
+}
