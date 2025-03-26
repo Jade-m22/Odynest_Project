@@ -1,4 +1,9 @@
 <%= form_with(model: [experience, review], local: true) do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :user_pseudo, "Pseudo de l'utilisateur" %>
+    <%= f.text_field :user_pseudo, value: current_user.username.presence, class: "form-control" %>
+  </div>
 
   <div class="form-group">
     <%= f.label :rating, "Note (1 à 5)" %>
