@@ -12,8 +12,8 @@ class Experience < ApplicationRecord
     validate :at_least_one_future_date
   
     def available_dates
-      [start_date_1, start_date_2, start_date_3].compact
-    end
+      [start_date_1, start_date_2, start_date_3].compact.map { |date| Date.parse(date) rescue nil }.compact
+    end    
   
     def past_dates
       available_dates.select { |d| d < Date.today }

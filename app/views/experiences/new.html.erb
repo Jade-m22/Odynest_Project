@@ -40,21 +40,21 @@
       {}, class: "form-control" %>
   </article>
 
-  <!-- Dates -->
   <article class="form-group">
-    <%= f.label :start_date_1, "Première date de début" %>
-    <%= f.datetime_select :start_date_1, class: "form-control" %>
+    <%= f.label :start_date_1, "Première date" %>
+    <%= f.date_field :start_date_1, class: "form-control", required: true %>
   </article>
 
   <article class="form-group">
-    <%= f.label :start_date_2, "Deuxième date de début" %>
-    <%= f.datetime_select :start_date_2, class: "form-control" %>
+    <%= f.label :start_date_2, "Deuxième date" %>
+    <%= f.date_field :start_date_2, class: "form-control", required: true %>
   </article>
 
   <article class="form-group">
-    <%= f.label :start_date_3, "Troisième date de début" %>
-    <%= f.datetime_select :start_date_3, class: "form-control" %>
+    <%= f.label :start_date_3, "Troisième date" %>
+    <%= f.date_field :start_date_3, class: "form-control", required: true %>
   </article>
+
 
   <article class="form-group">
     <%= f.label :photo, "Photo de l'expérience" %>
