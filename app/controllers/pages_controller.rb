@@ -3,8 +3,12 @@ class PagesController < ApplicationController
   end
 
   def home
-    @experiences = Experience.all
     @trends = Experience.order("RANDOM()").limit(3)
+    if provider_signed_in?
+      @experiences = current_provider.experiences
+    else
+      @experiences = Experience.all
+    end
   end
 
   def about
