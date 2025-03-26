@@ -1,30 +1,31 @@
-<h1>Tableau de bord - Prestataire</h1>
+<h1 class="dashboard-title">Tableau de bord</h1>
 
-<h2>Vos Expériences</h2>
+<h2 class="dashboard-exp-title">Vos Expériences</h2>
 
 <div class="profile-picture-container">
-  <%= image_tag @provider.profile_picture_url.presence || 'default-profile.jpg', alt: "Photo de profil de #{@provider.first_name}", class: "img-fluid rounded-circle" %>
+  <%= image_tag @provider.profile_picture_url.presence || 'default-profile.jpg', alt: "Photo de profil de #{@provider.first_name}", class: "profile-picture img-fluid" %>
 </div>
 
-
 <% if @experiences.any? %>
-  <section>
-    <table>
+  <section class="experiences-table-container">
+    <table class="table experiences-table">
       <thead>
         <tr>
           <th>Expérience</th>
           <th>Lieu</th>
           <th>Participants</th>
+          <th>Nombre d'avis</th>
+          <th>Revenu total</th>
         </tr>
       </thead>
       <tbody>
         <% @experiences.each do |experience| %>
           <tr>
-            <td><%= link_to experience.title, experience_path(experience) %></td>
+            <td><%= link_to experience.title, experience_path(experience), class: 'experience-title-link' %></td>
             <td><%= experience.location %></td>
             <td>
               <% if experience.users.any? %>
-                <ul>
+                <ul class="participants-list">
                   <% experience.users.each do |user| %>
                     <li><%= user.email %></li>
                   <% end %>
@@ -32,6 +33,12 @@
               <% else %>
                 Aucun participant
               <% end %>
+            </td>
+            <td>
+              <%= experience.reviews.count %>
+            </td>
+            <td>
+              <%= number_to_currency(experience.price * experience.users.count, locale: :fr) %>
             </td>
           </tr>
         <% end %>
