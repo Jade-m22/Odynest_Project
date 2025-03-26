@@ -1,13 +1,4 @@
 <section class="container text-center mt-5">
-  <header>
-    <% if provider_signed_in? %>
-      <h1 class="mb-4">Votre liste d'expériences</h1>
-    <% elsif user_signed_in? && current_user.admin? %>
-      <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
-    <% else %>
-      <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
-    <% end %>
-  </header>
 
   <% if controller_name == "experiences" && action_name == "index" %>
     <%= form_with url: experiences_path, method: :get, local: true, class: "filter-form" do %>

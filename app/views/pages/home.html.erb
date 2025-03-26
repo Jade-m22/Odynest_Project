@@ -3,8 +3,10 @@
 
 <section class="experiences">
   <% if provider_signed_in? %>
+  <h1 class="mb-4 centered-title">Votre liste d'expériences</h1>
     <%= render "experiences/cards", experiences: current_provider.experiences %>
   <% else %>
+    <h1 class="mb-4 centered-title">Découvrez des expériences inoubliables ✈️🌍</h1>
     <%= render "experiences/cards", experiences: @experiences.limit(6) %>
   <% end %>
 

@@ -146,6 +146,17 @@
   background-color: #f1f1f1;
 }
 
+.centered-title {
+  text-align: center; /* Centre le texte horizontalement */
+  margin-top: 50px; /* Ajoute une marge en haut (tu peux ajuster la valeur selon tes besoins) */
+}
+
+.centered-title h1 {
+  font-size: 2rem; /* Ajuste la taille de la police si nécessaire */
+  font-weight: bold;
+}
+
+
 /* Responsive mobile/tablette */
 @media (max-width: 768px) {
   .content-wrapper {
