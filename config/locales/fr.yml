@@ -7,3 +7,53 @@ fr:
         separator: ","
         delimiter: " "
         format: "%n %u"
+  
+  time:
+    formats:
+      long: "%A %d %B %Y"
+
+  date:
+    day_names:
+      - "Dimanche"
+      - "Lundi"
+      - "Mardi"
+      - "Mercredi"
+      - "Jeudi"
+      - "Vendredi"
+      - "Samedi"
+    abbr_day_names:
+      - "dim."
+      - "lun."
+      - "mar."
+      - "mer."
+      - "jeu."
+      - "ven."
+      - "sam."
+    month_names:
+      - ""
+      - "janvier"
+      - "février"
+      - "mars"
+      - "avril"
+      - "mai"
+      - "juin"
+      - "juillet"
+      - "août"
+      - "septembre"
+      - "octobre"
+      - "novembre"
+      - "décembre"
+    abbr_month_names:
+      - ""
+      - "janv."
+      - "févr."
+      - "mars"
+      - "avr."
+      - "mai"
+      - "juin"
+      - "juil."
+      - "août"
+      - "sept."
+      - "oct."
+      - "nov."
+      - "déc."

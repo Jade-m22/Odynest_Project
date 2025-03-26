@@ -10,7 +10,7 @@
   border: 2px solid #ddd;
 }
 
-/* Global styles */
+/* Dashboard provider */
 .dashboard-title {
   font-size: 1.75rem;
   font-weight: bold;
@@ -79,4 +79,100 @@
 .dashboard-exp-title {
   color: black;
   font-weight: 700;
+}
+
+/* Dashboard user & admin */
+.user-dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.user-dashboard-table thead {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.1rem;
+}
+
+.user-dashboard-table tbody tr {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-dashboard-table tbody tr:hover {
+  background-color: #f7f7f7;
+}
+
+.user-dashboard-table th, .user-dashboard-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.user-dashboard-table td a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.user-dashboard-table td a:hover {
+  text-decoration: underline;
+}
+
+/* Boutons dans le dashboard utilisateur */
+.user-dashboard-btn {
+  padding: 10px 20px;
+  margin-top: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
+
+.user-dashboard-btn-primary {
+  background-color: var(--primary-color);
+}
+
+.user-dashboard-btn-primary:hover {
+  background-color: #007bff;
+}
+
+.user-dashboard-btn-secondary {
+  background-color: var(--secondary-color);
+}
+
+.user-dashboard-btn-secondary:hover {
+  background-color: #e68a00;
+}
+
+/* Réponses conditionnelles (admin vs user) */
+.user-dashboard-admin-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.user-dashboard-user-actions {
+  margin-top: 20px;
+}
+
+/* Ajouter des marges et padding pour chaque section */
+.user-dashboard-section {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-dashboard-section-title {
+  color: var(--primary-color);
+}
+
+.user-dashboard-title {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 20px;
 }
