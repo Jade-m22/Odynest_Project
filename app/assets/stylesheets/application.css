@@ -22,6 +22,7 @@
 @import url("components/buttons.css");
 @import url("components/cards.css");
 @import url("components/forms.css");
+@import url("components/chatbot.css");
 
 /* Import des styles spécifiques aux pages */
 @import url("pages/home.css");
@@ -72,56 +73,4 @@ main {
 
 .achromatopsia {
   filter: grayscale(100%);
-}
-
-#faq-toggle-btn {
-  position: fixed;
-  bottom: 120px; /* ajuste selon ton footer */
-  right: 27px;
-  width: 45px;
-  height: 45px;
-  font-size: 22px;
-  border-radius: 50%;
-  background-color: #046d70;
-  color: white;
-  border: none;
-  z-index: 9999;
-  cursor: pointer;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-}
-
-#faq-bot {
-  position: fixed;
-  bottom: 166px; /* un peu au-dessus du bouton */
-  right: 20px;
-  width: 280px;
-  font-size: 14px;
-  z-index: 1000;
-  border: 1px solid #ccc;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 15px;
-}
-
-.faq-chat {
-  display: flex;
-  flex-direction: column;
-}
-
-.faq-header {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.faq-body {
-  max-height: 150px;
-  overflow-y: auto;
-  margin-bottom: 10px;
-}
-
-#faq-input {
-  width: 100%;
-  padding: 5px;
-  box-sizing: border-box;
 }
