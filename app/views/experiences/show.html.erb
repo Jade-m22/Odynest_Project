@@ -55,7 +55,7 @@
         <% if @experience.reviews.any? %>
           <% @experience.reviews.each do |review| %>
             <div class="review-card">
-              <p><strong><%= review.user.email %></strong> - Note : <%= review.rating %>/5</p>
+              <p><strong><%= review.user.username.presence || 'Anonyme' %></strong> - Note : <%= review.rating %>/5</p>
               <p><%= review.comment %></p>
             </div>
           <% end %>

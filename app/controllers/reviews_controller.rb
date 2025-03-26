@@ -7,6 +7,11 @@ class ReviewsController < ApplicationController
         @experience = Experience.find(params[:experience_id])
         @review = @experience.reviews.build(review_params)
         @review.user = current_user
+
+        if params[:review][:user_pseudo].present? && current_user.username != params[:review][:user_pseudo]
+            current_user.update(username: params[:review][:user_pseudo])
+        end
+        
         if @review.save
             redirect_to experience_path(@experience), notice: "Avis ajouté"
         else
