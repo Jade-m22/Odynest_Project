@@ -73,3 +73,38 @@ main {
 .achromatopsia {
   filter: grayscale(100%);
 }
+
+#faq-bot {
+  position: fixed;
+  bottom: 60px;
+  left: 10px;
+  right: auto;
+  width: 280px;
+  font-size: 14px;
+  z-index: 9999;
+}
+
+.faq-chat {
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+.faq-header {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.faq-body {
+  max-height: 150px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+#faq-input {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}

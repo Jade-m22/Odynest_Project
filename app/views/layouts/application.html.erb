@@ -44,6 +44,8 @@
       <%= yield %>
     </main>
 
+    <%= javascript_include_tag "chatbot", defer: true %>
+
     <footer>
       <%= render 'shared/footer' %>  <!-- Inclusion du footer -->
     </footer>
