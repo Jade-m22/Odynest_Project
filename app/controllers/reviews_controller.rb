@@ -32,8 +32,9 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
+        @review = Review.find(params[:id])
         @‌review.destroy
-        redirect_to experience_path(@review.experience), notice: "Avis supprim\u00E9."
+        redirect_to experience_path(@review.experience), notice: "Avis supprimé."
     end
 
     private
