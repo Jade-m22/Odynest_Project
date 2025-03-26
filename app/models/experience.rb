@@ -9,6 +9,18 @@ class Experience < ApplicationRecord
     validates :title, :description, :price, :location, :duration, :start_date_1, :start_date_2, :start_date_3, presence: true
 
     def available_dates
-        [ start_date_1, start_date_2, start_date_3 ].compact
-    end
-end
+        [start_date_1, start_date_2, start_date_3].compact
+      end
+      
+      def past_dates
+        available_dates.select { |d| d < Date.today }
+      end
+      
+      def future_dates
+        available_dates.select { |d| d >= Date.today }
+      end
+      
+      def has_expired_dates?
+        past_dates.any?
+      end
+  end
