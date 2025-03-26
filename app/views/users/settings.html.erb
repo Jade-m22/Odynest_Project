@@ -1,23 +1,43 @@
-<%= link_to(
-      session[:dyslexic_font] ? "Désactiver la police OpenDyslexic" : "Activer la police OpenDyslexic",
-      toggle_font_path,
-      class: "btn btn-secondary"
-    ) %>
-    
-    <h3>Accessibilité visuelle</h3>
+<section class="accessibility-settings container my-5">
+  <h2 class="mb-4">Options d'accessibilité</h2>
 
-<%= form_with url: set_daltonism_path, method: :get, local: true do %>
-  <div class="form-group">
-    <label for="daltonism_mode">Mode de vision des couleurs :</label>
-    <%= select_tag :mode,
-        options_for_select([
-          ['Aucun filtre', 'normal'],
-          ['Protanopie (rouge)', 'protanopia'],
-          ['Deutéranopie (vert)', 'deuteranopia'],
-          ['Tritanopie (bleu)', 'tritanopia'],
-          ['Achromatopsie (aucune couleur)', 'achromatopsia']
-        ], session[:daltonism_mode] || 'normal'),
-        class: "form-control" %>
-    <%= submit_tag "Appliquer", class: "btn btn-secondary mt-2" %>
+  <!-- 🧠 Police spéciale dyslexie -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Police OpenDyslexic</h5>
+      <p class="card-text">
+        Activez une police conçue pour améliorer la lisibilité chez les personnes dyslexiques.
+      </p>
+      <%= link_to(
+            session[:dyslexic_font] ? "Désactiver la police" : "Activer la police OpenDyslexic",
+            toggle_font_path,
+            class: "btn btn-outline-primary"
+          ) %>
+    </div>
   </div>
-<% end %>
+
+  <!-- 👁️ Mode daltonisme -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Filtre de vision des couleurs</h5>
+      <p class="card-text">
+        Choisissez un filtre de couleurs adapté à votre type de vision. Cela peut améliorer la lisibilité pour les personnes atteintes de daltonisme.
+      </p>
+
+      <%= form_with url: set_daltonism_path, method: :get, local: true do %>
+        <div class="mb-3">
+          <%= select_tag :mode,
+              options_for_select([
+                ['Aucun filtre', 'normal'],
+                ['Protanopie (rouge)', 'protanopia'],
+                ['Deutéranopie (vert)', 'deuteranopia'],
+                ['Tritanopie (bleu)', 'tritanopia'],
+                ['Achromatopsie (aucune couleur)', 'achromatopsia']
+              ], session[:daltonism_mode] || 'normal'),
+              class: "form-select" %>
+        </div>
+        <%= submit_tag "Appliquer", class: "btn btn-outline-primary" %>
+      <% end %>
+    </div>
+  </div>
+</section>
