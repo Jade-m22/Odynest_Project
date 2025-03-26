@@ -3,7 +3,7 @@
 <h2>Vos Expériences</h2>
 
 <div class="profile-picture-container">
-  <%= image_tag @provider.profile_picture_url, alt: "Photo de profil", class: "profile-picture" %>
+  <%= image_tag @provider.profile_picture_url.presence || 'default-profile.jpg', alt: "Photo de profil de #{@provider.first_name}", class: "img-fluid rounded-circle" %>
 </div>
 
 
