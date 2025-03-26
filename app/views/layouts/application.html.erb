@@ -31,7 +31,11 @@
 
     </head>
 
-  <body class="<%= 'opendys-font' if session[:dyslexic_font] %>">
+  <body class="<%= [
+    ('opendys-font' if session[:dyslexic_font]),
+    (session[:daltonism_mode] unless session[:daltonism_mode] == 'normal')
+  ].compact.join(' ') %>">
+
     <header>
       <%= render 'shared/navbar' %>  <!-- Inclusion de la navbar -->
     </header>

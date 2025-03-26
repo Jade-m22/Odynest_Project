@@ -57,3 +57,19 @@ main {
 .opendys-font {
   font-family: "OpenDyslexic", "Montserrat", "Playfair Display SC", sans-serif !important;
 }
+
+.protanopia {
+  filter: url("#protanopia");
+}
+
+.deuteranopia {
+  filter: url("#deuteranopia");
+}
+
+.tritanopia {
+  filter: url("#tritanopia");
+}
+
+.achromatopsia {
+  filter: grayscale(100%);
+}
