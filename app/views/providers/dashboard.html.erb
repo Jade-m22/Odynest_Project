@@ -2,6 +2,11 @@
 
 <h2>Vos Expériences</h2>
 
+<div class="profile-picture-container">
+  <%= image_tag @provider.profile_picture_url, alt: "Photo de profil", class: "profile-picture" %>
+</div>
+
+
 <% if @experiences.any? %>
   <section>
     <table>
