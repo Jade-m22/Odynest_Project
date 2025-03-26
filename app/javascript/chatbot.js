@@ -8,6 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
       "Oui, vous pouvez annuler jusqu'à 48h avant la date de l'expérience.",
   };
 
+  // Création du bouton d'ouverture
+  const toggleBtn = document.createElement("button");
+  toggleBtn.id = "faq-toggle-btn";
+  toggleBtn.innerText = "?";
+  document.body.appendChild(toggleBtn);
+
+  // Création de la boîte du chatbot
   const container = document.createElement("div");
   container.id = "faq-bot";
   container.innerHTML = `
@@ -18,7 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `;
   document.body.appendChild(container);
+  container.style.display = "none";
 
+  // Toggle bouton
+  toggleBtn.addEventListener("click", () => {
+    container.style.display =
+      container.style.display === "none" ? "block" : "none";
+  });
+
+  // Logique de réponses
   const input = document.getElementById("faq-input");
   const body = document.getElementById("faq-body");
 
