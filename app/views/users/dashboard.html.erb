@@ -1,9 +1,9 @@
-<h1>Tableau de bord</h1>
+<h1 class="user-dashboard-title">Tableau de bord</h1>
 
 <% if current_user.is_admin? %>
-  <section>
-    <h2>Liste des expériences en cours</h2>
-    <table>
+  <section class="user-dashboard-section">
+    <h2 class="user-dashboard-section-title playfair-bold">Liste des expériences en cours</h2>
+    <table class="user-dashboard-table">
       <thead>
         <tr>
           <th>Expérience</th>
@@ -27,17 +27,17 @@
     </table>
   </section>
 
-  <section>
-    <h2>Gestion</h2> 
-    <%= link_to "Voir tous les utilisateurs", users_path, class: "btn btn-primary" %>
-    <%= link_to "Voir tous les providers", providers_path, class: "btn btn-secondary" %>
+  <section class="user-dashboard-section">
+    <h2 class="user-dashboard-section-title playfair-bold">Gestion</h2> 
+    <%= link_to "Voir tous les utilisateurs", users_path, class: "user-dashboard-btn user-dashboard-btn-primary" %>
+    <%= link_to "Voir tous les providers", providers_path, class: "user-dashboard-btn user-dashboard-btn-secondary" %>
   </section>
 
 <% else %>
-  <section>
-    <h2>Mes Expériences Réservées</h2>
+  <section class="user-dashboard-section">
+    <h2 class="user-dashboard-section-title playfair-bold">Mes Expériences Réservées</h2>
     <% if @experiences.any? %>
-      <table>
+      <table class="user-dashboard-table">
         <thead>
           <tr>
             <th>Expérience</th>
@@ -50,7 +50,7 @@
             <tr>
               <td><%= link_to reservation.experience.title, experience_path(reservation.experience) %></td>
               <td><%= reservation.experience.location %></td>
-              <td><%= reservation.reservation_date %></td>
+              <td><%= l(reservation.reservation_date, format: :long) %></td>
             </tr>
           <% end %>
         </tbody>
