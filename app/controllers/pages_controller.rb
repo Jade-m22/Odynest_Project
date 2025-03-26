@@ -23,4 +23,9 @@ class PagesController < ApplicationController
     session[:dyslexic_font] = !session[:dyslexic_font]
     redirect_back fallback_location: root_path, notice: "Préférence de police mise à jour"
   end  
+
+  def set_daltonism
+    session[:daltonism_mode] = params[:mode]
+    redirect_back fallback_location: root_path, notice: "Mode de couleur mis à jour"
+  end  
 end
