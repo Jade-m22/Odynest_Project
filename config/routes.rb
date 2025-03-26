@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   # Routes pour les expériences (listées, création, édition, suppression, affichage)
   resources :experiences do
-    resources :reservations, only: [ :create, :destroy, :index ]
+    resources :reservations, only: [ :create, :destroy, :index, :edit, :update ]
     resources :reviews, only: [ :create, :destroy, :index ]
     post "create_stripe_checkout_session", on: :member
     get "payment_success", on: :member
