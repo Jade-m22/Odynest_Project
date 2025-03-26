@@ -83,7 +83,7 @@
               <p><%= review.comment %></p>
 
               <!-- Liens de suppression d'avis -->
-              <% if current_user == review.user || current_user.admin? %>
+              <% if current_user && (current_user == review.user || current_user.admin?) %>
                 <div class="review-actions">
                   <%= form_with(model: review, url: experience_review_path(@experience, review), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet avis ?' }, local: true) do |form| %>
                     <button type="submit" class="btn-delete">
