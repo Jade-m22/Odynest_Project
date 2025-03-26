@@ -84,7 +84,7 @@ class ExperiencesController < ApplicationController
         quantity: 1
       } ],
       mode: "payment",
-      success_url: payment_success_experience_url(@experience),
+      success_url: payment_success_experience_url(@experience, reservation_date: params[:reservation][:reservation_date]),
       cancel_url: payment_cancel_experience_url(@experience)
     })
 
@@ -96,9 +96,21 @@ class ExperiencesController < ApplicationController
 
   def payment_success
     @experience = Experience.find(params[:id])
-    flash[:notice] = "Le paiement a été effectué avec succès !"
+    reservation_date = params[:reservation_date]
+    @reservation = current_user.reservations.create(
+      experience: @experience,
+      reservation_date: reservation_date
+    )
+  
+    if @reservation.save
+      flash[:notice] = "Le paiement a été effectué avec succès !"
+    else
+      flash[:alert] = "Une erreur est survenue lors de l'ajout de la réservation."
+    end
+  
     redirect_to user_dashboard_path
   end
+  
 
   def payment_cancel
     @experience = Experience.find(params[:id])
