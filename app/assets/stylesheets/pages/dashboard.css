@@ -2,7 +2,7 @@
 .profile-picture-container {
   position: fixed;
   top: 80px;  /* Placez la photo juste sous la navbar */
-  right: 20px;
+  right: 30px;
   width: 80px;
   height: 80px;
   border-radius: 50%;

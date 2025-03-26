@@ -1,67 +1,68 @@
 <section class="container mt-4">
-  <div class="experience-content row">
-    <!-- Image -->
-    <div class="col-md-6">
-      <% if @experience.photo.attached? %>
-        <%= image_tag @experience.photo, class: "img-fluid rounded", alt: "Image de l'expérience" %>
-      <% else %>
-        <%= image_tag 'default-image.jpg', class: "img-fluid rounded", alt: "Image par défaut" %>
-      <% end %>
+  <div class="experience-content">
+    <!-- Conteneur pour l'image et le titre -->
+    <div class="experience-header">
+    <!-- Image de l'expérience -->
+      <div class="experience-image-container">
+        <% if @experience.photo.attached? %>
+          <%= image_tag @experience.photo, class: "experience-image", alt: "Image de l'expérience" %>
+        <% else %>
+          <%= image_tag 'default-image.jpg', class: "experience-image", alt: "Image par défaut" %>
+        <% end %>
+      </div>
+
+      <div class="experience-details">
+      <!-- Titre et infos de l'expérience -->
+        <h1 class="experience-title"><%= @experience.title %></h1>
+
+        <div class="experience-info">
+          <p><strong>Lieu :</strong> <%= @experience.location %></p>
+
+          <p><strong>Prix :</strong> <%= number_to_currency(@experience.price - 0.01, unit: "", separator: ",", delimiter: ".", format: "%n€") %></p>
+
+          <p><strong>Durée :</strong> <%= @experience.duration %> jours</p>
+
+          <strong>Dates proposées :</strong>
+          <ul class="list-unstyled mt-2">
+            <% @experience.available_dates.each do |date| %>
+              <li class="<%= 'text-muted text-decoration-line-through' if date < Date.today %>">
+                <%= l(date, format: :long) %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
 
-  <div class="col-md-6">
-      <section class="provider-info mt-4">
-        <h3>Présentation du prestataire</h3>
-  
-        <div class="provider-details d-flex align-items-center">
-          <!-- Photo de profil du prestataire -->
+    <div class="text-content">
+      <section class="provider-info">
+        <div class="provider-details">
+        <!-- Photo de profil du prestataire -->
           <div class="profile-picture-container">
             <%= image_tag @experience.provider.profile_picture_url.presence || 'default-profile.jpg', alt: "Photo de profil de #{@experience.provider.first_name}", class: "img-fluid rounded-circle" %>
           </div>
-    
           <!-- Informations du prestataire sous la photo -->
           <div class="provider-text">
             <p><strong>Prénom :</strong> <%= @experience.provider.first_name %></p>
             <p><strong>Email :</strong> <%= @experience.provider.email %></p>
-            <%# <p><strong>À propos :</strong> <%= @experience.provider.bio.presence || "Aucune description disponible." %></p>
           </div>
         </div>
       </section>
-    </div>
 
-    <!-- Infos texte -->
-    <div class="col-md-6">
-      <h1 class="mb-3"><%= @experience.title %></h1>
+      <section class="experience-description mb-3">
+        <p><strong>Description :</strong> <%= @experience.description %></p>
+      </section>
 
-      <p><strong>Description :</strong> <%= @experience.description %></p>
-      <p><strong>Lieu :</strong> <%= @experience.location %></p>
-      <p><strong>Prix :</strong> <%= number_to_currency(@experience.price - 0.01, unit: "", separator: ",", delimiter: ".", format: "%n€") %></p>
-      <p><strong>Durée :</strong> <%= @experience.duration %> jours</p>
-
-      <!-- Affichage des 3 dates -->
-      <div class="mb-3">
-        <strong>Dates proposées :</strong>
-        <ul class="list-unstyled mt-2">
-          <% @experience.available_dates.each do |date| %>
-            <li class="<%= 'text-muted text-decoration-line-through' if date < Date.today %>">
-              <%= l(date, format: :long) %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-
-      <!-- Réservation -->
       <% if current_user && current_user != @experience.provider && !current_user.admin? %>
-        <section class="form-container">
+        <section class="reservation-container">
           <h5>Réserver une date :</h5>
           <%= form_with(model: Reservation.new, url: create_stripe_checkout_session_experience_path(@experience), method: :post, data: { turbo: false }) do |f| %>
             <div class="form-group">
-              <%= f.label :reservation_date, "Date" %>
               <%= f.select :reservation_date,
                   @experience.future_dates.map { |d| [l(d, format: :long), d] },
                   {}, class: "form-control" %>
             </div>
-            <%= f.submit "Payer maintenant", class: "btn btn-success mt-2" %>
+            <%= f.submit "Payer maintenant", class: "btn btn-primary" %>
           <% end %>
         </section>
       <% elsif current_user == @experience.provider %>
@@ -70,19 +71,19 @@
     </div>
   </div>
 
-  <!-- Section Avis -->
-<!-- Section Avis -->
-      <section class="reviews-section mt-4">
-        <h3>Avis des participants</h3>
-
-        <!-- Affichage des avis existants -->
-        <% if @experience.reviews.any? %>
-          <% @experience.reviews.each do |review| %>
-            <div class="review-card">
+  <section class="reviews-section">
+    <!-- Liste des avis -->
+    <div class="reviews-list">
+      <h3>Avis des participants</h3>
+      
+      <% if @experience.reviews.any? %>
+        <% @experience.reviews.each do |review| %>
+          <div class="review-card">
+            <div class="review-content">
               <p><strong><%= review.user.username.presence || 'Anonyme' %></strong> - Note : <%= review.rating %>/5</p>
-              <p><%= review.comment %></p>
+              <p class="review-comment"><%= review.comment %></p>
+            </div>
 
-              <!-- Liens de suppression d'avis -->
               <% if current_user && (current_user == review.user || current_user.admin?) %>
                 <div class="review-actions">
                   <%= form_with(model: review, url: experience_review_path(@experience, review), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet avis ?' }, local: true) do |form| %>
@@ -94,28 +95,42 @@
                   <% end %>
                 </div>
               <% end %>
-            </div>
-          <% end %>
-        <% else %>
-          <p>Aucun avis pour le moment.</p>
+          </div>
         <% end %>
+      <% else %>
+        <p>Aucun avis pour le moment.</p>
+      <% end %>
+    </div>
 
-        <!-- Formulaire d'avis visible uniquement si l'utilisateur a réservé ET n'est pas un administrateur -->
-        <% if current_user && current_user.reservations.exists?(experience: @experience) && !current_user.admin? %>
-          <h3>Laisser un avis</h3>
-          <%= render 'reviews/form', experience: @experience, review: Review.new %>
-        <% else %>
-          <p class="text-muted">Vous devez avoir participé à cette expérience pour laisser un avis.</p>
-        <% end %>
-      </section>
+    <!-- Formulaire d'ajout d'avis -->
+    <% if current_user && current_user.reservations.exists?(experience: @experience) && !current_user.admin? %>
+      <div class="review-form">
+        <h3>Laisser un avis</h3>
+        <%= render 'reviews/form', experience: @experience, review: Review.new %>
+      </div>
+    <% else %>
+      <div class="review-form">
+        <p class="text-muted">Vous devez avoir participé à cette expérience pour laisser un avis.</p>
+      </div>
+    <% end %>
+  </section>
+
 
   <!-- Boutons -->
   <footer class="mt-4 text-center">
     <%= link_to '← Retour', experiences_path, class: 'btn btn-secondary me-2' %>
-    <% if current_user&.admin? || current_user == @experience.provider %>
+
+    <% if current_user&.admin? || (current_provider && current_provider.id == @experience.provider_id) %>
       <%= link_to 'Modifier', edit_experience_path(@experience), class: 'btn btn-primary me-2' %>
-      <%= button_to 'Supprimer', experience_path(@experience), method: :delete,
-          data: { confirm: 'Supprimer cette expérience ?' }, class: 'btn btn-danger' %>
+
+      <%= form_with model: @experience, url: experience_path(@experience), method: :delete, local: true do |form| %>
+      <button type="submit" class="btn-delete">
+        <svg viewBox="0 0 448 512" class="svgIcon">
+          <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
+        </svg>
+      </button>
+      <% end %>
+
     <% end %>
   </footer>
 </section>
