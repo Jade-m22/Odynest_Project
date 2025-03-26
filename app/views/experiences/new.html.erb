@@ -1,6 +1,6 @@
 <h1>Créer une nouvelle expérience</h1>
 
-<%= form_with(model: @experience, local: true) do |f| %>
+<%= form_with(model: @experience, local: true, html: { id: "experience-form" }) do |f| %>
   <% if @experience.errors.any? %>
     <section class="alert alert-danger">
       <h2><%= pluralize(@experience.errors.count, "erreur") %> trouvée(s) :</h2>
@@ -12,6 +12,7 @@
     </section>
   <% end %>
 
+  <!-- Champs du formulaire -->
   <article class="form-group">
     <%= f.label :title, "Titre de l'expérience" %>
     <%= f.text_field :title, class: "form-control", required: true %>
@@ -39,6 +40,7 @@
       {}, class: "form-control" %>
   </article>
 
+  <!-- Dates -->
   <article class="form-group">
     <%= f.label :start_date_1, "Première date de début" %>
     <%= f.datetime_select :start_date_1, class: "form-control" %>
@@ -62,4 +64,5 @@
   <%= f.submit "Créer l'expérience", class: "btn btn-primary" %>
 <% end %>
 
-<%= link_to "Retour", experiences_path, class: "btn btn-secondary" %>
+<%= link_to "Retour", experiences_path, class: "btn btn-secondary mt-3" %>
+
