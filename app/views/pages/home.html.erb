@@ -2,13 +2,24 @@
 <%= render "pages/presentation" %>
 
 <section class="experiences">
-  <div class="container">
+  <% if provider_signed_in? %>
+    <%= render "experiences/cards", experiences: current_provider.experiences %>
+  <% else %>
     <%= render "experiences/cards", experiences: @experiences.limit(6) %>
+  <% end %>
+
     <div class="text-center mt-4">
-      <%= link_to experiences_path, class: "custom-btn btn-4" do %>
-        <span>VOIR PLUS</span>
+      <% if provider_signed_in? %>
+        <%= link_to provider_dashboard_path, class: "custom-btn btn-4" do %>
+          <span>MON DASHBOARD</span>
+        <% end %>
+      <% else %>
+        <%= link_to experiences_path, class: "custom-btn btn-4" do %>
+          <span>VOIR PLUS</span>
+        <% end %>
       <% end %>
     </div>
+
   </div>
 </section>
 

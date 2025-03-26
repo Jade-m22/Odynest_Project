@@ -1,6 +1,12 @@
 <section class="container text-center mt-5">
   <header>
-    <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
+    <% if provider_signed_in? %>
+      <h1 class="mb-4">Votre liste d'expériences</h1>
+    <% elsif user_signed_in? && current_user.admin? %>
+      <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
+    <% else %>
+      <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
+    <% end %>
   </header>
 
   <% if controller_name == "experiences" && action_name == "index" %>
