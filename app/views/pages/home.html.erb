@@ -3,11 +3,15 @@
 
 <section class="experiences">
   <div class="container">
+    <!-- ✅ Ajout du render pour afficher les 6 expériences -->
     <%= render "experiences/cards", experiences: @experiences.limit(6) %>
-    <div class="text-center mt-4">
+
+    <!-- ✅ Boutons centrés -->
+    <div class="text-center mt-4 d-flex justify-content-center gap-3 flex-wrap">
       <%= link_to experiences_path, class: "custom-btn btn-4" do %>
         <span>VOIR PLUS</span>
       <% end %>
+      <%= link_to "Suggestions", quiz_experiences_path, class: "custom-btn btn-4" %>
     </div>
   </div>
 </section>

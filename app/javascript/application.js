@@ -1,5 +1,6 @@
 import "@hotwired/turbo-rails";
 import "controllers";
+import "./quiz";
 
 document.addEventListener("DOMContentLoaded", () => {
   // 👁️ Toggle mot de passe
