@@ -1,8 +1,11 @@
-<h1>Créer une nouvelle expérience</h1>
+<figure class="trend-banner">
+  <%= image_tag "banner2.jpg", alt: "Champ de lavande à perte de vue, une expérience immersive au cœur de la nature et des senteurs provençales", class: "trends-banner" %>
+</figure>
+<h1 class="text-center mb-5">Créer une nouvelle expérience</h1>
 
-<%= form_with(model: @experience, local: true, html: { id: "experience-form" }) do |f| %>
+<%= form_with(model: @experience, local: true, html: { id: "experience-form", class: "experience-form" }) do |f| %>
   <% if @experience.errors.any? %>
-    <section class="alert alert-danger">
+    <section class="alert alert-danger experience-form__alert">
       <h2><%= pluralize(@experience.errors.count, "erreur") %> trouvée(s) :</h2>
       <ul>
         <% @experience.errors.full_messages.each do |message| %>
@@ -12,57 +15,55 @@
     </section>
   <% end %>
 
-  <!-- Champs du formulaire -->
-  <article class="form-group">
-    <%= f.label :title, "Titre de l'expérience" %>
-    <%= f.text_field :title, class: "form-control", required: true %>
+  <article class="experience-form__group">
+    <%= f.label :title, "Titre de l'expérience", class: "experience-form__label" %>
+    <%= f.text_field :title, class: "experience-form__input", placeholder: "Croisière méditative en catamaran privé", required: true %>
   </article>
 
-  <article class="form-group">
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description, class: "form-control", required: true %>
+  <article class="experience-form__group">
+    <%= f.label :description, "Description", class: "experience-form__label" %>
+    <%= f.text_area :description, class: "experience-form__input", placeholder: "Offrez-vous une parenthèse de sérénité à bord d'un catamaran privé, au cœur de la Méditerranée. Lors de cette croisière...", required: true %>
   </article>
 
-  <article class="form-group">
-    <%= f.label :price, "Prix (€)" %>
-    <%= f.number_field :price, class: "form-control", step: "0.01", required: true %>
+  <article class="experience-form__group">
+    <%= f.label :price, "Prix (€)", class: "experience-form__label" %>
+    <%= f.number_field :price, class: "experience-form__input", step: "0.01", placeholder: "Indiquez le prix", required: true %>
   </article>
 
-  <article class="form-group">
-    <%= f.label :location, "Lieu" %>
-    <%= f.text_field :location, class: "form-control", required: true %>
+  <article class="experience-form__group">
+    <%= f.label :location, "Lieu", class: "experience-form__label" %>
+    <%= f.text_field :location, class: "experience-form__input", placeholder: "Où l'expérience aura-t-elle lieu ?", required: true %>
   </article>
 
-  <article class="form-group">
-    <%= f.label :duration, "Durée" %>
+  <article class="experience-form__group">
+    <%= f.label :duration, "Durée", class: "experience-form__label" %>
     <%= f.select :duration, 
       [["30 minutes", 30], ["1 heure", 60], ["2 heures", 120], ["1 jour", 1440], ["2 jours", 2880]], 
-      {}, class: "form-control" %>
+      {}, class: "experience-form__input" %>
   </article>
 
-  <!-- Dates -->
-  <article class="form-group">
-    <%= f.label :start_date_1, "Première date de début" %>
-    <%= f.datetime_select :start_date_1, class: "form-control" %>
+  <article class="experience-form__group">
+    <%= f.label :start_date_1, "Première date", class: "experience-form__label" %>
+    <%= f.datetime_select :start_date_1, class: "experience-form__input" %>
   </article>
 
-  <article class="form-group">
-    <%= f.label :start_date_2, "Deuxième date de début" %>
-    <%= f.datetime_select :start_date_2, class: "form-control" %>
+  <article class="experience-form__group">
+    <%= f.label :start_date_2, "Deuxième date", class: "experience-form__label" %>
+    <%= f.datetime_select :start_date_2, class: "experience-form__input" %>
   </article>
 
-  <article class="form-group">
-    <%= f.label :start_date_3, "Troisième date de début" %>
-    <%= f.datetime_select :start_date_3, class: "form-control" %>
+  <article class="experience-form__group">
+    <%= f.label :start_date_3, "Troisième date", class: "experience-form__label" %>
+    <%= f.datetime_select :start_date_3, class: "experience-form__input" %>
   </article>
 
-  <article class="form-group">
-    <%= f.label :photo, "Photo de l'expérience" %>
-    <%= f.file_field :photo, class: "form-control" %>
+  <article class="experience-form__group">
+    <%= f.label :photo, "Photo de l'expérience", class: "experience-form__label" %>
+    <%= f.file_field :photo, class: "experience-form__input" %>
   </article>
 
-  <%= f.submit "Créer l'expérience", class: "btn btn-primary" %>
+  <%= f.submit "Créer l'expérience", class: "experience-form__btn experience-form__btn--primary btn-block" %>
 <% end %>
-
-<%= link_to "Retour", experiences_path, class: "btn btn-secondary mt-3" %>
-
+<footer class="mt-4 text-center">
+  <%= link_to "Retour", experiences_path, class: "btn btn-secondary me-2 mb-3" %>
+</footer>
