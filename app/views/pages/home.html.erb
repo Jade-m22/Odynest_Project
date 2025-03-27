@@ -33,8 +33,18 @@
         <%= link_to "SUGGESTIONS", quiz_experiences_path, class: "custom-btn btn-4" %>
       <% end %>
     </div>
-    <%= render "pages/advice" %> <!-- Cette ligne rend déjà la section advice pour les providers -->
+    <% if current_provider %>
+      <section id="advice">
+        <%= render "pages/advice" %>
+      </section>
+    <% end %>
   </div>
 </section>
 
-<!-- La section trends est maintenant inutilisée pour les providers, donc elle est supprimée -->
+<% if !current_provider %>
+  <section id="trend" class="trends">
+    <div class="container">
+      <%= render "pages/trends" %>
+    </div>
+  </section>
+<% end %>
