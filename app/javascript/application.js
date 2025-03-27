@@ -1,27 +1,10 @@
 import "@hotwired/turbo-rails";
 import "controllers";
+import "password";
+import "chatbot";
+import "quiz";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 👁️ Toggle mot de passe
-  const toggleButtons = document.querySelectorAll(".toggle-password");
-
-  toggleButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const targetId = button.getAttribute("data-target");
-      const input = document.getElementById(targetId);
-      if (!input) return;
-
-      const icon = button.querySelector("i");
-      const isHidden = input.type === "password";
-      input.type = isHidden ? "text" : "password";
-
-      if (icon) {
-        icon.classList.toggle("fa-eye");
-        icon.classList.toggle("fa-eye-slash");
-      }
-    });
-  });
-
   // ✅ Case à cocher CGU - registration
   const regForm = document.getElementById("registration-form");
   const checkbox = document.getElementById("accept_terms");
