@@ -3,15 +3,30 @@
 
 <section class="experiences">
   <div class="container">
-    <!-- ✅ Ajout du render pour afficher les 6 expériences -->
-    <%= render "experiences/cards", experiences: @experiences.limit(6) %>
+    <% if current_provider %>
+      <!-- Afficher les expériences du provider connecté -->
+      <% if current_provider.experiences.any? %>
+        <%= render "experiences/cards", experiences: current_provider.experiences %>
+      <% else %>
+        <p>Vous n'avez encore ajouté aucune expérience. <%= link_to "Ajoutez-en une", new_experience_path %>.</p>
+      <% end %>
+    <% else %>
+      <!-- ✅ Ajout du render pour afficher les 6 expériences -->
+      <%= render "experiences/cards", experiences: @experiences.limit(6) %>
+    <% end %>
 
     <!-- ✅ Boutons centrés -->
     <div class="text-center mt-4 d-flex justify-content-center gap-3 flex-wrap">
-      <%= link_to experiences_path, class: "custom-btn btn-4" do %>
-        <span>VOIR PLUS</span>
+      <% if current_provider %>
+        <%= link_to provider_dashboard_path, class: "custom-btn btn-4" do %>
+        <span>DASHBOARD</span>
+        <% end %>
+      <% else %>
+        <%= link_to experiences_path, class: "custom-btn btn-4" do %>
+          <span>VOIR PLUS</span>
+        <% end %>
+        <%= link_to "Suggestions", quiz_experiences_path, class: "custom-btn btn-4" %>
       <% end %>
-      <%= link_to "Suggestions", quiz_experiences_path, class: "custom-btn btn-4" %>
     </div>
   </div>
 </section>

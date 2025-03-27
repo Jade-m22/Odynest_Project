@@ -1,6 +1,10 @@
 <section class="container text-center mt-5">
   <header>
-    <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
+    <% if current_provider %>
+      <h1 class="mb-4">Vos expériences ✈️🌍</h1>
+    <% else %>
+      <h1 class="mb-4">Découvrez des expériences inoubliables ✈️🌍</h1>
+    <% end %>
   </header>
 
   <% if controller_name == "experiences" && action_name == "index" %>
