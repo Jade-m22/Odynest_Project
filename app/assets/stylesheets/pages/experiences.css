@@ -39,6 +39,8 @@
 
 .provider-info .provider-text p {
   margin: 5px 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .provider-info h3 {
