@@ -1,4 +1,4 @@
-/* Photo de profil */
+/* Photo de profil provider */
 .profile-picture-container {
   position: fixed;
   top: 80px;  /* Placez la photo juste sous la navbar */
@@ -19,3 +19,96 @@
   display: block;
 }
 
+/* DASHBOARD PROVIDERS */
+/* Classes spécifiques pour le tableau de bord */
+.dashboard-body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 20px;
+}
+
+/* Titres */
+.dashboard-title h1, .dashboard-title h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style de la photo de profil */
+.dashboard-profile-picture {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-profile-picture img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Tableaux */
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.dashboard-table th, .dashboard-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.dashboard-table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-family: "Playfair Display SC", serif;
+  font-weight: bold;
+}
+
+.dashboard-table td {
+  font-family: "Montserrat", sans-serif;
+}
+
+.dashboard-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Liens */
+.dashboard-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.dashboard-links a:hover {
+  text-decoration: underline;
+}
+
+/* Liste des participants */
+.dashboard-participants ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dashboard-participants ul li {
+  margin-bottom: 5px;
+}
+
+/* Message si pas d'expériences */
+.dashboard-no-experiences {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #888;
+}
+
+/* Zone principale */
+.dashboard-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

@@ -1,43 +1,51 @@
-<h1>Tableau de bord - Prestataire</h1>
+<div class="dashboard-body">
+  <div class="dashboard-title">
+    <h1>Tableau de bord Pro</h1>
+    <h2>Vos Expériences</h2>
+  </div>
 
-<h2>Vos Expériences</h2>
+  <div class="dashboard-profile-picture">
+    <%= image_tag @provider.profile_picture_url.presence || 'default-profile.jpg', alt: "Photo de profil de #{@provider.first_name}", class: "img-fluid rounded-circle" %>
+  </div>
 
-<div class="profile-picture-container">
-  <%= image_tag @provider.profile_picture_url.presence || 'default-profile.jpg', alt: "Photo de profil de #{@provider.first_name}", class: "img-fluid rounded-circle" %>
-</div>
-
-
-<% if @experiences.any? %>
-  <section>
-    <table>
-      <thead>
-        <tr>
-          <th>Expérience</th>
-          <th>Lieu</th>
-          <th>Participants</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @experiences.each do |experience| %>
+  <% if @experiences.any? %>
+    <section class="dashboard-section">
+      <table class="dashboard-table">
+        <thead>
           <tr>
-            <td><%= link_to experience.title, experience_path(experience) %></td>
-            <td><%= experience.location %></td>
-            <td>
-              <% if experience.users.any? %>
-                <ul>
-                  <% experience.users.each do |user| %>
-                    <li><%= user.email %></li>
-                  <% end %>
-                </ul>
-              <% else %>
-                Aucun participant
-              <% end %>
-            </td>
+            <th>Expérience</th>
+            <th>Lieu</th>
+            <th>Participants</th>
+            <th>Nombre de Reviews</th>
+            <th>Total</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </section>
-<% else %>
-  <p>Vous n'avez créé aucune expérience pour l’instant.</p>
-<% end %>
+        </thead>
+        <tbody>
+          <% @experiences.each do |experience| %>
+            <tr>
+              <td><%= link_to experience.title, experience_path(experience), class: "dashboard-links" %></td>
+              <td><%= experience.location %></td>
+              <td class="dashboard-participants">
+                <% if experience.users.any? %>
+                  <ul>
+                    <% experience.users.each do |user| %>
+                      <li><%= user.email %></li>
+                    <% end %>
+                  </ul>
+                <% else %>
+                  Aucun participant
+                <% end %>
+              <td><%= experience.reviews.count %></td>
+              <td>
+                <%= number_to_currency(experience.price * experience.users.count, unit: "€") %> <!-- Calcul dans la vue -->
+              </td>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  <% else %>
+    <p class="dashboard-no-experiences">Vous n'avez créé aucune expérience pour l’instant.</p>
+  <% end %>
+</div>
