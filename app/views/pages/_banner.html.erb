@@ -1,3 +1,7 @@
 <section class="hero-banner">
-  <%= image_tag "banner.jpg", alt: "Surfeur en pleine action sur une vague, prêt à vivre une expérience immersive et pleine d'adrénaline", class: "banner-image" %>
+  <% if current_provider %>
+    <%= image_tag "pro-banner.jpg", alt: "Surfeur en pleine action sur une vague, prêt à vivre une expérience immersive et pleine d'adrénaline", class: "banner-image-pro" %>
+  <% else %>
+    <%= image_tag "banner.jpg", alt: "Surfeur en pleine action sur une vague, prêt à vivre une expérience immersive et pleine d'adrénaline", class: "banner-image" %>
+  <% end %>
 </section>
