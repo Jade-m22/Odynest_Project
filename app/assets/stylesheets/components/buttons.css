@@ -10,7 +10,7 @@
   text-decoration: none !important;
   align-self: flex-start;
   display: inline-flex;
-  color: #000000; /* Texte en noir */
+  color: #000000;
 }
 
 /* Rond au début du bouton */
@@ -69,6 +69,36 @@
   color: #000000;
 }
 
+/* ----- Bouton de tendance ----- */
+.trend-card .cta:before {
+  background-color: var(--primary-color);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
+  display: block;
+  border-radius: 50px;
+  width: 35px;
+  height: 35px;
+  transition: all 0.3s ease;
+}
+
+.trend-card .cta:hover:before {
+  width: 100%;
+  right: 0;
+  left: auto;
+  background: var(--primary-color);
+}
+
+.trend-card .cta:hover span {
+  color: white;
+}
+
+.trend-card .cta:hover svg {
+  stroke: white;
+}
+
 /* ----- Bouton de suppression ----- */
 .btn-delete {
   width: 50px;
@@ -124,19 +154,6 @@
   opacity: 1;
   transform: translateY(30px);
   transition-duration: .3s;
-}
-
-/* ----- Bouton de tendance ----- */
-.trend-card .cta:before {
-  background-color: var(--primary-color); /* Seul le rond devient primary */
-}
-
-.trend-card .cta:hover span {
-  color: white;
-}
-
-.trend-card .cta:hover svg {
-  stroke: white;
 }
 
 /* ----- Bouton personnalisé (voir plus, valider, etc.) ----- */
