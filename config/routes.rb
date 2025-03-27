@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :providers
 
-  # Routes pour les utilisateurs
+  # Routes pour les dashboards
   get "users/dashboard", to: "users#dashboard", as: "user_dashboard"
+  get "providers/dashboard", to: "providers#dashboard", as: "provider_dashboard"
+
+  # Routes pour les utilisateurs
   get "user/settings", to: "users#settings", as: :user_settings
   get "provider/settings", to: "providers#settings", as: :provider_settings
   get "/pages/toggle_font", to: "pages#toggle_font", as: :toggle_font
@@ -11,9 +14,6 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[index show edit update destroy]
   resources :providers, only: %i[index show edit update destroy]
-
-  # Routes dashboards
-  get "providers/dashboard", to: "providers#dashboard", as: "provider_dashboard"
 
   # Routes pour les expériences (listées, création, édition, suppression, affichage)
   resources :experiences do
