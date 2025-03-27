@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
 
   protected
 
@@ -15,5 +16,9 @@ class ApplicationController < ActionController::Base
     # Pour l'inscription et la mise à jour du provider
     devise_parameter_sanitizer.permit(:sign_up, keys: [ :first_name ])
     devise_parameter_sanitizer.permit(:account_update, keys: [ :first_name ])
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 end

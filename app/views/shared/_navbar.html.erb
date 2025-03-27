@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg">
     <section class="container">
-      <%= link_to "Odynest", root_path, class: "navbar-brand playfair" %>
+      <%= link_to "Odynest", root_path(locale: I18n.locale), class: "navbar-brand playfair" %>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,16 +10,16 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center">
           <li class="nav-item <%= 'active' if current_page?(root_path) %>">
-            <%= link_to "Accueil", root_path, class: "nav-link" %>
+            <%= link_to "Accueil", root_path(locale: I18n.locale), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Tendances", root_path(anchor: "trend"), class: "nav-link" %>
+            <%= link_to "Tendances", root_path(anchor: "trend", locale: I18n.locale), class: "nav-link" %>
           </li>
           <li class="nav-item <%= 'active' if current_page?(experiences_path) %>">
-            <%= link_to "Nos expériences", experiences_path, class: "nav-link" %>
+            <%= link_to "Nos expériences", experiences_path(locale: I18n.locale), class: "nav-link" %>
           </li>
           <li class="nav-item <%= 'active' if current_page?(about_path) %>">
-            <%= link_to "À propos", about_path, class: "nav-link" %>
+            <%= link_to "À propos", about_path(locale: I18n.locale), class: "nav-link" %>
           </li>
 
           <% if provider_signed_in? %>
@@ -28,12 +28,12 @@
                 Mon profil pro
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="providerDropdown">
-                <li><%= link_to "Dashboard", provider_dashboard_path, class: "dropdown-item" %></li>
-                <li><%= link_to "Ajouter un événement", new_experience_path, class: "dropdown-item" %></li>
-                <li><%= link_to "Modifier mon profil pro", edit_provider_registration_path, class: "dropdown-item" %></li>
-                <li><%= link_to "Paramètres", provider_settings_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Dashboard", provider_dashboard_path(locale: I18n.locale), class: "dropdown-item" %></li>
+                <li><%= link_to "Ajouter un événement", new_experience_path(locale: I18n.locale), class: "dropdown-item" %></li>
+                <li><%= link_to "Modifier mon profil pro", edit_provider_registration_path(locale: I18n.locale), class: "dropdown-item" %></li>
+                <li><%= link_to "Paramètres", provider_settings_path(locale: I18n.locale), class: "dropdown-item" %></li>
                 <li>
-                  <%= button_to "Se déconnecter", destroy_provider_session_path, method: :delete, class: "dropdown-item" %>
+                  <%= button_to "Se déconnecter", destroy_provider_session_path(locale: I18n.locale), method: :delete, class: "dropdown-item" %>
                 </li>
               </ul>
             </li>
@@ -44,28 +44,28 @@
                 <%= current_user.admin? ? "Mon profil Admin" : "Mon profil" %>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                <li><%= link_to "Dashboard", user_dashboard_path, class: "dropdown-item" %></li>
-                <li><%= link_to "Modifier mon profil", user_path(current_user), class: "dropdown-item" %></li>
-                <li><%= link_to "Paramètres", user_settings_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Dashboard", user_dashboard_path(locale: I18n.locale), class: "dropdown-item" %></li>
+                <li><%= link_to "Modifier mon profil", user_path(current_user, locale: I18n.locale), class: "dropdown-item" %></li>
+                <li><%= link_to "Paramètres", user_settings_path(locale: I18n.locale), class: "dropdown-item" %></li>
                 <li>
-                  <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                  <%= button_to "Se déconnecter", destroy_user_session_path(locale: I18n.locale), method: :delete, class: "dropdown-item" %>
                 </li>
               </ul>
             </li>
 
           <% else %>
             <li class="nav-item ms-2">
-              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-outline-primary" %>
+              <%= link_to "Se connecter", new_user_session_path(locale: I18n.locale), class: "btn btn-outline-primary" %>
             </li>
             <li class="nav-item ms-2">
-              <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary text-white" %>
+              <%= link_to "S'inscrire", new_user_registration_path(locale: I18n.locale), class: "btn btn-primary text-white" %>
             </li>
             <li class="nav-item ms-2">
-              <%= link_to "Espace pro", new_provider_registration_path, class: "btn btn-warning text-dark" %>
+              <%= link_to "Espace pro", new_provider_registration_path(locale: I18n.locale), class: "btn btn-warning text-dark" %>
             </li>
           <% end %>
         </ul>
       </div>
     </section>
   </nav>
-</header>
+</header> 
