@@ -1,62 +1,88 @@
-<h1>Tableau de bord</h1>
+<div class="user-dashboard">
+  <div class="dashboard-header">
+    <h1>Tableau de bord Utilisateur</h1>
+    <h2>Mes Expériences</h2>
+  </div>
 
-<% if current_user.is_admin? %>
-  <section>
-    <h2>Liste des expériences en cours</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Expérience</th>
-          <th>Lieu</th>
-          <th>Participants</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @experiences.each do |experience| %>
-          <tr>
-            <td><%= link_to experience.title, experience_path(experience) %></td>
-            <td><%= experience.location %></td>
-            <td>
-              <% experience.users.each do |user| %>
-                <%= user.email %><br>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </section>
-
-  <section>
-    <h2>Gestion</h2> 
-    <%= link_to "Voir tous les utilisateurs", users_path, class: "btn btn-primary" %>
-    <%= link_to "Voir tous les providers", providers_path, class: "btn btn-secondary" %>
-  </section>
-
-<% else %>
-  <section>
-    <h2>Mes Expériences Réservées</h2>
-    <% if @experiences.any? %>
-      <table>
+  <% if current_user.is_admin? %>
+    <section class="admin-dashboard-section">
+      <h3 class="section-title">Liste des expériences en cours</h3>
+      <table class="table experiences-table">
         <thead>
           <tr>
-            <th>Expérience</th>
+            <th>Prestataire</th>
+            <th>Expériences</th>
             <th>Lieu</th>
-            <th>Date Réservée</th>
+            <th>Participants</th>
           </tr>
         </thead>
         <tbody>
-          <% @reservations.each do |reservation| %>
-            <tr>
-              <td><%= link_to reservation.experience.title, experience_path(reservation.experience) %></td>
-              <td><%= reservation.experience.location %></td>
-              <td><%= reservation.reservation_date %></td>
+          <% @experiences.each do |experience| %>
+            <tr class="experience-row">
+              <td><%= link_to experience.provider.email, provider_path(experience.provider.id)%></td>
+              <td><%= link_to experience.title, experience_path(experience), class: "experience-title" %></td>
+              <td><%= experience.location %></td>
+              <td class="participants-list">
+                <% experience.users.each do |user| %>
+                  <div class="participant-email"><%= user.email %></div>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
       </table>
-    <% else %>
-      <p>Vous n'avez réservé aucune expérience pour l'instant.</p>
-    <% end %>
-  </section>
-<% end %>
+    </section>
+
+    <section class="admin-management">
+      <h3 class="section-title">Gestion</h3>
+      <div class="admin-links">
+        <%= link_to "Voir tous les utilisateurs", users_path, class: "btn btn-primary admin-btn" %>
+        <%= link_to "Voir tous les providers", providers_path, class: "btn btn-secondary admin-btn" %>
+      </div>
+    </section>
+
+  <% else %>
+    <section class="user-reservations">
+      <h3 class="section-title">Mes Expériences Réservées</h3>
+      <% if @experiences.any? %>
+        <table class="table reservations-table">
+          <thead>
+            <tr>
+              <th>Expérience</th>
+              <th>Lieu</th>
+              <th>Date Réservée</th>
+              <th>Prestataire</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @reservations.each do |reservation| %>
+              <tr class="reservation-row">
+                <td><%= link_to reservation.experience.title, experience_path(reservation.experience), class: "experience-title" %></td>
+                <td><%= reservation.experience.location %></td>
+                <td><%= reservation.reservation_date %></td>
+                <td><%= reservation.experience.provider.email %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p class="no-reservations">Vous n'avez réservé aucune expérience pour l'instant.</p>
+      <% end %>
+    </section>
+
+    <section class="user-past-experiences">
+      <h3 class="section-title mt-3">Mes Expériences Passées</h3>
+      <% @past_reservations.each do |reservation| %>
+        <tr class="reservation-row">
+          <td><%= link_to reservation.experience.title, experience_path(reservation.experience), class: "experience-title" %></td>
+          <td><%= reservation.experience.location %></td>
+          <td><%= reservation.reservation_date %></td>
+        </tr>
+      <% end %>
+
+      <% if @past_reservations.empty? %>
+        <p class="no-past-experiences">Vous n'avez pas encore participé à une expérience.</p>
+      <% end %>
+    </section>
+  <% end %>
+</div>

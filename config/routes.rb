@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/set_daltonism", to: "pages#set_daltonism", as: :set_daltonism
 
   resources :users, only: %i[index show edit update destroy]
-  resources :providers, only: %i[index edit update destroy]
+  resources :providers, only: %i[index show edit update destroy]
 
   # Routes dashboards
   get "providers/dashboard", to: "providers#dashboard", as: "provider_dashboard"

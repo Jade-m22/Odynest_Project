@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-      render "users/sessions/show"
+    @user = User.find_by(id: params[:id])
   end
 
   def new
@@ -30,7 +30,8 @@ class UsersController < ApplicationController
       @users = User.all
       @providers = Provider.all
     else
-      @reservations = current_user.reservations.includes(:experience)
+      @reservations = current_user.reservations.includes(:experience).where("reservation_date >= ?", Date.today)
+      @past_reservations = current_user.reservations.includes(:experience).where("reservation_date < ?", Date.today)
       @experiences = @reservations.map(&:experience)
     end
   end

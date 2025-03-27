@@ -1,8 +1,19 @@
 class ProvidersController < ApplicationController
   before_action :set_provider, only: %i[show edit update destroy dashboard]
 
+  def index
+    @providers = Provider.all
+  end
+
   def new
     @provider = Provider.new
+  end
+
+  def show
+    @provider = Provider.find_by(id: params[:id])
+    if @provider.nil?
+      redirect_to providers_path, alert: "Provider introuvable."
+    end
   end
 
   def create
@@ -12,9 +23,6 @@ class ProvidersController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
   end
 
   def dashboard
