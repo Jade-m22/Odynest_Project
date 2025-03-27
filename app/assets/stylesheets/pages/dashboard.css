@@ -112,3 +112,65 @@
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* DASHBOARD USER & ADMIN */
+.user-dashboard {
+  font-family: "Montserrat", sans-serif;
+  padding: 30px;
+  background-color: var(--bg-color);
+}
+
+.dashboard-header h1, .dashboard-header h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.experiences-table, .reservations-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+}
+
+table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.experience-title {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.experience-title:hover {
+  text-decoration: underline;
+}
+
+.no-reservations {
+  text-align: center;
+  color: #888;
+}
+
+.admin-dashboard-section, .user-reservations {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

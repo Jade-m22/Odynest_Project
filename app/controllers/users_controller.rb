@@ -30,7 +30,8 @@ class UsersController < ApplicationController
       @users = User.all
       @providers = Provider.all
     else
-      @reservations = current_user.reservations.includes(:experience)
+      @reservations = current_user.reservations.includes(:experience).where("reservation_date >= ?", Date.today)
+      @past_reservations = current_user.reservations.includes(:experience).where("reservation_date < ?", Date.today)
       @experiences = @reservations.map(&:experience)
     end
   end
