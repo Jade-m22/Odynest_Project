@@ -22,7 +22,7 @@ class ProvidersController < ApplicationController
   end
 
   def dashboard
-    @experiences = current_provider.experiences.includes(:users)
+    @experiences = current_provider.experiences.includes(:reviews, :users)
   end
 
   def edit

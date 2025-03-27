@@ -9,6 +9,7 @@
           <th>Expérience</th>
           <th>Lieu</th>
           <th>Participants</th>
+          <th>Avis</th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +20,17 @@
             <td>
               <% experience.users.each do |user| %>
                 <%= user.email %><br>
+              <% end %>
+            </td>
+            <td>
+              <% if experience.reviews.any? %>
+                <ul>
+                  <% experience.reviews.each do |review| %>
+                    <li><strong><%= review.user.name %></strong>: <%= review.rating %>/5 - "<%= review.comment %>"</li>
+                  <% end %>
+                </ul>
+              <% else %>
+                Aucun avis
               <% end %>
             </td>
           </tr>
@@ -36,13 +48,14 @@
 <% else %>
   <section class="user-dashboard-section">
     <h2 class="user-dashboard-section-title playfair-bold">Mes Expériences Réservées</h2>
-    <% if @experiences.any? %>
+    <% if @reservations.any? %>
       <table class="user-dashboard-table">
         <thead>
           <tr>
             <th>Expérience</th>
             <th>Lieu</th>
             <th>Date Réservée</th>
+            <th>Avis</th>
           </tr>
         </thead>
         <tbody>
@@ -51,12 +64,50 @@
               <td><%= link_to reservation.experience.title, experience_path(reservation.experience) %></td>
               <td><%= reservation.experience.location %></td>
               <td><%= l(reservation.reservation_date, format: :long) %></td>
+              <td>
+                <% if reservation.experience.reviews.any? %>
+                  <ul>
+                    <% reservation.experience.reviews.each do |review| %>
+                      <li><strong><%= review.user.name %></strong>: <%= review.rating %>/5 - "<%= review.comment %>"</li>
+                    <% end %>
+                  </ul>
+                <% else %>
+                  Aucun avis
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
       </table>
     <% else %>
       <p>Vous n'avez réservé aucune expérience pour l'instant.</p>
+    <% end %>
+  </section>
+
+  <section class="user-dashboard-section">
+    <h2 class="user-dashboard-section-title playfair-bold">Mes Expériences en tant que Prestataire</h2>
+    <% if @experiences.any? %>
+      <% @experiences.each do |experience| %>
+        <div class="experience-card">
+          <h3><%= experience.title %></h3>
+          <p><%= experience.description %></p>
+
+          <h4>Avis des clients :</h4>
+          <% if experience.reviews.any? %>
+            <% experience.reviews.each do |review| %>
+              <div class="review">
+                <p><strong><%= review.user.name %></strong> - Note : <%= review.rating %>/5</p>
+                <p><%= review.comment %></p>
+                <p><em>Posté le <%= review.created_at.strftime("%d/%m/%Y") %></em></p>
+              </div>
+            <% end %>
+          <% else %>
+            <p>Aucun avis pour cette expérience.</p>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>Vous n'avez proposé aucune expérience pour l'instant.</p>
     <% end %>
   </section>
 <% end %>
