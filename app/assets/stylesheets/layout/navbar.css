@@ -25,6 +25,20 @@
   color: var(--primary-color);
 }
 
+.navbar-nav .nav-item-pro {
+  margin: 0 10px;
+}
+
+.navbar-nav .nav-link-pro {
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link-pro:hover {
+  color: var(--secondary-color);
+}
+
 /* Boutons */
 .btn-outline-primary {
   border-color: var(--text-color);
@@ -60,6 +74,13 @@
 .navbar-nav .nav-item.active .nav-link {
   background-color: var(--primary-color);
   color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.navbar-nav .nav-item-pro.active .nav-link-pro {
+  background-color: var(--secondary-color);
+  color: rgb(0, 0, 0);
   border-radius: 5px;
   padding: 5px 10px;
 }
