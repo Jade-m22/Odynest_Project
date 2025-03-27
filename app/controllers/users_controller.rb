@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-      render "users/sessions/show"
+    @user = User.find_by(id: params[:id])
   end
 
   def new

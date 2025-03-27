@@ -9,6 +9,10 @@ class ProvidersController < ApplicationController
     @provider = Provider.new
   end
 
+  def show
+    @provider = Provider.find_by(id: params[:id])
+  end
+
   def create
     @provider = Provider.new(provider_params)
     if @provider.save
@@ -16,9 +20,6 @@ class ProvidersController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
   end
 
   def dashboard

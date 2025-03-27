@@ -1,7 +1,7 @@
 <section>
   <h1>Profil de <%= @user.username.presence || @user.email %></h1>
 
-  <p>Email: <%= @user.email %></p>
+  <p><strong>Email:</strong> <%= @user.email %></p>
 
   <% if @user.username.present? %>
     <p><strong>Pseudo:</strong> <%= @user.username %></p>
