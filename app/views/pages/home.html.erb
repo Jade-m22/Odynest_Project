@@ -4,6 +4,7 @@
 <section class="experiences">
   <div class="container">
     <% if current_provider %>
+      <h1 class="text-center mb-4 mt-5">Vos expériences ✈️🌍</h1>
       <!-- Afficher les expériences du provider connecté -->
       <% if current_provider.experiences.any? %>
         <%= render "experiences/cards", experiences: current_provider.experiences %>
@@ -11,6 +12,7 @@
         <p>Vous n'avez encore ajouté aucune expérience. <%= link_to "Ajoutez-en une", new_experience_path %>.</p>
       <% end %>
     <% else %>
+      <h1 class="text-center mb-4 mt-5">Découvrez des expériences inoubliables ✈️🌍</h1>
       <!-- ✅ Ajout du render pour afficher les 6 expériences -->
       <%= render "experiences/cards", experiences: @experiences.limit(6) %>
     <% end %>
