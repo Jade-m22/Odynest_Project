@@ -1,10 +1,9 @@
 <div class="user-dashboard">
-  <div class="dashboard-header">
-    <h1>Tableau de bord Utilisateur</h1>
-    <h2>Mes Expériences</h2>
-  </div>
 
   <% if current_user.is_admin? %>
+    <div class="dashboard-header">
+      <h1>Tableau de bord Administrateur</h1>
+    </div>
     <section class="admin-dashboard-section">
       <h3 class="section-title">Liste des expériences en cours</h3>
       <table class="table experiences-table">
@@ -34,7 +33,7 @@
     </section>
 
     <section class="admin-management">
-      <h3 class="section-title">Gestion</h3>
+      <h3 class="section-title mt-3">Gestion</h3>
       <div class="admin-links">
         <%= link_to "Voir tous les utilisateurs", users_path, class: "btn btn-primary admin-btn" %>
         <%= link_to "Voir tous les providers", providers_path, class: "btn btn-secondary admin-btn" %>
@@ -42,6 +41,10 @@
     </section>
 
   <% else %>
+    <div class="dashboard-header">
+      <h1>Tableau de bord Utilisateur</h1>
+      <h2>Mes Expériences</h2>
+    </div>
     <section class="user-reservations">
       <h3 class="section-title">Mes Expériences Réservées</h3>
       <% if @experiences.any? %>

@@ -1,0 +1,13 @@
+Bonjour <%= @user.username.presence || @user.email %>,
+
+Merci d'avoir réservé l'expérience "<%= @experience.title %>" ! 🎉
+
+📍 Lieu : <%= @experience.location %>  
+📅 Date : <%= @reservation.reservation_date %>  
+
+Nous avons bien reçu votre paiement.
+
+À très bientôt !
+
+---------------------------------------
+Cet email est automatique, merci de ne pas répondre.
