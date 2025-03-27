@@ -28,4 +28,17 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  hello: "Hello"
+  welcome: "Welcome to our website!"
+  trends: "Trending Now"
+  see_more: "See More"
+  reviews: "Recent Reviews"
+  no_reviews: "No reviews yet"
+  profile:
+    edit: "Edit my profile"
+    name: "Name"
+    email: "Email"
+    password: "Password"
+    update: "Update"
+    back: "Back"
+

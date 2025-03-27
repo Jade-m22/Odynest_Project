@@ -1,10 +1,12 @@
 <section class="trends-section">
   <div class="container">
     <figure class="trend-banner">
-      <%= image_tag "banner2.jpg", alt: "Champ de lavande à perte de vue, une expérience immersive au cœur de la nature et des senteurs provençales", class: "trends-banner" %>
+      <%= image_tag "banner2.jpg", 
+        alt: t('trends_banner_alt'), 
+        class: "trends-banner" %>
     </figure>
 
-    <h2 class="amsterdam trends-title">Tendances du moment</h2>
+    <h2 class="amsterdam trends-title"><%= t('trends') %></h2>
 
     <div class="row">
       <% @trends.each do |trend| %>
@@ -15,7 +17,7 @@
               <p class="card-text"><%= truncate(trend.description, length: 100) %></p>
 
               <%= link_to experience_path(trend), class: "cta" do %>
-                <span>Voir plus</span>
+                <span><%= t('see_more') %></span>
                 <svg width="15px" height="10px" viewBox="0 0 13 10">
                   <path d="M1,5 L11,5"></path>
                   <polyline points="8 1 12 5 8 9"></polyline>

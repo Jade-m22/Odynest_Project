@@ -1,0 +1,14 @@
+fr:
+  hello: "Bonjour"
+  welcome: "Bienvenue sur notre site !"
+  trends: "Tendances du moment"
+  see_more: "Voir plus"
+  reviews: "Avis récents"
+  no_reviews: "Pas encore d'avis"
+  profile:
+    edit: "Modifier mon profil"
+    name: "Nom"
+    email: "Adresse e-mail"
+    password: "Mot de passe"
+    update: "Mettre à jour"
+    back: "Retour"
