@@ -19,7 +19,7 @@
         <tbody>
           <% @experiences.each do |experience| %>
             <tr class="experience-row">
-              <td><%=experience.provider.email%></td>
+              <td><%= link_to experience.provider.email, provider_path(experience.provider.id)%></td>
               <td><%= link_to experience.title, experience_path(experience), class: "experience-title" %></td>
               <td><%= experience.location %></td>
               <td class="participants-list">

@@ -11,6 +11,9 @@ class ProvidersController < ApplicationController
 
   def show
     @provider = Provider.find_by(id: params[:id])
+    if @provider.nil?
+      redirect_to providers_path, alert: "Provider introuvable."
+    end
   end
 
   def create
