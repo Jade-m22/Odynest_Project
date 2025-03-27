@@ -1,3 +1,23 @@
+.back-to-top-fixed {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #046d70;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 18px;
+  text-decoration: none;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s;
+}
+
+.back-to-top-fixed:hover {
+  background-color: #024b4d;
+}
+
 /* Section de présentation du prestataire */
 .provider-info {
   position: fixed;
