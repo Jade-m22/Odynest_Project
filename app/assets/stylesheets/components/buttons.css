@@ -99,6 +99,12 @@
   stroke: white;
 }
 
+.cta .presentation-home {
+  position: absolute !important;
+  right: 10px;
+  margin-top: 10px;
+}
+
 /* ----- Bouton de suppression ----- */
 .btn-delete {
   width: 50px;

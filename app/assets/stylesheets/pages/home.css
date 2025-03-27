@@ -20,7 +20,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 60%;
-  filter: brightness(0.7);
+  filter: brightness(0.9);
 }
 
 /* Conteneur de texte sur la bannière */
@@ -69,6 +69,7 @@
 .presentation-text {
   text-align: justify;
   margin-bottom: 15px;
+  position: relative;
 }
 
 .subtitle {
@@ -90,6 +91,7 @@
   border: 4px solid white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 15px;
+  object-fit: cover;
 }
 
 /* Tendance section */
