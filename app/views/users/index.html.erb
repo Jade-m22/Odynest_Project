@@ -1,1 +1,28 @@
 <h1> Liste des utilisateurs </h1>
+  <% if @users.any? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Pseudo</th>
+          <th>Email</th>
+          <th>Expériences réservées</th>
+          <th>Voir le profil</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+              <%= user.username.present? ? user.username : 'Pseudo non renseigné' %>
+            </td>
+            <td><%= user.email %>
+            <td><%= user.reservations.count %></td>
+            <td><%= link_to "Voir", user_path(user), class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>Aucun provider trouvé.</p>
+  <% end %>
+</div>
