@@ -15,12 +15,9 @@
 .trend-card .card-text {
   font-size: 14px;
   color: #666;
-  flex-grow: 1;
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis !important;
 }
 
 .card-title {
@@ -35,6 +32,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* Cards expériences */
