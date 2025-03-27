@@ -12,7 +12,7 @@
 
     <!-- Mot de passe avec œil -->
     <section class="form-group">
-      <%= f.label :password %><br>
+      <%= f.label :password, "Mot de passe" %><br>
       <div class="password-wrapper">
         <%= f.password_field :password, class: "input-field", id: "user_password", autocomplete: "new-password" %>
         <button type="button" class="toggle-password" data-target="user_password">
@@ -29,7 +29,7 @@
 
     <!-- Confirmation -->
     <section class="form-group">
-      <%= f.label :password_confirmation %><br>
+      <%= f.label :password_confirmation, "Confirmation du Mot de passe" %><br>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-field" %>
     </section>
 
