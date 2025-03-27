@@ -8,9 +8,9 @@
       <%= f.label :profile_picture, "Photo de profil" %><br />
       
       <% if resource.profile_picture.attached? %>
-        <%= image_tag resource.profile_picture, alt: "Photo actuelle de profil", class: "profile-picture" %>
+        <%= image_tag resource.profile_picture, alt: "Photo actuelle de profil", class: "profile-picture-edit" %>
       <% else %>
-        <%= image_tag "default_profile_picture.png", alt: "Photo de profil par défaut", class: "profile-picture" %>
+        <%= image_tag "default_profile_picture.png", alt: "Photo de profil par défaut", class: "profile-picture-edit" %>
       <% end %>
 
       <%= f.file_field :profile_picture %>
