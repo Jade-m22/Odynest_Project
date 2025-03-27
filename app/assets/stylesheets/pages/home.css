@@ -105,6 +105,7 @@
   position: relative;
   z-index: 1;
   text-align: center;
+  margin-top: -10px;
 }
 
 .trend-banner {
@@ -122,6 +123,15 @@
   height: 120px;
   object-fit: cover;
   object-position: center 65%;
+}
+
+.advice-title {
+  margin-bottom: 50px;
+  margin-top: -20px;
+  color: var(--primary-color);
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
 /* Formulaire de filtre */
