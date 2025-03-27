@@ -4,23 +4,24 @@
         <div class="content-wrapper">
             <!-- Texte à gauche -->
             <div class="presentation-texts">
-                <h2 class="amsterdam banner-title">Travel Experience</h2>
                 <% if current_provider %>
-                    <h3 class="subtitle">Venez partager votre passion et vos talents !</h3>
+                <h2 class="amsterdam banner-title-pro">Travel Experience</h2>
+                    <h3 class="subtitle">Partagez votre passion et vos talents !</h3>
                         <p class="presentation-text">
                             Chez OdyNest, nous croyons que chaque destination a des trésors à offrir et que les expériences locales sont le cœur de chaque voyage. Que vous soyez un expert en aventure, un passionné de culture ou un hôte proposant des moments de détente, OdyNest vous aide à atteindre une communauté mondiale de voyageurs avides de découvrir des expériences locales.
                             Ensemble, redéfinissons la façon dont le monde voyage, en mettant l’accent sur les expériences humaines, locales et authentiques.
                             <%= link_to 'En savoir plus sur OdyNest', about_path %>
                         </p>
                 <% else %>
-                    <h3 class="subtitle">Voyagez autrement, vivez l'instant</h3>
-                    <p class="presentation-text">
-                        Nous sommes OdyNest, une plateforme dédiée à la découverte et à la réservation d'expériences uniques à travers le monde.
-                        Que vous soyez à la recherche d'aventures en ville ou de moments de détente dans des lieux exotiques,
-                        OdyNest vous permet de vivre des moments inoubliables.
-                        Explorez nos offres et plongez dans l'univers des expériences locales dans vos destinations favorites.
-                        <%= link_to 'En savoir plus sur OdyNest', about_path %>
-                    </p>
+                    <h2 class="amsterdam banner-title">Travel Experience</h2>
+                        <h3 class="subtitle">Voyagez autrement, vivez l'instant</h3>
+                            <p class="presentation-text">
+                                Nous sommes OdyNest, une plateforme dédiée à la découverte et à la réservation d'expériences uniques à travers le monde.
+                                Que vous soyez à la recherche d'aventures en ville ou de moments de détente dans des lieux exotiques,
+                                OdyNest vous permet de vivre des moments inoubliables.
+                                Explorez nos offres et plongez dans l'univers des expériences locales dans vos destinations favorites.
+                                <%= link_to 'En savoir plus sur OdyNest', about_path %>
+                            </p>
                 <% end %>
             </div>
 
