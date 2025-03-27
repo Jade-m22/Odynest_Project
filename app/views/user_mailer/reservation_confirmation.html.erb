@@ -1,0 +1,13 @@
+<h1>Bonjour <%= @user.username.presence || @user.email %>,</h1>
+
+<p>Merci d'avoir réservé l'expérience "<strong><%= @experience.title %></strong>" ! 🎉</p>
+
+<p>📍 <strong>Lieu :</strong> <%= @experience.location %></p>
+<p>📅 <strong>Date :</strong> <%= @reservation.reservation_date %></p>
+
+<p>Nous avons bien reçu votre paiement.</p>
+
+<p>À très bientôt !</p>
+
+<hr>
+<p>Cet email est automatique, merci de ne pas répondre.</p>
