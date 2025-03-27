@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   # Routes pour les expériences (listées, création, édition, suppression, affichage)
   resources :experiences do
+    collection do
+      get :quiz  # ✅ Route pour la page de quiz
+    end
+
     resources :reservations, only: [ :create, :destroy, :index, :edit, :update ]
     resources :reviews, only: [ :create, :destroy, :index ]
     post "create_stripe_checkout_session", on: :member
