@@ -13,7 +13,6 @@
       <% end %>
 
       <!-- Remplacer la section trends par advice pour les providers -->
-      <%= render "pages/advice" %> <!-- Cette ligne rend déjà la section advice pour les providers -->
 
     <% else %>
       <h1 class="text-center mb-4 mt-5">Découvrez des expériences inoubliables ✈️🌍</h1>
@@ -34,6 +33,7 @@
         <%= link_to "SUGGESTIONS", quiz_experiences_path, class: "custom-btn btn-4" %>
       <% end %>
     </div>
+    <%= render "pages/advice" %> <!-- Cette ligne rend déjà la section advice pour les providers -->
   </div>
 </section>
 
