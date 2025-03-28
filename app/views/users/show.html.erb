@@ -13,5 +13,7 @@
     <p><strong>Rôle :</strong> Utilisateur</p>
   <% end %>
 
+  <% if current_user %>
   <p><%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn btn-primary" %></p>
+  <% end %>
 </section>

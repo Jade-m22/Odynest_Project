@@ -45,7 +45,7 @@
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="providerDropdown">
                 <li><%= link_to "Dashboard", provider_dashboard_path, class: "dropdown-item" %></li>
                 <li><%= link_to "Ajouter un événement", new_experience_path, class: "dropdown-item" %></li>
-                <li><%= link_to "Modifier mon profil pro", edit_provider_registration_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Modifier mon profil pro", provider_path(current_provider), class: "dropdown-item" %></li>
                 <li><%= link_to "Paramètres", provider_settings_path, class: "dropdown-item" %></li>
                 <li>
                   <%= button_to "Se déconnecter", destroy_provider_session_path, method: :delete, class: "dropdown-item" %>
