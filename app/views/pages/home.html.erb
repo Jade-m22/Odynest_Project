@@ -3,24 +3,28 @@
 
 <section class="experiences">
   <section class="container">
+
     <% if current_provider %>
+      <!-- ✅ Titre pour le provider connecté -->
       <h1 class="text-center mb-4 mt-5">Vos expériences ✈️🌍</h1>
-      <!-- Afficher les expériences du provider connecté -->
+
+      <!-- ✅ Affichage des expériences du provider connecté -->
       <% if current_provider.experiences.any? %>
         <%= render "experiences/cards", experiences: current_provider.experiences %>
       <% else %>
         <p>Vous n'avez encore ajouté aucune expérience. <%= link_to "Ajoutez-en une", new_experience_path %>.</p>
       <% end %>
 
-      <!-- Remplacer la section trends par advice pour les providers -->
-
+      <!-- ✅ Affichage des conseils personnalisés uniquement pour les providers -->
     <% else %>
+      <!-- ✅ Titre pour les utilisateurs classiques -->
       <h1 class="text-center mb-4 mt-5">Découvrez des expériences inoubliables ✈️🌍</h1>
-      <!-- ✅ Ajout du render pour afficher les 6 expériences -->
+
+      <!-- ✅ Affichage des 6 premières expériences pour les visiteurs -->
       <%= render "experiences/cards", experiences: @experiences.limit(6) %>
     <% end %>
 
-    <!-- ✅ Boutons centrés -->
+    <!-- ✅ Zone des boutons (dashboard ou voir plus/suggestions) -->
     <nav class="text-center mt-4 d-flex justify-content-center gap-3 flex-wrap">
       <% if current_provider %>
         <%= link_to provider_dashboard_path, class: "custom-btn btn-4" do %>
@@ -34,18 +38,21 @@
       <% end %>
     </nav>
 
+    <!-- ✅ Bloc de conseils pour les providers -->
     <% if current_provider %>
       <section id="advice">
         <%= render "pages/advice" %>
       </section>
     <% end %>
+
   </section>
 </section>
 
+<!-- ✅ Section tendances uniquement visible pour les utilisateurs -->
 <% if !current_provider %>
   <section id="trend" class="trends">
     <section class="container">
       <%= render "pages/trends" %>
     </section>
   </section>
-<% end %> 
+<% end %>

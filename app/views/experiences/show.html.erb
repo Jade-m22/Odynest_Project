@@ -1,5 +1,7 @@
 <section class="container mt-4">
   <article class="experience-content">
+
+    <!-- En-tête de l'expérience avec l'image -->
     <header class="experience-header">
       <figure class="experience-image-container">
         <% if @experience.photo.attached? %>
@@ -9,12 +11,14 @@
         <% end %>
       </figure>
 
+      <!-- Informations générales sur l'expérience -->
       <section class="experience-details">
         <h1 class="experience-title"><%= @experience.title %></h1>
         <p><strong>Lieu :</strong> <%= @experience.location %></p>
         <p><strong>Prix :</strong> <%= number_to_currency(@experience.price - 0.01, unit: "", separator: ",", delimiter: ".", format: "%n€") %></p>
         <p><strong>Durée :</strong> <%= @experience.duration %> jours</p>
 
+        <!-- Dates proposées -->
         <strong>Dates proposées :</strong>
         <ul class="list-unstyled mt-2">
           <% @experience.available_dates.each do |date| %>
@@ -26,6 +30,7 @@
       </section>
     </header>
 
+    <!-- Informations sur le fournisseur -->
     <section class="text-content">
       <section class="provider-info">
         <figure class="provider-details">
@@ -37,10 +42,12 @@
         </section>
       </section>
 
+      <!-- Description complète -->
       <section class="experience-description mb-3">
         <p><strong>Description :</strong> <%= @experience.description %></p>
       </section>
 
+      <!-- Formulaire de réservation -->
       <% if current_user && current_user != @experience.provider && !current_user.admin? %>
         <section class="reservation-container">
           <h5>Réserver une date :</h5>
@@ -58,6 +65,7 @@
     </section>
   </article>
 
+  <!-- Section des avis -->
   <section class="reviews-section">
     <header>
       <h3>Avis des participants</h3>
@@ -72,12 +80,13 @@
               <p class="review-comment"><%= review.comment %></p>
             </section>
 
+            <!-- Bouton de suppression de l'avis (si propriétaire ou admin) -->
             <% if current_user && (current_user == review.user || current_user.admin?) %>
               <form class="review-actions" method="post" action="<%= experience_review_path(@experience, review) %>">
                 <input type="hidden" name="_method" value="delete">
                 <button type="submit" class="btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet avis ?')">
                   <svg viewBox="0 0 448 512" class="svgIcon">
-                    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
+                    <path d="..."></path>
                   </svg>
                 </button>
               </form>
@@ -89,6 +98,7 @@
       <p>Aucun avis pour le moment.</p>
     <% end %>
 
+    <!-- Formulaire pour laisser un avis -->
     <% if current_user && current_user.reservations.exists?(experience: @experience) && !current_user.admin? %>
       <section class="review-form">
         <h3>Laisser un avis</h3>
@@ -101,6 +111,7 @@
     <% end %>
   </section>
 
+  <!-- Boutons d'action (retour, modifier, supprimer) -->
   <footer class="mt-4 text-center">
     <%= link_to '← Retour', experiences_path, class: 'btn btn-secondary me-2' %>
     <% if current_user&.admin? || (current_provider && current_provider.id == @experience.provider_id) %>
@@ -109,7 +120,7 @@
         <input type="hidden" name="_method" value="delete">
         <button type="submit" class="btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette expérience ?')">
           <svg viewBox="0 0 448 512" class="svgIcon">
-            <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
+            <path d="..."></path>
           </svg>
         </button>
       </form>

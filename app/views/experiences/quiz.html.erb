@@ -3,7 +3,9 @@
     <h2 class="mb-3">🧭 Trouve ton expérience idéale</h2>
   </header>
 
+  <!-- Formulaire du quiz -->
   <form>
+    <!-- Sélection du type de voyageur -->
     <fieldset>
       <legend>Quel type de voyageur es-tu ?</legend>
       <label for="audience">Choisis ton profil :</label>
@@ -15,6 +17,7 @@
       </select>
     </fieldset>
 
+    <!-- Sélection de l'ambiance recherchée -->
     <fieldset>
       <legend>Quelle ambiance recherches-tu ?</legend>
       <label for="theme">Sélectionne ton ambiance :</label>
@@ -26,6 +29,7 @@
       </select>
     </fieldset>
 
+    <!-- Sélection du budget -->
     <fieldset>
       <legend>Ton budget ?</legend>
       <label for="budget">Définis ta fourchette :</label>
@@ -36,8 +40,10 @@
       </select>
     </fieldset>
 
+    <!-- Bouton pour afficher la recommandation -->
     <button type="button" class="btn btn-primary" onclick="showRecommendation()">Voir mon expérience idéale</button>
   </form>
 
+  <!-- Zone d'affichage du résultat -->
   <section id="quiz-result" class="mt-4"></section>
 </section>

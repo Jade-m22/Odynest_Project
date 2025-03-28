@@ -1,16 +1,23 @@
 <h2>Resend confirmation instructions</h2>
 
+<!-- ✅ Formulaire pour renvoyer l’e-mail de confirmation -->
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+
+  <!-- ✅ Affichage des erreurs éventuelles -->
   <%= render "users/shared/error_messages", resource: resource %>
 
+  <!-- ✅ Champ pour l’adresse e-mail (pré-rempli selon le cas) -->
   <section class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </section>
 
+  <!-- ✅ Bouton pour envoyer la demande de renvoi -->
   <footer class="actions">
     <%= f.submit "Resend confirmation instructions" %>
   </footer>
+
 <% end %>
 
+<!-- ✅ Liens supplémentaires : connexion, inscription, etc. -->
 <%= render "users/shared/links" %>

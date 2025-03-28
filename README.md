@@ -1,24 +1,81 @@
-# README
+🌍 OdyNest
+OdyNest est une plateforme de réservation d'expériences locales immersives à travers le monde. Elle connecte les voyageurs à des prestataires passionnés, pour vivre des moments authentiques et inoubliables.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+🚀 Fonctionnalités principales:
 
-Things you may want to cover:
+🎟️ Réservation d'expériences selon lieu, budget, ambiance, etc.
 
-* Ruby version
+🧑‍💼 Espaces dédiés pour les prestataires (dashboard, création, gestion de profils).
 
-* System dependencies
+🔐 Authentification avec Devise (utilisateurs et prestataires).
 
-* Configuration
+📸 Ajout de photos via Active Storage (pour profils & expériences).
 
-* Database creation
+🧭 Quiz interactif pour recommander des expériences personnalisées.
 
-* Database initialization
+💬 Système d’avis après participation à une expérience.
 
-* How to run the test suite
+🛒 Paiement Stripe pour les réservations.
 
-* Services (job queues, cache servers, search engines, etc.)
+🛠️ Interface admin pour la gestion des utilisateurs, prestataires et expériences.
 
-* Deployment instructions
+📄 Pages légales : mentions légales, politique de confidentialité, CGU.
 
-* ...
+⚙️ Stack technique:
+
+Ruby on Rails 8
+
+PostgreSQL (base de données)
+
+Bootstrap 5.3
+
+Active Storage (upload fichiers/images)
+
+Devise (authentification)
+
+Stimulus.js (comportements dynamiques)
+
+Propshaft (gestion des assets)
+
+Stripe (paiement)
+
+Turbo/Hotwire (réactivité)
+
+🔧 Installation:
+
+bash
+Copier
+Modifier
+git clone https://github.com/Jade-m22/Odynest_Project.git
+cd Odynest_Project
+bundle install
+rails db:create db:migrate
+rails db:seed
+Lancer le serveur
+bash
+Copier
+Modifier
+bin/dev
+📦 Stockage de fichiers
+Active Storage est configuré pour le développement :
+
+yml
+Copier
+Modifier
+
+# config/storage.yml
+
+local:
+service: Disk
+root: <%= Rails.root.join("storage") %>
+Pour la production, configure config/environments/production.rb et choisis un service distant comme Amazon S3, Google Cloud Storage, etc.
+
+🔑 Variables d'environnement:
+
+Crée un fichier .env ou utilise credentials.yml.enc pour :
+
+bash
+Copier
+Modifier
+STRIPE_SECRET_KEY=xxx
+STRIPE_PUBLIC_KEY=xxx
