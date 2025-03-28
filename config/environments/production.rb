@@ -83,6 +83,9 @@ Rails.application.configure do
   config.logger = ActiveSupport::Logger.new(STDOUT)  # Assurez-vous que les logs sont envoyés à la sortie standard, si vous utilisez un VPS
 
   config.assets.css_compressor = nil
+  config.assets.compile = true
+  config.assets.precompile += %w( application.css )
+
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {
