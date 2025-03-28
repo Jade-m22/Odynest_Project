@@ -84,3 +84,65 @@
   outline: none;
   box-shadow: 0 0 0 2px rgba(4, 109, 112, 0.2);
 }
+
+/* ----- Media Queries ----- */
+
+/* Écran plus petit (tablette portrait et moins) */
+@media (max-width: 768px) {
+  #faq-toggle-btn {
+    bottom: 100px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  #faq-bot {
+    bottom: 130px;
+    width: 250px; /* Réduit la largeur */
+    font-size: 13px; /* Réduit la taille du texte */
+    padding: 12px; /* Réduit le padding */
+  }
+
+  .faq-body {
+    max-height: 120px; /* Réduit la hauteur maximale */
+    font-size: 12px; /* Réduit la taille du texte */
+  }
+
+  #faq-select {
+    font-size: 12px; /* Réduit la taille du texte du menu */
+    padding: 5px 8px; /* Réduit le padding */
+  }
+}
+
+/* Écran très petit (mobile portrait et moins) */
+@media (max-width: 480px) {
+  #faq-toggle-btn {
+    bottom: 80px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  #faq-bot {
+    bottom: 100px;
+    width: 220px; /* Réduit encore plus la largeur */
+    font-size: 12px; /* Réduit la taille du texte */
+    padding: 10px; /* Réduit le padding */
+  }
+
+  .faq-header {
+    font-size: 14px; /* Réduit la taille du titre */
+  }
+
+  .faq-body {
+    max-height: 100px; /* Réduit la hauteur maximale */
+    font-size: 11px; /* Réduit la taille du texte */
+  }
+
+  #faq-select {
+    font-size: 11px; /* Réduit la taille du texte du menu */
+    padding: 4px 7px; /* Réduit le padding */
+  }
+}

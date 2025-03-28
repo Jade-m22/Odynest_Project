@@ -233,8 +233,41 @@ input[type="datetime-local"] {
 
 /* Responsivité pour les petits écrans */
 @media (max-width: 768px) {
-  .experience-form {
+  .login-container, .registration-container, .experience-form {
     padding: 20px;
     max-width: 100%;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+
+  .experience-form__input {
+    font-size: 14px;
+  }
+  
+  .experience-form__btn {
+    font-size: 14px;
+  }
+
+  .experience-form__btn--primary {
+    font-size: 14px;
+  }
+
+  .experience-form__btn--secondary {
+    font-size: 14px;
+  }
+
+  .password-wrapper {
+    flex-direction: column;
+  }
+
+  .password-wrapper .toggle-password {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .suggestion-btn {
+    font-size: 12px;
   }
 }

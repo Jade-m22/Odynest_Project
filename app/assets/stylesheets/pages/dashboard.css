@@ -173,4 +173,86 @@ table tr:hover {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+} 
+
+/* Media Queries pour Responsivité */
+
+/* Petits écrans (tablettes et mobiles en portrait) */
+@media (max-width: 768px) {
+  .dashboard-body {
+    padding: 15px;
+  }
+
+  .dashboard-title h1, .dashboard-title h2 {
+    font-size: 1.5em;
+  }
+
+  .dashboard-profile-picture img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .dashboard-table th, .dashboard-table td {
+    padding: 10px 12px;
+  }
+
+  .dashboard-no-experiences {
+    font-size: 1em;
+  }
+
+  .dashboard-section {
+    padding: 15px;
+  }
+
+  .user-dashboard {
+    padding: 20px;
+  }
+
+  table th, table td {
+    padding: 10px;
+  }
+
+  .experience-title {
+    font-size: 1.1em;
+  }
+}
+
+/* Très petits écrans (mobiles en mode portrait) */
+@media (max-width: 480px) {
+  .dashboard-body {
+    padding: 10px;
+  }
+
+  .dashboard-title h1, .dashboard-title h2 {
+    font-size: 1.2em;
+  }
+
+  .dashboard-profile-picture img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .dashboard-table th, .dashboard-table td {
+    padding: 8px 10px;
+  }
+
+  .dashboard-no-experiences {
+    font-size: 0.9em;
+  }
+
+  .dashboard-section {
+    padding: 10px;
+  }
+
+  .user-dashboard {
+    padding: 15px;
+  }
+
+  table th, table td {
+    padding: 8px;
+  }
+
+  .experience-title {
+    font-size: 1em;
+  }
 }
