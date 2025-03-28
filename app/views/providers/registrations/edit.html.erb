@@ -1,65 +1,57 @@
-<article>
-  <h2>Modifier <%= resource_name.to_s.humanize %></h2>
+<section class="profile-container">
+  <header class="profile-header">
+    <h2 class="profile-name">Modifier votre profil professionnel</h2>
+  </header>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "profile-form" }) do |f| %>
     <%= render "providers/shared/error_messages", resource: resource %>
 
-    <section>
-      <%= f.label :profile_picture, "Photo de profil" %><br />
-      
-      <% if resource.profile_picture.attached? %>
-        <%= image_tag resource.profile_picture, alt: "Photo actuelle de profil", class: "profile-picture-edit" %>
-      <% else %>
-        <%= image_tag "default_profile_picture.png", alt: "Photo de profil par défaut", class: "profile-picture-edit" %>
-      <% end %>
-
-      <%= f.file_field :profile_picture %>
-    </section>
-
-
-    <section>
-      <%= f.label :email, "Adresse e-mail" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </section>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <section>En attente de confirmation pour : <%= resource.unconfirmed_email %></section>
+    <!-- Avatar -->
+    <% if resource.profile_picture.attached? %>
+      <%= image_tag resource.profile_picture, class: "profile-avatar" %>
+    <% else %>
+      <%= image_tag "default_profile_picture.png", class: "profile-avatar" %>
     <% end %>
 
-    <section>
-      <%= f.label :first_name, "Prénom (optionnel)" %><br />
-      <%= f.text_field :first_name, placeholder: "Entrez votre prénom (facultatif)" %>
-    </section>
+    <%= f.file_field :profile_picture, class: "form-control" %>
 
-    <section>
-      <%= f.label :password, "Nouveau mot de passe" %> <i>(laisser vide si vous ne souhaitez pas le modifier)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> caractères minimum</em>
-      <% end %>
-    </section>
+    <!-- Email -->
+    <%= f.email_field :email, class: "form-control", placeholder: "Adresse e-mail", autofocus: true %>
 
-    <section>
-      <%= f.label :password_confirmation, "Confirmation du mot de passe" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </section>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p class="text-warning">En attente de confirmation pour : <%= resource.unconfirmed_email %></p>
+    <% end %>
 
-    <section>
-      <%= f.label :current_password, "Mot de passe actuel" %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer les modifications)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
-    </section>
+    <!-- Prénom -->
+    <%= f.text_field :first_name, class: "form-control", placeholder: "Prénom (optionnel)" %>
 
-    <footer>
-      <%= f.submit "Mettre à jour" %>
-    </footer>
+    <!-- Mot de passe -->
+    <%= f.password_field :password, class: "form-control", placeholder: "Nouveau mot de passe" %>
+    <% if @minimum_password_length %>
+      <small class="text-muted"><%= @minimum_password_length %> caractères minimum</small>
+    <% end %>
+
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmation mot de passe" %>
+
+    <%= f.password_field :current_password, class: "form-control", placeholder: "Mot de passe actuel" %>
+
+    <div class="profile-actions">
+      <%= f.submit "💾 Enregistrer", class: "btn btn-save" %>
+      <%= link_to "Retour", request.referrer || root_path, class: "btn btn-cancel" %>
+    </div>
   <% end %>
 
-  <h3>Supprimer mon compte</h3>
+    <div class="profile-delete mt-4 text-center">
+    <h5 class="text-danger">Supprimer mon compte</h5>
+    <p class="text-warning">⚠️ Cette action est irréversible</p>
 
-  <section>
-    Vous n'êtes pas satisfait ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr ?", turbo_confirm: "Êtes-vous sûr ?" }, method: :delete %>
-  </section>
-
-  <%= link_to "Retour", :back %>
-</article>
+    <%= button_to registration_path(resource_name),
+        method: :delete,
+        data: { confirm: "Êtes-vous sûr de vouloir supprimer votre compte ?" },
+        class: "btn-delete mx-auto", title: "Supprimer mon compte" do %>
+      <svg viewBox="0 0 448 512" class="svgIcon" width="20" height="20" fill="white">
+        <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+      </svg>
+    <% end %>
+  </div>
+</section>
