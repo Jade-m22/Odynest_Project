@@ -21,21 +21,23 @@
           <label for="experience_price">Prix (€)</label>
           <%= f.number_field :price, step: 0.01, class: "form-control", required: true, id: "experience_price" %>
 
-          <label for="experience_duration">Durée (jours)</label>
-          <%= f.number_field :duration, class: "form-control", required: true, id: "experience_duration" %>
+          <label for="experience_duration">Durée</label>
+          <%= f.select :duration, 
+            [["30 minutes", 30], ["1 heure", 60], ["2 heures", 120], ["1 jour", 1440], ["2 jours", 2880]], 
+            {}, class: "form-control", id: "experience_duration" %>
         </fieldset>
 
         <fieldset>
           <legend>Dates de début</legend>
 
           <label for="experience_start_date_1">Date de début 1</label>
-          <%= f.date_select :start_date_1, class: "form-control", id: "experience_start_date_1" %>
+          <%= f.datetime_select :start_date_1, class: "form-control", id: "experience_start_date_1" %>
 
           <label for="experience_start_date_2">Date de début 2</label>
-          <%= f.date_select :start_date_2, class: "form-control", id: "experience_start_date_2" %>
+          <%= f.datetime_select :start_date_2, class: "form-control", id: "experience_start_date_2" %>
 
           <label for="experience_start_date_3">Date de début 3</label>
-          <%= f.date_select :start_date_3, class: "form-control", id: "experience_start_date_3" %>
+          <%= f.datetime_select :start_date_3, class: "form-control", id: "experience_start_date_3" %>
         </fieldset>
 
         <fieldset>
