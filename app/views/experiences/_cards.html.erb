@@ -20,7 +20,6 @@
     <% experiences.each do |experience| %>
       <article class="col-md-4 mb-4">
         <figure class="card-experience">
-          <!-- Conteneur de l'image -->
           <picture class="card-image-container">
             <img src="<%= experience.photo.attached? ? url_for(experience.photo) : image_path('default-image.jpg') %>" alt="Image de <%= experience.title %>" class="card-image">
           </picture>
@@ -47,5 +46,4 @@
   </section>
 </section>
 
-<!-- Bouton retour en haut -->
 <a href="#" class="back-to-top-fixed" title="Retour en haut">↑</a>
