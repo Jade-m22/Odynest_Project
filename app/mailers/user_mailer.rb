@@ -6,6 +6,6 @@ class UserMailer < ApplicationMailer
     @experience = reservation.experience
     @reservation = reservation
 
-    mail(to: @user.email, subject: "Confirmation de votre réservation pour #{@experience.title}")
+    mail(from: "bordes.gaetan33@gmail.com", to: @user.email, subject: "Confirmation de votre réservation pour #{@experience.title}")
   end
 end
