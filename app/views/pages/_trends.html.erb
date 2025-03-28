@@ -1,11 +1,15 @@
 <section class="trends-section">
   <section class="container">
+
+    <!-- Bandeau tendance avec image -->
     <figure class="trend-banner">
       <%= image_tag "banner2.jpg", alt: "Champ de lavande à perte de vue, une expérience immersive au cœur de la nature et des senteurs provençales", class: "trends-banner" %>
     </figure>
 
+    <!-- Titre principal -->
     <h2 class="amsterdam trends-title">Tendances du moment</h2>
 
+    <!-- Liste des expériences en tendance -->
     <section class="row">
       <% @trends.each do |trend| %>
         <article class="col-md-4 mb-4">
@@ -14,6 +18,7 @@
               <h3 class="card-title"><%= trend.title %></h3>
               <p class="card-text"><%= truncate(trend.description, length: 100) %></p>
 
+              <!-- Lien vers l'expérience -->
               <%= link_to experience_path(trend), class: "cta" do %>
                 <span>Voir plus</span>
                 <svg width="15px" height="10px" viewBox="0 0 13 10">
