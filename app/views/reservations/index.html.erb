@@ -1,9 +1,11 @@
 <main class="mt-5">
+  <!-- ✅ En-tête avec le titre de l'expérience -->
   <header class="text-center">
     <h1>Réservations pour <%= @experience.title %></h1>
   </header>
 
   <% if @reservations.any? %>
+    <!-- ✅ Tableau des réservations si présentes -->
     <section class="mt-4">
       <table class="table table-striped">
         <thead>
@@ -20,6 +22,7 @@
               <td><%= reservation.user.email %></td>
               <td><%= reservation.reservation_date.strftime("%d/%m/%Y") if reservation.reservation_date %></td>
               <td><%= reservation.status || "En attente" %></td>
+              <!-- ✅ Lien pour annuler la réservation -->
               <td>
                 <%= link_to "Annuler", experience_reservation_path(@experience, reservation), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir annuler cette réservation ?" }, class: "btn btn-danger btn-sm" %>
               </td>
@@ -29,9 +32,11 @@
       </table>
     </section>
   <% else %>
+    <!-- ✅ Message si aucune réservation -->
     <p class="text-center mt-4">Aucune réservation pour cette expérience.</p>
   <% end %>
 
+  <!-- ✅ Bouton de retour vers la page de l'expérience -->
   <footer class="text-center mt-4">
     <%= link_to "Retour à l'expérience", experience_path(@experience), class: "btn btn-secondary" %>
   </footer>

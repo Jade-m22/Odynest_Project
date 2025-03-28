@@ -1,13 +1,19 @@
 <section>
+  <!-- ✅ Titre avec le prénom ou l'email du prestataire -->
   <h1>Profil de <%= @provider.first_name.presence || @provider.email %></h1>
 
+  <!-- ✅ Affichage de l'email -->
   <p><strong>Email:</strong> <%= @provider.email %></p>
 
+  <!-- ✅ Affichage conditionnel du prénom s'il est présent -->
   <% if @provider.first_name.present? %>
     <p><strong>Prénom:</strong> <%= @provider.first_name %></p>
   <% end %>
+
+  <!-- ✅ Affichage du rôle fixe -->
   <p><strong>Rôle :</strong> Prestataire</p>
 
+  <!-- ✅ Lien de modification visible uniquement par le prestataire connecté -->
   <% if current_provider %>
     <p><%= link_to "Modifier mon profil", edit_provider_registration_path, class: "btn btn-primary" %></p>
   <% end %>

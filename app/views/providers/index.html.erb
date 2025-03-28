@@ -1,28 +1,37 @@
-<h1> Liste des pro </h1>
-  <% if @providers.any? %>
-    <table class="table">
-      <thead>
+<h1>Liste des pro</h1>
+
+<% if @providers.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Contact</th>
+        <th>Nombre d'expériences</th>
+        <th>Voir le profil</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @providers.each do |provider| %>
         <tr>
-          <th>Nom</th>
-          <th>Contact</th>
-          <th>Nombre d'expériences</th>
-          <th>Voir le profil</th>
+          <!-- ✅ Affichage du prénom ou d'un fallback si vide -->
+          <td>
+            <%= provider.first_name.present? ? provider.first_name : 'Prénom non renseigné' %>
+          </td>
+
+          <!-- ✅ Email du prestataire -->
+          <td><%= provider.email %></td>
+
+          <!-- ✅ Nombre d'expériences créées par ce prestataire -->
+          <td><%= provider.experiences.count %></td>
+
+          <!-- ✅ Lien vers la page de profil du prestataire -->
+          <td><%= link_to "Voir", provider_path(provider), class: "btn btn-primary" %></td>
         </tr>
-      </thead>
-      <tbody>
-        <% @providers.each do |provider| %>
-          <tr>
-            <td>
-              <%= provider.first_name.present? ? provider.first_name : 'Prénom non renseigné' %>
-            </td>
-            <td><%= provider.email %></td>
-            <td><%= provider.experiences.count %>
-            <td><%= link_to "Voir", provider_path(provider), class: "btn btn-primary" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <p>Aucun provider trouvé.</p>
-  <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <!-- ✅ Message si aucun prestataire n'est trouvé -->
+  <p>Aucun provider trouvé.</p>
+<% end %>
 </div>
