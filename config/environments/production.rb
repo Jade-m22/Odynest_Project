@@ -63,6 +63,7 @@ Rails.application.configure do
 
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "http://87.106.231.213" }
+  Rails.application.routes.default_url_options[:host] = "http://87.106.231.213"
 
   config.action_mailer.mailjet_settings = {
   api_key: ENV['MAILJET_API_KEY'],
