@@ -1,9 +1,12 @@
 <main class="user-dashboard">
 
   <% if current_user.is_admin? %>
+    <!-- ✅ Dashboard ADMIN -->
     <header class="dashboard-header">
       <h1>Tableau de bord Administrateur</h1>
     </header>
+
+    <!-- ✅ Liste des expériences créées par les providers -->
     <section class="admin-dashboard-section">
       <h3 class="section-title">Liste des expériences en cours</h3>
       <table class="table experiences-table">
@@ -32,6 +35,7 @@
       </table>
     </section>
 
+    <!-- ✅ Accès rapide à la gestion des utilisateurs et prestataires -->
     <section class="admin-management">
       <h3 class="section-title mt-3">Gestion</h3>
       <div class="admin-links">
@@ -41,10 +45,13 @@
     </section>
 
   <% else %>
+    <!-- ✅ Dashboard UTILISATEUR -->
     <header class="dashboard-header">
       <h1>Tableau de bord Utilisateur</h1>
       <h2>Mes Expériences</h2>
     </header>
+
+    <!-- ✅ Réservations à venir -->
     <section class="user-reservations">
       <h3 class="section-title">Mes Expériences Réservées</h3>
       <% if @experiences.any? %>
@@ -73,6 +80,7 @@
       <% end %>
     </section>
 
+    <!-- ✅ Expériences passées -->
     <section class="user-past-experiences">
       <h3 class="section-title mt-3">Mes Expériences Passées</h3>
       <table class="table past-experiences-table">

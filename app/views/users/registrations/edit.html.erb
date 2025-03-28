@@ -3,13 +3,17 @@
     <h2 class="profile-name">Modifier votre profil</h2>
   </header>
 
+  <!-- ✅ Formulaire de mise à jour du profil utilisateur -->
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "profile-form" }) do |f| %>
+    
+    <!-- ✅ Affichage des erreurs si besoin -->
     <%= render "users/shared/error_messages", resource: resource %>
 
+    <!-- ✅ Champ email et pseudo -->
     <%= f.email_field :email, class: "form-control", placeholder: "Email", autofocus: true %>
     <%= f.text_field :username, class: "form-control", placeholder: "Pseudo" %>
 
-    <!-- Nouveau mot de passe -->
+    <!-- ✅ Nouveau mot de passe -->
     <fieldset class="form-group w-100">
       <div class="password-wrapper d-flex align-items-center gap-2">
         <%= f.password_field :password, class: "form-control", id: "user_password", autocomplete: "new-password", placeholder: "Nouveau mot de passe" %>
@@ -17,7 +21,7 @@
       </div>
     </fieldset>
 
-    <!-- Confirmation du mot de passe -->
+    <!-- ✅ Confirmation du mot de passe -->
     <fieldset class="form-group w-100">
       <div class="password-wrapper d-flex align-items-center gap-2">
         <%= f.password_field :password_confirmation, class: "form-control", id: "user_password_confirmation", autocomplete: "new-password", placeholder: "Confirmer le mot de passe" %>
@@ -25,7 +29,7 @@
       </div>
     </fieldset>
 
-    <!-- Mot de passe actuel -->
+    <!-- ✅ Mot de passe actuel (requis pour valider les changements) -->
     <fieldset class="form-group w-100">
       <div class="password-wrapper d-flex align-items-center gap-2">
         <%= f.password_field :current_password, class: "form-control", id: "user_current_password", autocomplete: "current-password", placeholder: "Mot de passe actuel" %>
@@ -33,12 +37,14 @@
       </div>
     </fieldset>
 
+    <!-- ✅ Boutons de validation / retour -->
     <div class="profile-actions">
       <%= f.submit "💾 Enregistrer", class: "btn btn-save" %>
       <%= link_to "Retour", request.referrer || root_path, class: "btn btn-cancel" %>
     </div>
   <% end %>
 
+  <!-- ✅ Suppression du compte -->
   <div class="profile-delete mt-4 text-center">
     <h5 class="text-danger">Supprimer mon compte</h5>
     <p class="text-warning">⚠️ Cette action est irréversible</p>
@@ -48,7 +54,7 @@
         data: { confirm: "Êtes-vous sûr de vouloir supprimer votre compte ?" },
         class: "btn-delete mx-auto", title: "Supprimer mon compte" do %>
       <svg viewBox="0 0 448 512" class="svgIcon" width="20" height="20" fill="white">
-        <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+        <path d="..."/>
       </svg>
     <% end %>
   </div>
