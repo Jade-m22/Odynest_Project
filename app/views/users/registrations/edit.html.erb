@@ -8,9 +8,30 @@
 
     <%= f.email_field :email, class: "form-control", placeholder: "Email", autofocus: true %>
     <%= f.text_field :username, class: "form-control", placeholder: "Pseudo" %>
-    <%= f.password_field :password, class: "form-control", placeholder: "Nouveau mot de passe" %>
-    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmation mot de passe" %>
-    <%= f.password_field :current_password, class: "form-control", placeholder: "Mot de passe actuel" %>
+
+    <!-- Nouveau mot de passe -->
+    <fieldset class="form-group w-100">
+      <div class="password-wrapper d-flex align-items-center gap-2">
+        <%= f.password_field :password, class: "form-control", id: "user_password", autocomplete: "new-password", placeholder: "Nouveau mot de passe" %>
+        <button type="button" class="toggle-password btn btn-outline-secondary" data-target="user_password">👁️</button>
+      </div>
+    </fieldset>
+
+    <!-- Confirmation du mot de passe -->
+    <fieldset class="form-group w-100">
+      <div class="password-wrapper d-flex align-items-center gap-2">
+        <%= f.password_field :password_confirmation, class: "form-control", id: "user_password_confirmation", autocomplete: "new-password", placeholder: "Confirmer le mot de passe" %>
+        <button type="button" class="toggle-password btn btn-outline-secondary" data-target="user_password_confirmation">👁️</button>
+      </div>
+    </fieldset>
+
+    <!-- Mot de passe actuel -->
+    <fieldset class="form-group w-100">
+      <div class="password-wrapper d-flex align-items-center gap-2">
+        <%= f.password_field :current_password, class: "form-control", id: "user_current_password", autocomplete: "current-password", placeholder: "Mot de passe actuel" %>
+        <button type="button" class="toggle-password btn btn-outline-secondary" data-target="user_current_password">👁️</button>
+      </div>
+    </fieldset>
 
     <div class="profile-actions">
       <%= f.submit "💾 Enregistrer", class: "btn btn-save" %>

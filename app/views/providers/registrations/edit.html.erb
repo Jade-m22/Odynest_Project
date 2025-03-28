@@ -7,13 +7,14 @@
     <%= render "providers/shared/error_messages", resource: resource %>
 
     <!-- Avatar -->
-    <% if resource.profile_picture.attached? %>
-      <%= image_tag resource.profile_picture, class: "profile-avatar" %>
-    <% else %>
-      <%= image_tag "default_profile_picture.png", class: "profile-avatar" %>
-    <% end %>
-
-    <%= f.file_field :profile_picture, class: "form-control" %>
+    <div class="form-group text-center">
+      <% if resource.profile_picture.attached? %>
+        <%= image_tag resource.profile_picture, class: "profile-avatar" %>
+      <% else %>
+        <%= image_tag "default_profile_picture.png", class: "profile-avatar" %>
+      <% end %>
+      <%= f.file_field :profile_picture, class: "form-control mt-2" %>
+    </div>
 
     <!-- Email -->
     <%= f.email_field :email, class: "form-control", placeholder: "Adresse e-mail", autofocus: true %>
@@ -26,22 +27,38 @@
     <%= f.text_field :first_name, class: "form-control", placeholder: "Prénom (optionnel)" %>
 
     <!-- Mot de passe -->
-    <%= f.password_field :password, class: "form-control", placeholder: "Nouveau mot de passe" %>
-    <% if @minimum_password_length %>
-      <small class="text-muted"><%= @minimum_password_length %> caractères minimum</small>
-    <% end %>
+    <fieldset class="form-group w-100">
+      <div class="password-wrapper d-flex align-items-center gap-2">
+        <%= f.password_field :password, class: "form-control", id: "provider_password", autocomplete: "new-password", placeholder: "Nouveau mot de passe" %>
+        <button type="button" class="toggle-password btn btn-outline-secondary" data-target="provider_password">👁️</button>
+      </div>
+    </fieldset>
 
-    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmation mot de passe" %>
+    <!-- Confirmation mot de passe -->
+    <fieldset class="form-group w-100">
+      <div class="password-wrapper d-flex align-items-center gap-2">
+        <%= f.password_field :password_confirmation, class: "form-control", id: "provider_password_confirmation", autocomplete: "new-password", placeholder: "Confirmer le mot de passe" %>
+        <button type="button" class="toggle-password btn btn-outline-secondary" data-target="provider_password_confirmation">👁️</button>
+      </div>
+    </fieldset>
 
-    <%= f.password_field :current_password, class: "form-control", placeholder: "Mot de passe actuel" %>
+    <!-- Mot de passe actuel -->
+    <fieldset class="form-group w-100">
+      <div class="password-wrapper d-flex align-items-center gap-2">
+        <%= f.password_field :current_password, class: "form-control", id: "provider_current_password", autocomplete: "current-password", placeholder: "Mot de passe actuel" %>
+        <button type="button" class="toggle-password btn btn-outline-secondary" data-target="provider_current_password">👁️</button>
+      </div>
+    </fieldset>
 
+    <!-- Boutons -->
     <div class="profile-actions">
       <%= f.submit "💾 Enregistrer", class: "btn btn-save" %>
       <%= link_to "Retour", request.referrer || root_path, class: "btn btn-cancel" %>
     </div>
   <% end %>
 
-    <div class="profile-delete mt-4 text-center">
+  <!-- Suppression du compte -->
+  <div class="profile-delete mt-4 text-center">
     <h5 class="text-danger">Supprimer mon compte</h5>
     <p class="text-warning">⚠️ Cette action est irréversible</p>
 
