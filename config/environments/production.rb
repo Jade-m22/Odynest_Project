@@ -72,7 +72,7 @@ Rails.application.configure do
     config.action_mailer.smtp_settings = {
     address: "in-v3.mailjet.com",
     port: 587,
-    domain: 'gmail.com',
+    domain: 'mailjet.com',
     user_name: ENV["MAILJET_API_KEY"],
     password: ENV["MAILJET_API_SECRET"],
     authentication: :plain,
