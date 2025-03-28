@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
         if params[:review][:user_pseudo].present? && current_user.username != params[:review][:user_pseudo]
             current_user.update(username: params[:review][:user_pseudo])
         end
-        
+
         if @review.save
             redirect_to experience_path(@experience), notice: "Avis ajouté"
         else
