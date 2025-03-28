@@ -1,9 +1,9 @@
-<div class="user-dashboard">
+<main class="user-dashboard">
 
   <% if current_user.is_admin? %>
-    <div class="dashboard-header">
+    <header class="dashboard-header">
       <h1>Tableau de bord Administrateur</h1>
-    </div>
+    </header>
     <section class="admin-dashboard-section">
       <h3 class="section-title">Liste des expériences en cours</h3>
       <table class="table experiences-table">
@@ -41,10 +41,10 @@
     </section>
 
   <% else %>
-    <div class="dashboard-header">
+    <header class="dashboard-header">
       <h1>Tableau de bord Utilisateur</h1>
       <h2>Mes Expériences</h2>
-    </div>
+    </header>
     <section class="user-reservations">
       <h3 class="section-title">Mes Expériences Réservées</h3>
       <% if @experiences.any? %>
@@ -75,17 +75,19 @@
 
     <section class="user-past-experiences">
       <h3 class="section-title mt-3">Mes Expériences Passées</h3>
-      <% @past_reservations.each do |reservation| %>
-        <tr class="reservation-row">
-          <td><%= link_to reservation.experience.title, experience_path(reservation.experience), class: "experience-title" %></td>
-          <td><%= reservation.experience.location %></td>
-          <td><%= reservation.reservation_date %></td>
-        </tr>
-      <% end %>
+      <table class="table past-experiences-table">
+        <% @past_reservations.each do |reservation| %>
+          <tr class="reservation-row">
+            <td><%= link_to reservation.experience.title, experience_path(reservation.experience), class: "experience-title" %></td>
+            <td><%= reservation.experience.location %></td>
+            <td><%= reservation.reservation_date %></td>
+          </tr>
+        <% end %>
+      </table>
 
       <% if @past_reservations.empty? %>
         <p class="no-past-experiences">Vous n'avez pas encore participé à une expérience.</p>
       <% end %>
     </section>
   <% end %>
-</div>
+</main>
