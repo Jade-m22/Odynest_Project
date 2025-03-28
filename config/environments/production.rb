@@ -72,11 +72,16 @@ Rails.application.configure do
     config.action_mailer.smtp_settings = {
     address: "in-v3.mailjet.com",
     port: 587,
+    domain: 'gmail.com',
     user_name: ENV["MAILJET_API_KEY"],
     password: ENV["MAILJET_API_SECRET"],
     authentication: :plain,
     enable_starttls_auto: true
   }
+
+  config.log_level = :debug  # Cela permet de loguer les erreurs les plus détaillées
+  config.logger = ActiveSupport::Logger.new(STDOUT)  # Assurez-vous que les logs sont envoyés à la sortie standard, si vous utilisez un VPS
+
 
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
