@@ -1,5 +1,6 @@
 <section class="container text-center mt-5">
 
+  <!-- Bloc : Formulaire de tri (uniquement sur la page index des expériences) -->
   <% if controller_name == "experiences" && action_name == "index" %>
     <%= form_with url: experiences_path, method: :get, local: true, class: "filter-form" do %>
       <fieldset class="filter-container">
@@ -16,15 +17,17 @@
     <% end %>
   <% end %>
 
+  <!-- Bloc : Affichage des cartes d'expériences -->
   <section class="row">
     <% experiences.each do |experience| %>
       <article class="col-md-4 mb-4">
         <figure class="card-experience">
-          <!-- Conteneur de l'image -->
+          <!-- Image de l'expérience ou image par défaut -->
           <picture class="card-image-container">
             <img src="<%= experience.photo.attached? ? url_for(experience.photo) : image_path('default-image.jpg') %>" alt="Image de <%= experience.title %>" class="card-image">
           </picture>
 
+          <!-- Contenu texte de la carte -->
           <figcaption class="card-content">
             <h2 class="card-title"><%= experience.title %></h2>
             <p class="card-text"><%= truncate(experience.description, length: 100) %></p>
@@ -32,6 +35,7 @@
             <p><strong><%= number_to_currency(experience.price - 0.01, unit: "", separator: ",", delimiter: ".", format: "%n€") %></strong></p>
           </figcaption>
 
+          <!-- Lien vers la page de l'expérience -->
           <footer class="card-footer">
             <%= link_to experience_path(experience), class: "cta" do %>
               <span>Voir l'expérience</span>

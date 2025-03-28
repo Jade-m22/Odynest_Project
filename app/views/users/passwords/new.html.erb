@@ -1,21 +1,28 @@
 <section class="password-reset container mt-5">
   <div class="card p-4 shadow-sm mx-auto" style="max-width: 500px;">
+    <!-- ✅ Titre et instructions -->
     <h2 class="text-center mb-3">🔐 Réinitialiser votre mot de passe</h2>
     <p class="text-center text-muted mb-4">Indiquez votre adresse e-mail pour recevoir un lien de réinitialisation.</p>
 
+    <!-- ✅ Formulaire de demande de réinitialisation -->
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+      <!-- ✅ Affichage des erreurs si besoin -->
       <%= render "users/shared/error_messages", resource: resource %>
 
+      <!-- ✅ Champ email -->
       <div class="form-group mb-3">
         <%= f.label :email, "Adresse e-mail", class: "form-label" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "exemple@email.com" %>
       </div>
 
+      <!-- ✅ Bouton d’envoi -->
       <div class="text-center mt-4">
         <%= f.submit "📩 Envoyer les instructions", class: "btn btn-primary px-4" %>
       </div>
     <% end %>
 
+    <!-- ✅ Liens utiles (connexion, inscription...) -->
     <div class="text-center mt-4">
       <%= render "users/shared/links" %>
     </div>

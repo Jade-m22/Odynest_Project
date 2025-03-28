@@ -1,55 +1,58 @@
 <section class="container">
-    <article class="presentation-content">
-        <!-- Nouveau container parent -->
-        <section class="content-wrapper">
-            <!-- Texte à gauche -->
-            <section class="presentation-texts">
-                <% if current_provider %>
-                <h2 class="amsterdam banner-title-pro">Travel Experience</h2>
-                    <h3 class="subtitle">Partagez votre passion et vos talents !</h3>
-                        <p class="presentation-text">
-                            Chez OdyNest, nous croyons que chaque destination a des trésors à offrir et que les expériences locales sont le cœur de chaque voyage. Que vous soyez un expert en aventure, un passionné de culture ou un hôte proposant des moments de détente, OdyNest vous aide à atteindre une communauté mondiale de voyageurs avides de découvrir des expériences locales.
-                            Ensemble, redéfinissons la façon dont le monde voyage, en mettant l’accent sur les expériences humaines, locales et authentiques.<br>
-                            <%= link_to about_path, class: "cta presentation-home" do %>
-                                <span>En savoir plus</span>
-                                    <svg width="15px" height="10px" viewBox="0 0 13 10">
-                                        <path d="M1,5 L11,5"></path>
-                                        <polyline points="8 1 12 5 8 9"></polyline>
-                                    </svg>
-                            <% end %>
-                        </p>
-                <% else %>
-                <h2 class="amsterdam banner-title">Travel Experience</h2>
-                    <h3 class="subtitle">Voyagez autrement, vivez l'instant</h3>
-                        <p class="presentation-text">
-                            Nous sommes OdyNest, une plateforme dédiée à la découverte et à la réservation d'expériences uniques à travers le monde.
-                            Que vous soyez à la recherche d'aventures en ville ou de moments de détente dans des lieux exotiques,
-                            OdyNest vous permet de vivre des moments inoubliables.
-                            Explorez nos offres et plongez dans l'univers des expériences locales dans vos destinations favorites.<br>
-                            <%= link_to about_path, class: "cta presentation-home" do %>
-                                <span>En savoir plus</span>
-                                    <svg width="15px" height="10px" viewBox="0 0 13 10">
-                                        <path d="M1,5 L11,5"></path>
-                                        <polyline points="8 1 12 5 8 9"></polyline>
-                                    </svg>
-                            <% end %>
-                        </p>
-                <% end %>
-            </section>
+  <article class="presentation-content">
 
-            <% if current_provider %>
-                <aside class="presentation-images">
-                    <%= image_tag "img4.jpg", alt: "Explorateur marchant dans le désert, prêt à vivre une aventure immersive avec repas traditionnel et balade en chameau" %>
-                    <%= image_tag "img5.jpg", alt: "Découverte d'une ville portuaire animée, entre balade en bateau et immersion dans la culture locale" %>
-                    <%= image_tag "img6.jpg", alt: "Randonnée sur un sentier de montagne, une aventure immersive avec des panoramas à couper le souffle" %>
-                </aside>
-            <% else %>
-                <aside class="presentation-images">
-                    <%= image_tag "img1.jpg", alt: "Explorateur marchant dans le désert, prêt à vivre une aventure immersive avec repas traditionnel et balade en chameau" %>
-                    <%= image_tag "img2.jpg", alt: "Découverte d'une ville portuaire animée, entre balade en bateau et immersion dans la culture locale" %>
-                    <%= image_tag "img3.jpg", alt: "Randonnée sur un sentier de montagne, une aventure immersive avec des panoramas à couper le souffle" %>
-                </aside>
+    <!-- Conteneur principal : texte à gauche, images à droite -->
+    <section class="content-wrapper">
+
+      <!-- Bloc texte -->
+      <section class="presentation-texts">
+        <% if current_provider %>
+          <!-- Version fournisseur connecté -->
+          <h2 class="amsterdam banner-title-pro">Travel Experience</h2>
+          <h3 class="subtitle">Partagez votre passion et vos talents !</h3>
+          <p class="presentation-text">
+            Chez OdyNest, nous croyons que chaque destination a des trésors à offrir [...]
+            <%= link_to about_path, class: "cta presentation-home" do %>
+              <span>En savoir plus</span>
+              <svg width="15px" height="10px" viewBox="0 0 13 10">
+                <path d="M1,5 L11,5"></path>
+                <polyline points="8 1 12 5 8 9"></polyline>
+              </svg>
             <% end %>
-        </section>
-    </article>
-</section> 
+          </p>
+        <% else %>
+          <!-- Version utilisateur classique -->
+          <h2 class="amsterdam banner-title">Travel Experience</h2>
+          <h3 class="subtitle">Voyagez autrement, vivez l'instant</h3>
+          <p class="presentation-text">
+            Nous sommes OdyNest, une plateforme dédiée à la découverte [...]
+            <%= link_to about_path, class: "cta presentation-home" do %>
+              <span>En savoir plus</span>
+              <svg width="15px" height="10px" viewBox="0 0 13 10">
+                <path d="M1,5 L11,5"></path>
+                <polyline points="8 1 12 5 8 9"></polyline>
+              </svg>
+            <% end %>
+          </p>
+        <% end %>
+      </section>
+
+      <!-- Bloc images -->
+      <% if current_provider %>
+        <!-- Images pour les prestataires -->
+        <aside class="presentation-images">
+          <%= image_tag "img4.jpg", alt: "Explorateur marchant dans le désert [...]" %>
+          <%= image_tag "img5.jpg", alt: "Découverte d'une ville portuaire animée [...]" %>
+          <%= image_tag "img6.jpg", alt: "Randonnée sur un sentier de montagne [...]" %>
+        </aside>
+      <% else %>
+        <!-- Images pour les visiteurs classiques -->
+        <aside class="presentation-images">
+          <%= image_tag "img1.jpg", alt: "Explorateur marchant dans le désert [...]" %>
+          <%= image_tag "img2.jpg", alt: "Découverte d'une ville portuaire animée [...]" %>
+          <%= image_tag "img3.jpg", alt: "Randonnée sur un sentier de montagne [...]" %>
+        </aside>
+      <% end %>
+    </section>
+  </article>
+</section>

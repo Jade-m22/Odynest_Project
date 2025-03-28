@@ -1,10 +1,15 @@
 <section>
   <h2>Change your password</h2>
 
+  <!-- ✅ Formulaire de réinitialisation du mot de passe -->
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <!-- ✅ Affichage des erreurs éventuelles -->
     <%= render "users/shared/error_messages", resource: resource %>
+
+    <!-- ✅ Token nécessaire pour identifier la requête de reset -->
     <%= f.hidden_field :reset_password_token %>
 
+    <!-- ✅ Nouveau mot de passe -->
     <article class="field">
       <%= f.label :password, "New password" %><br />
       <% if @minimum_password_length %>
@@ -13,15 +18,18 @@
       <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
     </article>
 
+    <!-- ✅ Confirmation du nouveau mot de passe -->
     <article class="field">
       <%= f.label :password_confirmation, "Confirm new password" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </article>
 
+    <!-- ✅ Bouton de validation -->
     <footer class="actions">
       <%= f.submit "Change my password" %>
     </footer>
   <% end %>
 
+  <!-- ✅ Liens complémentaires (connexion, inscription, etc.) -->
   <%= render "users/shared/links" %>
 </section>

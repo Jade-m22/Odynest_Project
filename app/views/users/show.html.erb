@@ -1,19 +1,22 @@
 <section>
   <h1>Profil de <%= @user.username.presence || @user.email %></h1>
 
+  <!-- ✅ Informations principales de l'utilisateur -->
   <p><strong>Email:</strong> <%= @user.email %></p>
 
   <% if @user.username.present? %>
     <p><strong>Pseudo:</strong> <%= @user.username %></p>
   <% end %>
 
+  <!-- ✅ Affichage du rôle selon admin ou utilisateur -->
   <% if @user.admin? %>
     <p><strong>Rôle :</strong> Administrateur</p>
   <% else %>
     <p><strong>Rôle :</strong> Utilisateur</p>
   <% end %>
 
+  <!-- ✅ Lien de modification accessible à l'utilisateur connecté -->
   <% if current_user %>
-  <p><%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn btn-primary" %></p>
+    <p><%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn btn-primary" %></p>
   <% end %>
 </section>
