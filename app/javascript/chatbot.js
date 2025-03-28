@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const faqData = {
     "Quels sont les moyens de paiement ?":
       "Nous acceptons les paiements par carte bancaire via Stripe.",

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   // 👁️ Toggle mot de passe
   const toggleButtons = document.querySelectorAll(".toggle-password");
 
