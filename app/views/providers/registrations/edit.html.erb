@@ -1,65 +1,72 @@
-<article>
-  <h2>Modifier <%= resource_name.to_s.humanize %></h2>
+<section class="edit-profile container mt-5">
+  <h2 class="mb-4">Modifier votre profil</h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "card p-4 shadow-sm" }) do |f| %>
     <%= render "providers/shared/error_messages", resource: resource %>
 
-    <section>
-      <%= f.label :profile_picture, "Photo de profil" %><br />
-      
+    <!-- Photo de profil -->
+    <div class="form-group mb-4 text-center">
       <% if resource.profile_picture.attached? %>
-        <%= image_tag resource.profile_picture, alt: "Photo actuelle de profil", class: "profile-picture-edit" %>
+        <%= image_tag resource.profile_picture, class: "rounded-circle shadow-sm mb-2", width: 120 %>
       <% else %>
-        <%= image_tag "default_profile_picture.png", alt: "Photo de profil par défaut", class: "profile-picture-edit" %>
+        <%= image_tag "default_profile_picture.png", class: "rounded-circle shadow-sm mb-2", width: 120 %>
       <% end %>
+      <%= f.file_field :profile_picture, class: "form-control-file mt-2" %>
+    </div>
 
-      <%= f.file_field :profile_picture %>
-    </section>
-
-
-    <section>
-      <%= f.label :email, "Adresse e-mail" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </section>
+    <!-- Email -->
+    <div class="form-group mb-3">
+      <%= f.label :email, "Adresse e-mail" %>
+      <%= f.email_field :email, class: "form-control", autocomplete: "email", autofocus: true %>
+    </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <section>En attente de confirmation pour : <%= resource.unconfirmed_email %></section>
+      <p class="text-warning mb-3">En attente de confirmation pour : <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <section>
-      <%= f.label :first_name, "Prénom (optionnel)" %><br />
-      <%= f.text_field :first_name, placeholder: "Entrez votre prénom (facultatif)" %>
-    </section>
+    <!-- Prénom -->
+    <div class="form-group mb-3">
+      <%= f.label :first_name, "Prénom (optionnel)" %>
+      <%= f.text_field :first_name, class: "form-control", placeholder: "Entrez votre prénom" %>
+    </div>
 
-    <section>
-      <%= f.label :password, "Nouveau mot de passe" %> <i>(laisser vide si vous ne souhaitez pas le modifier)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+    <!-- Mot de passe -->
+    <div class="form-group mb-3">
+      <%= f.label :password, "Nouveau mot de passe" %> <i>(laissez vide pour ne pas le changer)</i>
+      <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
       <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> caractères minimum</em>
+        <small class="form-text text-muted">
+          <%= @minimum_password_length %> caractères minimum
+        </small>
       <% end %>
-    </section>
+    </div>
 
-    <section>
-      <%= f.label :password_confirmation, "Confirmation du mot de passe" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </section>
+    <div class="form-group mb-3">
+      <%= f.label :password_confirmation, "Confirmation du mot de passe" %>
+      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+    </div>
 
-    <section>
-      <%= f.label :current_password, "Mot de passe actuel" %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer les modifications)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
-    </section>
+    <div class="form-group mb-4">
+      <%= f.label :current_password, "Mot de passe actuel" %> <i>(requis pour confirmer les modifications)</i>
+      <%= f.password_field :current_password, class: "form-control", autocomplete: "current-password" %>
+    </div>
 
-    <footer>
-      <%= f.submit "Mettre à jour" %>
-    </footer>
+    <div class="text-center">
+      <%= f.submit "💾 Enregistrer les modifications", class: "btn btn-primary px-4" %>
+    </div>
   <% end %>
 
-  <h3>Supprimer mon compte</h3>
+  <!-- Suppression du compte -->
+  <div class="card mt-4 p-3 bg-light">
+    <h5 class="text-danger">Supprimer mon compte</h5>
+    <p>Vous souhaitez quitter OdyNest ?</p>
+    <%= button_to "🗑️ Supprimer mon compte", registration_path(resource_name),
+        method: :delete,
+        data: { confirm: "Êtes-vous sûr de vouloir supprimer votre compte ?" },
+        class: "btn btn-danger" %>
+  </div>
 
-  <section>
-    Vous n'êtes pas satisfait ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr ?", turbo_confirm: "Êtes-vous sûr ?" }, method: :delete %>
-  </section>
-
-  <%= link_to "Retour", :back %>
-</article>
+  <div class="mt-3">
+    <%= link_to "← Retour", request.referrer || root_path, class: "btn btn-outline-secondary" %>
+  </div>
+</section>
