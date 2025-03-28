@@ -1,16 +1,17 @@
 source "https://rubygems.org"
 
-ruby '3.3.6'
-gem 'devise'
-gem 'faker'
-gem 'pry'
-gem 'stripe'
-gem 'bootstrap'
-gem 'letter_opener', group: :development
-gem 'dotenv'
-gem 'table_print'
-gem 'rubocop'
-gem 'dartsass-rails'
+ruby "3.3.6"
+gem "devise"
+gem "faker"
+gem "pry"
+gem "stripe"
+gem "bootstrap"
+gem "letter_opener", group: :development
+gem "dotenv"
+gem "table_print"
+gem "rubocop"
+gem "dartsass-rails"
+gem "mailjet"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.2"
