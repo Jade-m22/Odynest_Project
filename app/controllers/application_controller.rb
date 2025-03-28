@@ -8,12 +8,9 @@ class ApplicationController < ActionController::Base
 
   # Permet l'ajout des paramètres nécessaires pour User et Provider
   def configure_permitted_parameters
-    # Pour l'inscription et la mise à jour de l'utilisateur
-    devise_parameter_sanitizer.permit(:sign_up, keys: [ :username ])
-    devise_parameter_sanitizer.permit(:account_update, keys: [ :username ])
+    common_attrs = [:username, :first_name, :profile_picture, :email, :password, :password_confirmation, :current_password]
 
-    # Pour l'inscription et la mise à jour du provider
-    devise_parameter_sanitizer.permit(:sign_up, keys: [ :first_name ])
-    devise_parameter_sanitizer.permit(:account_update, keys: [ :first_name ])
+    devise_parameter_sanitizer.permit(:sign_up,        keys: common_attrs)
+    devise_parameter_sanitizer.permit(:account_update, keys: common_attrs)
   end
 end

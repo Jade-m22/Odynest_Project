@@ -11,9 +11,9 @@ class Provider < ApplicationRecord
 
   def profile_picture_url
     if profile_picture.attached?
-      profile_picture.service_url
+      Rails.application.routes.url_helpers.url_for(profile_picture)
     else
       ActionController::Base.helpers.asset_path('default_profile_picture.png')
     end
-  end
+  end  
 end
