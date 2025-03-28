@@ -1,11 +1,15 @@
 <section class="container mt-5">
+  <!-- Titre de la page -->
   <header>
     <h1 class="text-center">Modifier l'expérience</h1>
   </header>
 
   <section class="row mt-4">
     <article class="col-md-8 offset-md-2">
+      <!-- Formulaire de modification de l'expérience -->
       <%= form_with model: @experience, local: true, multipart: true do |f| %>
+
+        <!-- Bloc : Informations principales -->
         <fieldset>
           <legend>Détails de l'expérience</legend>
 
@@ -25,6 +29,7 @@
           <%= f.number_field :duration, class: "form-control", required: true, id: "experience_duration" %>
         </fieldset>
 
+        <!-- Bloc : Gestion des dates -->
         <fieldset>
           <legend>Dates de début</legend>
 
@@ -38,9 +43,10 @@
           <%= f.date_select :start_date_3, class: "form-control", id: "experience_start_date_3" %>
         </fieldset>
 
+        <!-- Bloc : Ajout ou modification de la photo -->
         <fieldset>
           <legend>Ajouter une photo</legend>
-          
+
           <label for="experience_photo">Photo de l'expérience</label>
           <%= f.file_field :photo, class: "form-control", id: "experience_photo" %>
 
@@ -52,10 +58,12 @@
           <% end %>
         </fieldset>
 
+        <!-- Bloc : Actions -->
         <nav class="text-center">
           <%= f.submit "Mettre à jour", class: "btn btn-primary mt-3" %>
           <%= link_to 'Annuler', experiences_path, class: "btn btn-secondary mt-3" %>
         </nav>
+
       <% end %>
     </article>
   </section>
