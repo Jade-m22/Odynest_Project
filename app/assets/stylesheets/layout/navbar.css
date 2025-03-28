@@ -88,7 +88,7 @@
 /* Réactivité - Adaptation aux écrans plus petits */
 @media (max-width: 1024px) {
   .navbar-brand {
-    font-size: 1.25rem; /* Réduit la taille du logo sur les écrans plus petits */
+    font-size: 1.25rem;
   }
 
   .navbar-nav .nav-link {

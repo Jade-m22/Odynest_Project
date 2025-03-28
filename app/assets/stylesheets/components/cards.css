@@ -111,3 +111,50 @@
   margin-bottom: 10px;
 }
 
+/* ----- Media Queries ----- */
+
+/* Écran plus petit (tablette portrait et moins) */
+@media (max-width: 768px) {
+  .trend-card {
+    height: auto; /* Ajuste la hauteur */
+  }
+
+  .trend-card .card-body {
+    padding: 10px;
+  }
+
+  .card-experience .card-image {
+    height: 200px; /* Réduit la hauteur des images */
+  }
+
+  .card-content {
+    padding: 10px;
+  }
+
+  .card-footer {
+    text-align: left; /* Aligne le footer à gauche sur petit écran */
+  }
+}
+
+/* Écran très petit (mobile portrait et moins) */
+@media (max-width: 480px) {
+  .trend-card .card-body {
+    padding: 8px;
+  }
+
+  .trend-card .card-text {
+    font-size: 12px; /* Réduit la taille de la police */
+  }
+
+  .card-title {
+    font-size: 16px; /* Ajuste la taille du titre */
+  }
+
+  .card-experience .card-image {
+    height: 180px; /* Réduit la hauteur des images */
+  }
+
+  .card-footer {
+    font-size: 12px; /* Réduit la taille de la police du footer */
+  }
+}
