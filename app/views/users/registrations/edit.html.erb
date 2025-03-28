@@ -19,11 +19,10 @@
   <% end %>
 
   <div class="mt-4">
-    <h5 class="text-danger">Supprimer mon compte</h5>
-    <p>⚠️ Cette action est irréversible</p>
-    <%= button_to "🗑️ Supprimer mon compte", registration_path(resource_name),
-        method: :delete,
-        data: { confirm: "Êtes-vous sûr de vouloir supprimer votre compte ?" },
-        class: "btn btn-danger" %>
+    <p class="text-danger">⚠️ Cette action est irréversible</p>
+      <%= button_to "🗑️ Supprimer mon compte", registration_path(resource_name),
+      method: :delete,
+      data: { confirm: "Êtes-vous sûr de vouloir supprimer votre compte ?" },
+      class: "btn btn-danger" %>
   </div>
 </section>
