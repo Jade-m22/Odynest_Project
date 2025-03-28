@@ -2,7 +2,7 @@
 <%= render "pages/presentation" %>
 
 <section class="experiences">
-  <div class="container">
+  <section class="container">
     <% if current_provider %>
       <h1 class="text-center mb-4 mt-5">Vos expériences ✈️🌍</h1>
       <!-- Afficher les expériences du provider connecté -->
@@ -21,7 +21,7 @@
     <% end %>
 
     <!-- ✅ Boutons centrés -->
-    <div class="text-center mt-4 d-flex justify-content-center gap-3 flex-wrap">
+    <nav class="text-center mt-4 d-flex justify-content-center gap-3 flex-wrap">
       <% if current_provider %>
         <%= link_to provider_dashboard_path, class: "custom-btn btn-4" do %>
           <span>DASHBOARD</span>
@@ -32,19 +32,20 @@
         <% end %>
         <%= link_to "SUGGESTIONS", quiz_experiences_path, class: "custom-btn btn-4" %>
       <% end %>
-    </div>
+    </nav>
+
     <% if current_provider %>
       <section id="advice">
         <%= render "pages/advice" %>
       </section>
     <% end %>
-  </div>
+  </section>
 </section>
 
 <% if !current_provider %>
   <section id="trend" class="trends">
-    <div class="container">
+    <section class="container">
       <%= render "pages/trends" %>
-    </div>
+    </section>
   </section>
-<% end %>
+<% end %> 

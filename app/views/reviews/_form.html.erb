@@ -1,20 +1,20 @@
 <%= form_with(model: [experience, review], local: true) do |f| %>
   
-  <div class="form-group">
-    <%= f.label :user_pseudo, "Pseudo de l'utilisateur" %>
+  <fieldset>
+    <legend>Ajouter un avis</legend>
+
+    <label for="<%= f.object_name %>_user_pseudo">Pseudo de l'utilisateur</label>
     <%= f.text_field :user_pseudo, value: current_user.username.presence, class: "form-control" %>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :rating, "Note (1 à 5)" %>
+    <label for="<%= f.object_name %>_rating">Note (1 à 5)</label>
     <%= f.select :rating, options_for_select(1..5), {}, class: "form-control" %>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :comment, "Votre avis" %>
+    <label for="<%= f.object_name %>_comment">Votre avis</label>
     <%= f.text_area :comment, rows: 4, class: "form-control" %>
-  </div>
 
-  <%= f.submit "Ajouter un avis", class: "btn btn-secondary" %>
+    <footer>
+      <%= f.submit "Ajouter un avis", class: "btn btn-secondary" %>
+    </footer>
+  </fieldset>
 
 <% end %>

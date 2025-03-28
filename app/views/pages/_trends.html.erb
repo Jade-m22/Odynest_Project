@@ -1,16 +1,16 @@
 <section class="trends-section">
-  <div class="container">
+  <section class="container">
     <figure class="trend-banner">
       <%= image_tag "banner2.jpg", alt: "Champ de lavande à perte de vue, une expérience immersive au cœur de la nature et des senteurs provençales", class: "trends-banner" %>
     </figure>
 
     <h2 class="amsterdam trends-title">Tendances du moment</h2>
 
-    <div class="row">
+    <section class="row">
       <% @trends.each do |trend| %>
         <article class="col-md-4 mb-4">
-          <div class="card shadow-sm trend-card">
-            <div class="card-body">
+          <article class="card shadow-sm trend-card">
+            <section class="card-body">
               <h3 class="card-title"><%= trend.title %></h3>
               <p class="card-text"><%= truncate(trend.description, length: 100) %></p>
 
@@ -21,10 +21,10 @@
                   <polyline points="8 1 12 5 8 9"></polyline>
                 </svg>
               <% end %>
-            </div>
-          </div>
+            </section>
+          </article>
         </article>
       <% end %>
-    </div>
-  </div>
+    </section>
+  </section>
 </section>

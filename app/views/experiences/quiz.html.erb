@@ -1,36 +1,43 @@
-<div id="quiz-container" class="container my-5">
-  <h2 class="mb-3">🧭 Trouve ton expérience idéale</h2>
+<section id="quiz-container" class="container my-5">
+  <header>
+    <h2 class="mb-3">🧭 Trouve ton expérience idéale</h2>
+  </header>
 
-  <div class="mb-3">
-    <label for="audience">Quel type de voyageur es-tu ?</label>
-    <select id="audience" class="form-select">
-      <option value="solo">Solo</option>
-      <option value="couple">En couple</option>
-      <option value="amis">Entre amis</option>
-      <option value="famille">En famille</option>
-    </select>
-  </div>
+  <form>
+    <fieldset>
+      <legend>Quel type de voyageur es-tu ?</legend>
+      <label for="audience">Choisis ton profil :</label>
+      <select id="audience" class="form-select">
+        <option value="solo">Solo</option>
+        <option value="couple">En couple</option>
+        <option value="amis">Entre amis</option>
+        <option value="famille">En famille</option>
+      </select>
+    </fieldset>
 
-  <div class="mb-3">
-    <label for="theme">Quelle ambiance recherches-tu ?</label>
-    <select id="theme" class="form-select">
-      <option value="detente">Détente</option>
-      <option value="aventure">Aventure</option>
-      <option value="culture">Culture</option>
-      <option value="insolite">Insolite</option>
-    </select>
-  </div>
+    <fieldset>
+      <legend>Quelle ambiance recherches-tu ?</legend>
+      <label for="theme">Sélectionne ton ambiance :</label>
+      <select id="theme" class="form-select">
+        <option value="detente">Détente</option>
+        <option value="aventure">Aventure</option>
+        <option value="culture">Culture</option>
+        <option value="insolite">Insolite</option>
+      </select>
+    </fieldset>
 
-  <div class="mb-3">
-    <label for="budget">Ton budget ?</label>
-    <select id="budget" class="form-select">
-      <option value="petit">Petit (&lt; 50€)</option>
-      <option value="moyen">Moyen (50-100€)</option>
-      <option value="haut">Haut (&gt; 100€)</option>
-    </select>
-  </div>
+    <fieldset>
+      <legend>Ton budget ?</legend>
+      <label for="budget">Définis ta fourchette :</label>
+      <select id="budget" class="form-select">
+        <option value="petit">Petit (&lt; 50€)</option>
+        <option value="moyen">Moyen (50-100€)</option>
+        <option value="haut">Haut (&gt; 100€)</option>
+      </select>
+    </fieldset>
 
-  <button class="btn btn-primary" onclick="showRecommendation()">Voir mon expérience idéale</button>
+    <button type="button" class="btn btn-primary" onclick="showRecommendation()">Voir mon expérience idéale</button>
+  </form>
 
-  <div id="quiz-result" class="mt-4"></div>
-</div>
+  <section id="quiz-result" class="mt-4"></section>
+</section>
