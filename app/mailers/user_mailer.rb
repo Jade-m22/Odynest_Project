@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: "contact@odynest.fr"
+  default from: "bordes.gaetan33@gmail.com"
 
   def reservation_confirmation(reservation)
     @user = reservation.user
