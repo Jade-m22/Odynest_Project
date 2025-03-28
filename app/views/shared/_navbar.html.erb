@@ -8,38 +8,34 @@
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-
-        <% if current_provider %>
-
         <ul class="navbar-nav align-items-center">
-          <li class="nav-item-pro <%= 'active' if current_page?(root_path) %>">
-            <%= link_to "Accueil", root_path, class: "nav-link-pro" %>
-          </li>
-          <li class="nav-item-pro">
-            <%= link_to "Conseils", root_path(anchor: "advice"), class: "nav-link-pro" %>
-          </li>
-          <li class="nav-item-pro <%= 'active' if current_page?(experiences_path) %>">
-            <%= link_to "Nos expériences", experiences_path, class: "nav-link-pro" %>
-          </li>
-          <li class="nav-item-pro <%= 'active' if current_page?(about_path) %>">
-            <%= link_to "À propos", about_path, class: "nav-link-pro" %>
-          </li>
-
-        <% else %>
-          <ul class="navbar-nav align-items-center">
-          <li class="nav-item <%= 'active' if current_page?(root_path) %>">
-            <%= link_to "Accueil", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Tendances", root_path(anchor: "trend"), class: "nav-link" %>
-          </li>
-          <li class="nav-item <%= 'active' if current_page?(experiences_path) %>">
-            <%= link_to "Nos expériences", experiences_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item <%= 'active' if current_page?(about_path) %>">
-            <%= link_to "À propos", about_path, class: "nav-link" %>
-          </li>
-        <% end %>
+          <% if current_provider %>
+            <li class="nav-item-pro <%= 'active' if current_page?(root_path) %>">
+              <%= link_to "Accueil", root_path, class: "nav-link-pro" %>
+            </li>
+            <li class="nav-item-pro">
+              <%= link_to "Conseils", root_path(anchor: "advice"), class: "nav-link-pro" %>
+            </li>
+            <li class="nav-item-pro <%= 'active' if current_page?(experiences_path) %>">
+              <%= link_to "Nos expériences", experiences_path, class: "nav-link-pro" %>
+            </li>
+            <li class="nav-item-pro <%= 'active' if current_page?(about_path) %>">
+              <%= link_to "À propos", about_path, class: "nav-link-pro" %>
+            </li>
+          <% else %>
+            <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+              <%= link_to "Accueil", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Tendances", root_path(anchor: "trend"), class: "nav-link" %>
+            </li>
+            <li class="nav-item <%= 'active' if current_page?(experiences_path) %>">
+              <%= link_to "Nos expériences", experiences_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item <%= 'active' if current_page?(about_path) %>">
+              <%= link_to "À propos", about_path, class: "nav-link" %>
+            </li>
+          <% end %>
 
           <% if provider_signed_in? %>
             <li class="nav-item dropdown">
@@ -56,7 +52,6 @@
                 </li>
               </ul>
             </li>
-
           <% elsif user_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,7 +66,6 @@
                 </li>
               </ul>
             </li>
-
           <% else %>
             <li class="nav-item ms-2">
               <%= link_to "Se connecter", new_user_session_path, class: "btn btn-outline-primary" %>

@@ -3,78 +3,60 @@
     <h1 class="text-center">Modifier l'expérience</h1>
   </header>
 
-  <div class="row mt-4">
-    <div class="col-md-8 offset-md-2">
-      <%= form_with model: @experience, local: true, multipart: true do |f| %> <!-- Assurez-vous que multipart: true est ajouté -->
+  <section class="row mt-4">
+    <article class="col-md-8 offset-md-2">
+      <%= form_with model: @experience, local: true, multipart: true do |f| %>
         <fieldset>
           <legend>Détails de l'expérience</legend>
 
-          <div class="form-group">
-            <%= f.label :title, "Titre" %>
-            <%= f.text_field :title, class: "form-control", required: true %>
-          </div>
+          <label for="experience_title">Titre</label>
+          <%= f.text_field :title, class: "form-control", required: true, id: "experience_title" %>
 
-          <div class="form-group">
-            <%= f.label :description, "Description" %>
-            <%= f.text_area :description, class: "form-control", required: true %>
-          </div>
+          <label for="experience_description">Description</label>
+          <%= f.text_area :description, class: "form-control", required: true, id: "experience_description" %>
 
-          <div class="form-group">
-            <%= f.label :location, "Lieu" %>
-            <%= f.text_field :location, class: "form-control", required: true %>
-          </div>
+          <label for="experience_location">Lieu</label>
+          <%= f.text_field :location, class: "form-control", required: true, id: "experience_location" %>
 
-          <div class="form-group">
-            <%= f.label :price, "Prix (€)" %>
-            <%= f.number_field :price, step: 0.01, class: "form-control", required: true %>
-          </div>
+          <label for="experience_price">Prix (€)</label>
+          <%= f.number_field :price, step: 0.01, class: "form-control", required: true, id: "experience_price" %>
 
-          <div class="form-group">
-            <%= f.label :duration, "Durée (jours)" %>
-            <%= f.number_field :duration, class: "form-control", required: true %>
-          </div>
+          <label for="experience_duration">Durée (jours)</label>
+          <%= f.number_field :duration, class: "form-control", required: true, id: "experience_duration" %>
         </fieldset>
 
         <fieldset>
           <legend>Dates de début</legend>
 
-          <div class="form-group">
-            <%= f.label :start_date_1, "Date de début 1" %>
-            <%= f.date_select :start_date_1, class: "form-control" %>
-          </div>
+          <label for="experience_start_date_1">Date de début 1</label>
+          <%= f.date_select :start_date_1, class: "form-control", id: "experience_start_date_1" %>
 
-          <div class="form-group">
-            <%= f.label :start_date_2, "Date de début 2" %>
-            <%= f.date_select :start_date_2, class: "form-control" %>
-          </div>
+          <label for="experience_start_date_2">Date de début 2</label>
+          <%= f.date_select :start_date_2, class: "form-control", id: "experience_start_date_2" %>
 
-          <div class="form-group">
-            <%= f.label :start_date_3, "Date de début 3" %>
-            <%= f.date_select :start_date_3, class: "form-control" %>
-          </div>
+          <label for="experience_start_date_3">Date de début 3</label>
+          <%= f.date_select :start_date_3, class: "form-control", id: "experience_start_date_3" %>
         </fieldset>
 
         <fieldset>
           <legend>Ajouter une photo</legend>
           
-          <div class="form-group">
-            <%= f.label :photo, "Photo de l'expérience" %>
-            <%= f.file_field :photo, class: "form-control" %> <!-- Champ pour télécharger une image -->
-          </div>
+          <label for="experience_photo">Photo de l'expérience</label>
+          <%= f.file_field :photo, class: "form-control", id: "experience_photo" %>
 
-          <% if @experience.photo.attached? %> <!-- Affichage de l'image existante si présente -->
-            <div class="form-group mt-3">
-              <h4>Image actuelle :</h4>
+          <% if @experience.photo.attached? %>
+            <figure class="mt-3">
+              <figcaption>Image actuelle :</figcaption>
               <%= image_tag @experience.photo, class: "img-thumbnail", width: "150" %>
-            </div>
+            </figure>
           <% end %>
         </fieldset>
 
-        <div class="text-center">
+        <nav class="text-center">
           <%= f.submit "Mettre à jour", class: "btn btn-primary mt-3" %>
           <%= link_to 'Annuler', experiences_path, class: "btn btn-secondary mt-3" %>
-        </div>
+        </nav>
       <% end %>
-    </div>
-  </div>
+    </article>
+  </section>
 </section>

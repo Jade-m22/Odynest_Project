@@ -1,9 +1,9 @@
 <section class="container">
     <article class="presentation-content">
         <!-- Nouveau container parent -->
-        <div class="content-wrapper">
+        <section class="content-wrapper">
             <!-- Texte à gauche -->
-            <div class="presentation-texts">
+            <section class="presentation-texts">
                 <% if current_provider %>
                 <h2 class="amsterdam banner-title-pro">Travel Experience</h2>
                     <h3 class="subtitle">Partagez votre passion et vos talents !</h3>
@@ -35,7 +35,7 @@
                             <% end %>
                         </p>
                 <% end %>
-            </div>
+            </section>
 
             <% if current_provider %>
                 <aside class="presentation-images">
@@ -50,6 +50,6 @@
                     <%= image_tag "img3.jpg", alt: "Randonnée sur un sentier de montagne, une aventure immersive avec des panoramas à couper le souffle" %>
                 </aside>
             <% end %>
-        </div>
+        </section>
     </article>
-</section>
+</section> 
