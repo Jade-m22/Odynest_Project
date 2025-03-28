@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const expForm = document.getElementById("experience-form");
   if (!expForm) return;
 

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const regForm = document.getElementById("registration-form");
   const checkbox = document.getElementById("accept_terms");
 
