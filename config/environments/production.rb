@@ -57,12 +57,22 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :mailjet
   config.action_mailer.default_options = { from: "bordes.gaetan33@gmail.com" }
 
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "http://87.106.231.213" }
+
+  #   config.action_mailer.smtp_settings = {
+  #   address: "in-v3.mailjet.com",
+  #   port: 587,
+  #   user_name: ENV["MAILJET_API_KEY"],
+  #   password: ENV["MAILJET_API_SECRET"],
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
+
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {
