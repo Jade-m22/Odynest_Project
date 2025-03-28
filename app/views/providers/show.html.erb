@@ -6,6 +6,9 @@
   <% if @provider.first_name.present? %>
     <p><strong>Prénom:</strong> <%= @provider.first_name %></p>
   <% end %>
+  <p><strong>Rôle :</strong> Prestataire</p>
 
-  <p><%= link_to "Modifier mon profil", edit_provider_registration_path, class: "btn btn-primary" %></p>
+  <% if current_provider %>
+    <p><%= link_to "Modifier mon profil", edit_provider_registration_path, class: "btn btn-primary" %></p>
+  <% end %>
 </section>
