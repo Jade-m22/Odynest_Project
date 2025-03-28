@@ -1,11 +1,11 @@
 class UserMailer < ApplicationMailer
-  default from: "bordes.gaetan33@gmail.com"
+  default from: "contact.odynest@gmail.com"
 
   def reservation_confirmation(reservation)
     @user = reservation.user
     @experience = reservation.experience
     @reservation = reservation
 
-    mail(from: "bordes.gaetan33@gmail.com", to: @user.email, subject: "Confirmation de votre réservation pour #{@experience.title}")
+    mail(from: "contact.odynest@gmail.com", to: @user.email, subject: "Confirmation de votre réservation pour #{@experience.title}")
   end
 end
