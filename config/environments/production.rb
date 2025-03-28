@@ -82,7 +82,7 @@ Rails.application.configure do
   config.log_level = :debug  # Cela permet de loguer les erreurs les plus détaillées
   config.logger = ActiveSupport::Logger.new(STDOUT)  # Assurez-vous que les logs sont envoyés à la sortie standard, si vous utilisez un VPS
 
-
+  config.assets.css_compressor = nil
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {
