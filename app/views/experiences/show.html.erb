@@ -115,14 +115,11 @@
     <% end %>
   </section>
 
-
   <!-- Boutons -->
   <footer class="mt-4 text-center">
     <%= link_to '← Retour', experiences_path, class: 'btn btn-secondary me-2' %>
-
     <% if current_user&.admin? || (current_provider && current_provider.id == @experience.provider_id) %>
       <%= link_to 'Modifier', edit_experience_path(@experience), class: 'btn btn-primary me-2' %>
-
       <%= form_with model: @experience, url: experience_path(@experience), method: :delete, local: true do |form| %>
       <button type="submit" class="btn-delete">
         <svg viewBox="0 0 448 512" class="svgIcon">
@@ -130,7 +127,6 @@
         </svg>
       </button>
       <% end %>
-
     <% end %>
   </footer>
 </section>
