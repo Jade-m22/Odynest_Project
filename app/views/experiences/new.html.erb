@@ -1,9 +1,13 @@
 <figure class="trend-banner">
   <%= image_tag "banner2.jpg", alt: "Champ de lavande à perte de vue, une expérience immersive au cœur de la nature et des senteurs provençales", class: "trends-banner" %>
 </figure>
+
 <h1 class="text-center mb-5">Créer une nouvelle expérience</h1>
 
+<!-- Formulaire de création d'une expérience -->
 <%= form_with(model: @experience, local: true, html: { id: "experience-form", class: "experience-form" }) do |f| %>
+
+  <!-- Affichage des erreurs de validation -->
   <% if @experience.errors.any? %>
     <section class="alert alert-danger experience-form__alert">
       <h2><%= pluralize(@experience.errors.count, "erreur") %> trouvée(s) :</h2>
@@ -15,26 +19,31 @@
     </section>
   <% end %>
 
+  <!-- Titre de l'expérience -->
   <article class="experience-form__group">
     <%= f.label :title, "Titre de l'expérience", class: "experience-form__label" %>
     <%= f.text_field :title, class: "experience-form__input", placeholder: "Croisière méditative en catamaran privé", required: true %>
   </article>
 
+  <!-- Description -->
   <article class="experience-form__group">
     <%= f.label :description, "Description", class: "experience-form__label" %>
-    <%= f.text_area :description, class: "experience-form__input", placeholder: "Offrez-vous une parenthèse de sérénité à bord d'un catamaran privé, au cœur de la Méditerranée. Lors de cette croisière...", required: true %>
+    <%= f.text_area :description, class: "experience-form__input", placeholder: "...", required: true %>
   </article>
 
+  <!-- Prix -->
   <article class="experience-form__group">
     <%= f.label :price, "Prix (€)", class: "experience-form__label" %>
     <%= f.number_field :price, class: "experience-form__input", step: "0.01", placeholder: "Indiquez le prix", required: true %>
   </article>
 
+  <!-- Lieu -->
   <article class="experience-form__group">
     <%= f.label :location, "Lieu", class: "experience-form__label" %>
     <%= f.text_field :location, class: "experience-form__input", placeholder: "Où l'expérience aura-t-elle lieu ?", required: true %>
   </article>
 
+  <!-- Durée (en minutes ou jours) -->
   <article class="experience-form__group">
     <%= f.label :duration, "Durée", class: "experience-form__label" %>
     <%= f.select :duration, 
@@ -42,6 +51,7 @@
       {}, class: "experience-form__input" %>
   </article>
 
+  <!-- Dates proposées -->
   <article class="experience-form__group">
     <%= f.label :start_date_1, "Première date", class: "experience-form__label" %>
     <%= f.datetime_select :start_date_1, class: "experience-form__input" %>
@@ -57,13 +67,17 @@
     <%= f.datetime_select :start_date_3, class: "experience-form__input" %>
   </article>
 
+  <!-- Téléversement d'une photo -->
   <article class="experience-form__group">
     <%= f.label :photo, "Photo de l'expérience", class: "experience-form__label" %>
     <%= f.file_field :photo, class: "experience-form__input" %>
   </article>
 
+  <!-- Bouton de soumission -->
   <%= f.submit "Créer l'expérience", class: "experience-form__btn experience-form__btn--primary btn-block" %>
 <% end %>
+
+<!-- Lien retour -->
 <footer class="mt-4 text-center">
   <%= link_to "Retour", experiences_path, class: "btn btn-secondary me-2 mb-3" %>
 </footer>
