@@ -32,7 +32,7 @@
             <h2 class="card-title"><%= experience.title %></h2>
             <p class="card-text"><%= truncate(experience.description, length: 100) %></p>
             <p><strong>Lieu :</strong> <%= experience.location %></p>
-            <p><strong><%= number_to_currency(experience.price - 0.01, unit: "", separator: ",", delimiter: ".", format: "%n€") %></strong></p>
+            <p><strong><%= experience.price %></strong></p>
           </figcaption>
 
           <!-- Lien vers la page de l'expérience -->
