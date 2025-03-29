@@ -1,6 +1,7 @@
 <% content_for :title, "Connexion | Odynest" %>
-<section class="login-container">
+<section class="login-container-pro">
   <h2>Connexion</h2>
+  <p class="text-center">PROFESSIONNEL</p>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= render "providers/shared/error_messages", resource: resource %>
