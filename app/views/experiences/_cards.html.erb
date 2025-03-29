@@ -36,7 +36,7 @@
           </figcaption>
 
           <!-- Lien vers la page de l'expérience -->
-          <footer class="card-footer">
+          <div class="card-footer">
             <%= link_to experience_path(experience), class: "cta" do %>
               <span>Voir l'expérience</span>
               <svg width="15px" height="10px" viewBox="0 0 13 10">
@@ -44,7 +44,7 @@
                 <polyline points="8 1 12 5 8 9"></polyline>
               </svg>
             <% end %>
-          </footer>
+          </div>
         </figure>
       </article>
     <% end %>

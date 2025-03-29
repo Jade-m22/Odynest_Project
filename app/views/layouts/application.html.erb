@@ -41,16 +41,12 @@
     (session[:daltonism_mode] unless session[:daltonism_mode] == 'normal')
   ].compact.join(' ') %>">
 
-    <header>
-      <%= render 'shared/navbar' %>
-    </header>
+    <%= render 'shared/navbar' %>
 
     <main>
       <%= yield %>
     </main>
 
-    <footer>
-      <%= render 'shared/footer' %>
-    </footer>
+    <%= render 'shared/footer' %>
   </body>
 </html>
