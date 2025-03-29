@@ -1,6 +1,7 @@
 <% content_for :title, "Créer un compte | Odynest" %>
-<main class="registration-container">
+<main class="registration-container-pro">
   <h2>Créer un compte</h2>
+  <p class="text-center mt-0">PROFESSIONNEL</p>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { id: "registration-form" }) do |f| %>
     <%= render "providers/shared/error_messages", resource: resource %>
