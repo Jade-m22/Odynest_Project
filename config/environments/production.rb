@@ -65,20 +65,22 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "http://87.106.231.213" }
   Rails.application.routes.default_url_options[:host] = "http://87.106.231.213"
 
+  config.action_mailer.delivery_method = :mailjet
   config.action_mailer.mailjet_settings = {
   api_key: ENV['MAILJET_API_KEY'],
   secret_key: ENV['MAILJET_API_SECRET']
   }
 
- config.action_mailer.smtp_settings = {
-    address: "in-v3.mailjet.com",
-    port: 587,
-    domain: 'mailjet.com',
-    user_name: ENV["MAILJET_API_KEY"],
-    password: ENV["MAILJET_API_SECRET"],
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.gmail.com",
+  #   port: 587,
+  #   domain: 'gmail.com',
+  #   user_name: ENV['GMAIL_USERNAME'],
+  #   password: ENV['GMAIL_APP_PASSWORD'],
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  # }
 
   config.log_level = :debug  # Cela permet de loguer les erreurs les plus détaillées
   config.logger = ActiveSupport::Logger.new(STDOUT)  # Assurez-vous que les logs sont envoyés à la sortie standard, si vous utilisez un VPS
