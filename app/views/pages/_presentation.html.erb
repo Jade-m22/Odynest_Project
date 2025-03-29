@@ -37,19 +37,63 @@
                 <% end %>
             </div>
 
+            <aside class="presentation-images">
             <% if current_provider %>
-                <aside class="presentation-images">
-                    <%= image_tag "img4.jpg", alt: "Explorateur marchant dans le désert, prêt à vivre une aventure immersive avec repas traditionnel et balade en chameau" %>
-                    <%= image_tag "img5.jpg", alt: "Découverte d'une ville portuaire animée, entre balade en bateau et immersion dans la culture locale" %>
-                    <%= image_tag "img6.jpg", alt: "Randonnée sur un sentier de montagne, une aventure immersive avec des panoramas à couper le souffle" %>
-                </aside>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <%= image_tag "img4.jpg", alt: "Explorateur marchant dans le désert..." %>
+                </div>
+                <div class="carousel-item">
+                    <%= image_tag "img5.jpg", alt: "Découverte d'une ville portuaire..." %>
+                </div>
+                <div class="carousel-item">
+                    <%= image_tag "img6.jpg", alt: "Randonnée sur un sentier de montagne..." %>
+                </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+            </div>
             <% else %>
-                <aside class="presentation-images">
-                    <%= image_tag "img1.jpg", alt: "Explorateur marchant dans le désert, prêt à vivre une aventure immersive avec repas traditionnel et balade en chameau" %>
-                    <%= image_tag "img2.jpg", alt: "Découverte d'une ville portuaire animée, entre balade en bateau et immersion dans la culture locale" %>
-                    <%= image_tag "img3.jpg", alt: "Randonnée sur un sentier de montagne, une aventure immersive avec des panoramas à couper le souffle" %>
-                </aside>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <%= image_tag "img1.jpg", alt: "Explorateur marchant dans le désert..." %>
+                </div>
+                <div class="carousel-item">
+                    <%= image_tag "img2.jpg", alt: "Découverte d'une ville portuaire..." %>
+                </div>
+                <div class="carousel-item">
+                    <%= image_tag "img3.jpg", alt: "Randonnée sur un sentier de montagne..." %>
+                </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+            </div>
             <% end %>
+      </aside>
         </div>
     </article>
 </section>
