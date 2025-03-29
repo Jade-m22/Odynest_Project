@@ -27,6 +27,23 @@ class Experience < ApplicationRecord
       past_dates.any?
     end
 
+    def formatted_duration
+      case duration
+      when 0..59
+        "#{duration} minutes"
+      when 60..119
+        "#{duration / 60} heure"
+      when 120..1439
+        "#{duration / 60} heures"
+      when 1440..2879
+        "1 jour"
+      when 2880..Float::INFINITY
+        "#{duration / 1440} jours"
+      else
+        "Durée inconnue"
+      end
+    end
+
     private
 
     def at_least_one_future_date
