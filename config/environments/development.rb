@@ -40,19 +40,25 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :letter_opener
 
   # Set localhost to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: '87.106.231.213', port: 3000 }
+  # config.mailer_sender = 'contact.odynest@gmail.'
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.action_mailer.delivery_method = :mailjet
+  config.action_mailer.mailjet_settings = {
+    api_key: ENV['MAILJET_API_KEY'],
+    secret_key: ENV['MAILJET_API_SECRET']
+  }
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
-  port: 587,
-  domain: 'gmail.com',
-  user_name: ENV['GMAIL_USERNAME'],
-  password: ENV['GMAIL_PASSWORD'],
-  authentication: 'plain',
-  enable_starttls_auto: true
-}
+#   config.action_mailer.delivery_method = :smtp
+#   config.action_mailer.smtp_settings = {
+#   address: "smtp.gmail.com",
+#   port: 587,
+#   domain: 'gmail.com',
+#   user_name: ENV['GMAIL_USERNAME'],
+#   password: ENV['GMAIL_APP_PASSWORD'],
+#   authentication: 'plain',
+#   enable_starttls_auto: true
+# }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
