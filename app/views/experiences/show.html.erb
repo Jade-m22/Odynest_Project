@@ -15,7 +15,7 @@
       <section class="experience-details">
         <h1 class="experience-title"><%= @experience.title %></h1>
         <p><strong>Lieu :</strong> <%= @experience.location %></p>
-        <p><strong>Prix :</strong> <%= number_to_currency(@experience.price - 0.01, unit: "", separator: ",", delimiter: ".", format: "%n€") %></p>
+        <p><strong>Prix :</strong> <%= @experience.price %></p>
         <p><strong>Durée :</strong> <%= @experience.formatted_duration %></p>
 
         <!-- Dates proposées -->
