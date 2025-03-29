@@ -41,7 +41,7 @@ Rails.application.configure do
 
   # Set localhost to be used by links generated in mailer templates.
   # config.mailer_sender = 'contact.odynest@gmail.'
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: '87.106.231.213' }
 
   config.action_mailer.delivery_method = :mailjet
   config.action_mailer.mailjet_settings = {
