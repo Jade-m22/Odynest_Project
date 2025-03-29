@@ -189,12 +189,13 @@
   .presentation-images {
     justify-content: center;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   .presentation-images img {
-    width: 45%;
+    width: 80%;
     height: auto;
-    max-width: 150px;
+    max-width: 250px;
   }
 
   .hero-banner {
