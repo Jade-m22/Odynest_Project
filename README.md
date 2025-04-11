@@ -41,6 +41,9 @@ Stripe (paiement)
 
 Turbo/Hotwire (réactivité)
 
+# Lien en ligne : http://87.106.231.213
+Lien Whimsical : https://whimsical.com/odynest-F9bSTBhGuXtwZKgb5Cnm3w
+
 🔧 Installation:
 
 bash
